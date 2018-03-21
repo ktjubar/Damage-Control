@@ -1,0 +1,21 @@
+Options -Indexes
+
+RewriteEngine on
+
+# ErrorDocument 404 /error.php
+
+RewriteRule ^$ app/controller/siteController.php?action=home [QSA,L]
+RewriteRule ^family/?$ app/controller/siteController.php?action=family [QSA,L]
+RewriteRule ^search/?$ app/controller/siteController.php?action=search [QSA,L]
+RewriteRule ^login/process/?$ app/controller/siteController.php?action=loginProcess [QSA,L]
+RewriteRule ^logout/process/?$ app/controller/siteController.php?action=logoutProcess [QSA,L]
+
+# People
+RewriteRule ^people/?$ app/controller/personController.php?action=index [QSA,L]
+RewriteRule ^people/add/?$ app/controller/personController.php?action=add [QSA,L]
+RewriteRule ^people/add/process/?$ app/controller/personController.php?action=addProcess [QSA,L]
+RewriteRule ^people/view/(\d+)/?$ app/controller/personController.php?action=view&id=$1 [QSA,L]
+RewriteRule ^people/view/(\d+)/life-event/add/process/?$ app/controller/personController.php?action=addLifeEventProcess&id=$1 [QSA,L]
+RewriteRule ^people/delete/(\d+)/?$ app/controller/personController.php?action=deleteProcess&id=$1 [QSA,L]
+RewriteRule ^people/edit/(\d+)/?$ app/controller/personController.php?action=edit&id=$1 [QSA,L]
+RewriteRule ^people/edit/(\d+)/process/?$ app/controller/personController.php?action=editProcess&id=$1 [QSA,L]
