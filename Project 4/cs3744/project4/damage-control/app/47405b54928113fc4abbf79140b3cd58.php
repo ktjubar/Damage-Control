@@ -1,4 +1,2 @@
 <?php
   `git pull`;
-
-// test
