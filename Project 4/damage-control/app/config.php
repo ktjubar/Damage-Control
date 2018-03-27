@@ -1,7 +1,7 @@
 <?php
 
 define('SYSTEM_PATH', dirname(__FILE__));
-define('BASE_URL', 'http://localhost/damage-control/');
+define('BASE_URL', 'http://localhost/damage-control');
 
 define('DB_USER', 'root');
 define('DB_PASS', '');
