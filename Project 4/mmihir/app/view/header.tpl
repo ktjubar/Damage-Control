@@ -5,7 +5,7 @@
   <title>
     <?= $pageTitle ?> | The Doe Family</title>
   <meta charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="/public/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/public/css/main.css" />
   <script type="text/javascript">
     var base_url = '<?= BASE_URL ?>';
   </script>

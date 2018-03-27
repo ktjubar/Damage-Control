@@ -1,5 +1,5 @@
-<script src="/public/js/home.js"></script>
-<link rel="stylesheet" href="/public/css/home.css">
+<script src="<?= BASE_URL ?>/public/js/home.js"></script>
+<link rel="stylesheet" href="<?= BASE_URL ?>/public/css/home.css">
 <div id="contentHolder">
     <h2>Home</h2>
     <aside id="col1" class="contentCol">

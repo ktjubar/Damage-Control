@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/public/css/add-view.css">
-<script src="/public/js/add-view.js"></script>
+<link rel="stylesheet" href="<?= BASE_URL ?>/public/css/add-view.css">
+<script src="<?= BASE_URL ?>/public/js/add-view.js"></script>
 <div id="contentHolder">
     <div>
         <h2 style="display: inline-block; width:45%">View Person</h2>
@@ -12,9 +12,9 @@
         <br>
         <br>
         <?php if($person->picture_file != NULL): ?>
-        <img id="profilePicture" src="/public/img/<?= $person->picture_file?>" alt="Headshot Picture" />
+        <img id="profilePicture" src="<?= BASE_URL ?>/public/img/<?= $person->picture_file?>" alt="Headshot Picture" />
         <?php else: ?>
-        <img id="profilePicture" src="/public/img/default.png" alt="Headshot Picture" />
+        <img id="profilePicture" src="<?= BASE_URL ?>/public/img/default.png" alt="Headshot Picture" />
         <?php endif; ?>
         <br>
         <br>

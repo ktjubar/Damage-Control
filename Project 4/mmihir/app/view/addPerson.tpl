@@ -1,7 +1,7 @@
 <div id="contentHolder">
-    <link rel="stylesheet" href="/public/css/add-view.css">
-    <script src="/public/js/add-view.js"></script>
-    <script src="/public/js/add-verify.js"></script>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/add-view.css">
+    <script src="<?= BASE_URL ?>/public/js/add-view.js"></script>
+    <script src="<?= BASE_URL ?>/public/js/add-verify.js"></script>
     <div>
         <h2 style="display: inline-block; width:45%">Add Person</h2>
         <a class="add" style="color: #000; display: inline-block; width:45%; text-align: right" href="<?= BASE_URL ?>/family">Cancel</a>
@@ -11,7 +11,7 @@
             <h3>Profile Picture:</h3>
             <br>
             <br>
-            <img id="profilePicture" src="/public/img/default.png" alt="Headshot Picture" />
+            <img id="profilePicture" src="<?= BASE_URL ?>/public/img/default.png" alt="Headshot Picture" />
             <br>
             <br>
             <div class="pictureControls" style="width: 60%">
