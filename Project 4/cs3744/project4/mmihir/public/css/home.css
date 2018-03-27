@@ -1,0 +1,21 @@
+.contentCol {
+    margin: auto;
+    display: inline-block;
+    width: 30%;
+}
+
+#col2 {
+    vertical-align: top;
+}
+
+#col1 {
+    height: 100%;
+}
+
+#col3 {
+    vertical-align: top;
+}
+
+img {
+    width: 95%;
+}
