@@ -61,14 +61,14 @@ COMMIT;
 --
 
 --
--- Indexes for table `important_event`
+-- Indexes for table `Important_Events`
 --
 ALTER TABLE `Important_Events`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Person_Id` (`Person_Id`);
 
 --
--- Indexes for table `person`
+-- Indexes for table `Soldiers`
 --
 ALTER TABLE `Soldiers`
   ADD PRIMARY KEY (`ID`);
@@ -78,13 +78,13 @@ ALTER TABLE `Soldiers`
 --
 
 --
--- AUTO_INCREMENT for table `important_event`
+-- AUTO_INCREMENT for table `Important_Events`
 --
 ALTER TABLE `Important_Events`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 
 --
--- AUTO_INCREMENT for table `person`
+-- AUTO_INCREMENT for table `Soldiers`
 --
 ALTER TABLE `Soldiers`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
@@ -94,7 +94,7 @@ ALTER TABLE `Soldiers`
 --
 
 --
--- Constraints for table `important_event`
+-- Constraints for table `Important_Events`
 --
 ALTER TABLE `Important_Events`
   ADD CONSTRAINT `Important_Events_ibfk_1` FOREIGN KEY (`Person_Id`) REFERENCES `Soldiers` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
