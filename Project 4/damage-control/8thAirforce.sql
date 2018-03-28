@@ -45,6 +45,7 @@ CREATE TABLE `Important_Events` (
 --
 
 CREATE TABLE `Soldiers` (
+  `ID` int(10) NOT NULL,
   `First_Name` text NOT NULL,
   `Last_Name` text NOT NULL,
   `Rank` text NOT NULL,

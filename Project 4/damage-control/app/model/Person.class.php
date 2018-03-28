@@ -1,28 +1,25 @@
 <?php
 
 class Person {
-  const DB_TABLE = 'family'; // database table name
+  const DB_TABLE = 'Crew'; // database table name
 
   // database fields for this table
-  public $id = 0;
-  public $first_name = '';
-  public $middle_name = '';
-  public $last_name = '';
-  public $picture_file = '';
-  public $date_created = '';
-  public $creator_id = 0;
-  public $birthday = '';
-  public $deathday = '';
-  public $married = '';
-  public $gender = '';
+  public $ID = 0;
+  public $First_Name = '';
+  public $Last_Name = '';
+  public $Rank = 0;
+  public $Date_of_Birth = '';
+  public $Date_of_Death = '';
+  public $Creater_Id = 0;
+  public $Crew = '';
 
   // return a Person object by ID
-  public static function loadById($id) {
+  public static function loadById($ID) {
       $db = Db::instance(); // create db connection
       // build query
-      $q = sprintf("SELECT * FROM `%s` WHERE id = %d;",
+      $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;",
         self::DB_TABLE,
-        $id
+        $ID
         );
       $result = $db->query($q); // execute query
       // make sure we found something
@@ -34,39 +31,36 @@ class Person {
         $person = new Person(); // instantiate new Soldier object
 
         // store db results in local object
-        $person->id           = $row['id'];
-        $person->first_name   = $row['first'];
-        $person->middle_name   = $row['middle'];
-        $person->last_name    = $row['last'];
-        $person->picture_file    = $row['picture'];
-        $person->date_created = $row['date'];
-        $person->creator_id   = $row['creator_id'];
-        $person->birthday    = $row['birth'];
-        $person->deathday    = $row['death'];
-        $person->married    = $row['married'];
-        $person->gender = $row['gender'];
+        $person->ID          = $row['ID'];
+        $person->First_Name   = $row['First_Name'];
+        $person->Last_Name    = $row['Last_Name'];
+        $person->Rank   = $row['Rank'];
+        $person->Creator_Id   = $row['Creator_Id'];
+        $person->Date_of_Birth    = $row['Date_of_Birth'];
+        $person->Date_of_Death    = $row['Date_of_Death'];
+        $person->Crew    = $row['Crew'];
 
         return $person; // return the person
       }
   }
 
   // return family as an array
-  public static function getFamily() {
+  public static function getCrew() {
     $db = Db::instance();
     $q = "SELECT id FROM `".self::DB_TABLE."` ORDER BY last ASC;";
     $result = $db->query($q);
 
-    $family = array();
+    $Crew = array();
     if($result->num_rows != 0) {
       while($row = $result->fetch_assoc()) {
-        $family[] = self::loadById($row['id']);
+        $Crew[] = self::loadById($row['ID']);
       }
     }
-    return $family;
+    return $Crew;
   }
 
   public function save(){
-    if($this->id == 0) {
+    if($this->ID == 0) {
       return $this->insert(); // soldier is new and needs to be created
     } else {
       return $this->update(); // soldier already exists and needs to be updated
@@ -74,86 +68,71 @@ class Person {
   }
 
   public function insert() {
-    if($this->id != 0)
+    if($this->ID != 0)
       return null; // can't insert something that already has an ID
 
     $db = Db::instance(); // connect to db
     // build query
 
     // format dates for insertion
-    if($this->date_created != '')
-      $this->date_created = $db->formatDate($this->date_created);
-    if($this->birthday != '')
-      $this->birthday = $db->formatDate($this->birthday);
-    if($this->deathday != '')
-      $this->deathday = $db->formatDate($this->deathday);
-    if($this->married != '')
-      $this->married = $db->formatDate($this->married);
+    if($this->Date_of_Birth != '')
+      $this->Date_of_Birth = $db->formatDate($this->Date_of_Birth);
+    if($this->Date_of_Death != '')
+      $this->Date_of_Death = $db->formatDate($this->Date_of_Death);
 
-    $q = sprintf("INSERT INTO `%s`(`first`, `middle`, `last`, `creator_id`, `picture`, `date`, `birth`, `death`, `married`, `gender`)
-      VALUES (%s, %s, %s, %d, %s, %s, %s, %s, %s, %s);",
+    $q = sprintf("INSERT INTO `%s`(`First_Name`, `Last_Name`, `Creator_Id`, `Rank`, `Date_of_Birth`, `Date_of_Death`, `Crew`)
+      VALUES (%s, %s, %d, %s, %s, %s, %s);",
       self::DB_TABLE,
-      $db->escape($this->first_name),
-      $db->escape($this->middle_name),
-      $db->escape($this->last_name),
-      $db->escape($this->creator_id),
-      $db->escape($this->picture_file),
-      $db->escape($this->date_created),
-      $db->escape($this->birthday),
-      $db->escape($this->deathday),
-      $db->escape($this->married),
-      $db->escape($this->gender)
+      $db->escape($this->First_Name),
+      $db->escape($this->Last_Name),
+      $db->escape($this->Creator_Id),
+      $db->escape($this->Rank),
+      $db->escape($this->Date_of_Birth),
+      $db->escape($this->Date_of_Death),
+      $db->escape($this->Crew),
       );
       echo $q;
     $db->query($q); // execute query
-    $this->id = $db->getInsertID(); // set the ID for the new object
-    return $this->id;
+    $this->ID = $db->getInsertID(); // set the ID for the new object
+    return $this->ID;
   }
 
   public function update() {
-    if($this->id == 0)
+    if($this->ID == 0)
       return null; // can't update something without an ID
 
       $db = Db::instance(); // connect to db
       // build query
-  
+
       // format dates for insertion
-      if($this->date_created != '')
-        $this->date_created = $db->formatDate($this->date_created);
-      if($this->birthday != '')
-        $this->birthday = $db->formatDate($this->birthday);
-      if($this->deathday != '')
-        $this->deathday = $db->formatDate($this->deathday);
-      if($this->married != '')
-        $this->married = $db->formatDate($this->married);
+      if($this->Date_of_Birth != '')
+        $this->Date_of_Birth = $db->formatDate($this->Date_of_Birth);
+      if($this->Date_of_Death != '')
+        $this->Date_of_Death = $db->formatDate($this->Date_of_Death);
 
     // build query
       $q = sprintf("UPDATE `%s` SET
-      `first` = %s,
-      `middle` = %s,
-      `last` = %s,
-      `creator_id` = %d,
-      `date` = %s,
-      `birth` = %s,
-      `death` = %s,
-      `married` = %s,
-      `gender` = %s
-      WHERE `id` = %d;",
+      `First_Name` = %s,
+      `Last_Name` = %s,
+      `Creator_Id` = %d,
+      `Rank` = %s,
+      `Date_of_Birth` = %s,
+      `Date_of_Death` = %s,
+      `Crew` = %s,
+      WHERE `ID` = %d;",
       self::DB_TABLE,
-      $db->escape($this->first_name),
-      $db->escape($this->middle_name),
-      $db->escape($this->last_name),
-      $db->escape($this->creator_id),
-      $db->escape($this->date_created),
-      $db->escape($this->birthday),
-      $db->escape($this->deathday),
-      $db->escape($this->married),
-      $db->escape($this->gender),
-      $db->escape($this->id)
+      $db->escape($this->First_Name),
+      $db->escape($this->Last_Name),
+      $db->escape($this->Creator_Id),
+      $db->escape($this->Rank),
+      $db->escape($this->Date_of_Birth),
+      $db->escape($this->Date_of_Death),
+      $db->escape($this->Crew),
+      $db->escape($this->ID)
       );
 
     $db->query($q); // execute query
-    return $this->id; // return this object's ID
+    return $this->ID; // return this object's ID
   }
 
 }
