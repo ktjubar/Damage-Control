@@ -34,16 +34,16 @@ class Person {
         $person = new Person(); // instantiate new Soldier object
 
         // store db results in local object
-        $person->id           = $row['id'];
-        $person->first_name   = $row['first'];
-        $person->middle_name   = $row['middle'];
-        $person->last_name    = $row['last'];
-        $person->picture_file    = $row['picture'];
+        $person->id = $row['id'];
+        $person->first_name = $row['first'];
+        $person->middle_name = $row['middle'];
+        $person->last_name = $row['last'];
+        $person->picture_file = $row['picture'];
         $person->date_created = $row['date'];
-        $person->creator_id   = $row['creator_id'];
-        $person->birthday    = $row['birth'];
-        $person->deathday    = $row['death'];
-        $person->married    = $row['married'];
+        $person->creator_id = $row['creator_id'];
+        $person->birthday = $row['birth'];
+        $person->deathday = $row['death'];
+        $person->married = $row['married'];
         $person->gender = $row['gender'];
 
         return $person; // return the person
