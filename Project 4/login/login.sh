@@ -1,0 +1,1 @@
+ssh -i DamageControl.pem ec2-user@ec2-54-86-131-171.compute-1.amazonaws.com
