@@ -1,10 +1,51 @@
-</div><!-- #content -->
+  </div>
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="foot-links text-center">
+              <a href="<?= BASE_URL ?>/">Home</a> |
+              <a href="<?= BASE_URL ?>/family/">Crews</a> |
+              <a href="<?= BASE_URL ?>/people/">People</a> <!--|
+              <a href="<?= BASE_URL ?>/search/">Search</a> -->
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="foot-links text-center">
+              <p>&#169; nobody 2018</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="foot-links text-center">
+              <p>212-479-7990 <br />
+              1600 Amphitheatre Parkway <br />
+              Mountain View, CA 94043 USA <br /></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="push"></div>
 
-<br></br>
-<div id="footer">
-  <p>Copyright &copy; 2018. All rights reserved.</p>
-  <p>Mihir Mallya. <a style="text-align:right" href="mailto:mmihir@vt.edu">mmihir@vt.edu</a></p>
-</div><!-- #footer -->
-
-</body>
+    <script src="<?= BASE_URL ?>/public/js/blueimp-gallery.min.js"></script>
+    <script>
+      document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+          link = target.src ? target.parentNode : target,
+          options = {index: link, event: event},
+          links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+      };
+    </script>
+    <script>
+      blueimp.Gallery(
+        document.getElementById('links').getElementsByTagName('a'),
+          {
+            container: '#blueimp-gallery-carousel',
+            carousel: true
+          }
+      );
+    </script>
+  </body>
 </html>
