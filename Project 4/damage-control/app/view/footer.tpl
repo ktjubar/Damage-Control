@@ -5,14 +5,14 @@
           <div class="col-sm-4">
             <div class="foot-links text-center">
               <a href="<?= BASE_URL ?>/">Home</a> |
-              <a href="<?= BASE_URL ?>/family/">Families</a> |
-              <a href="<?= BASE_URL ?>/people/">People</a> |
-              <a href="<?= BASE_URL ?>/search/">Search</a>
+              <a href="<?= BASE_URL ?>/family/">Crews</a> |
+              <a href="<?= BASE_URL ?>/people/">People</a> <!--|
+              <a href="<?= BASE_URL ?>/search/">Search</a> -->
             </div>
           </div>
           <div class="col-sm-4">
             <div class="foot-links text-center">
-              <p>&#169; FamilySpy 2018</p>
+              <p>&#169; nobody 2018</p>
             </div>
           </div>
           <div class="col-sm-4">

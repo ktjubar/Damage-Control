@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FamilySpy | <?= $pageTitle ?></title>
+  <title>Bomber Crews | <?= $pageTitle ?></title>
   <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/blueimp-gallery.min.css">
@@ -21,8 +21,8 @@
       <div class="col-md-10">
         <img class="img-responsive logo mr-2" src="<?= BASE_URL ?>/public/img/logo.jpg" alt="FamilySpy logo" />
         <h1>
-          FamilySpy <br>
-          <small>For all your genealogical spying needs</small>
+          Bomber Crews <br>
+          <small>The bomber crews of the 8th Air Force</small>
         </h1>
       </div>
 
@@ -78,14 +78,14 @@
           <a class="nav-link" href="<?= BASE_URL ?>/">Home</a>
         </li>
         <li class="nav-item<?php echo strcmp($category, 'family') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/family/">Families</a>
+          <a class="nav-link" href="<?= BASE_URL ?>/family/">Crews</a>
         </li>
         <li class="nav-item<?php echo strcmp($category, 'people') ? '' : ' active' ?>">
           <a class="nav-link" href="<?= BASE_URL ?>/people/">People</a>
         </li>
-        <li class="nav-item<?php echo strcmp($category, 'search') ? '' : ' active' ?>">
+        <!-- <li class="nav-item<?php echo strcmp($category, 'search') ? '' : ' active' ?>">
           <a class="nav-link" href="<?= BASE_URL ?>/search/">Search</a>
-        </li>
+        </li> -->
       </ul>
       <form class="form-inline ml-auto">
         <button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
