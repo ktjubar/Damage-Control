@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2018 at 07:14 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Mar 29, 2018 at 03:58 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,18 +25,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Important_Events`
+-- Table structure for table `Crews`
 --
 
-CREATE TABLE `Important_Events` (
-  `ID` int(10) NOT NULL,
-  `Date` date NOT NULL,
-  `Title` text NOT NULL,
-  `Details` text NOT NULL,
-  `Date_Created` date NOT NULL,
-  `Person_Id` int(10) NOT NULL,
-  `Creater_Id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `Crews` (
+  `ID` int(11) UNSIGNED NOT NULL,
+  `Name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Creator_ID` int(11) UNSIGNED NOT NULL,
+  `Date_Created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -45,62 +42,50 @@ CREATE TABLE `Important_Events` (
 --
 
 CREATE TABLE `Soldiers` (
-  `ID` int(10) NOT NULL,
-  `First_Name` text NOT NULL,
-  `Last_Name` text NOT NULL,
-  `Rank` text NOT NULL,
+  `ID` int(11) UNSIGNED NOT NULL,
+  `First_Name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Last_Name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Rank` int(2) UNSIGNED NOT NULL,
   `Date_of_Birth` date DEFAULT NULL,
   `Date_of_Death` date DEFAULT NULL,
-  `Creator_Id` int(11) NOT NULL,
-  `Crew` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-COMMIT;
-
+  `Crew_ID` int(11) UNSIGNED DEFAULT NULL,
+  `Creator_ID` int(11) UNSIGNED NOT NULL,
+  `Date_Created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Important_Events`
+-- Indexes for table `Crews`
 --
-ALTER TABLE `Important_Events`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Person_Id` (`Person_Id`);
+ALTER TABLE `Crews`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `Soldiers`
 --
 ALTER TABLE `Soldiers`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `Crew_ID` (`Crew_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `Important_Events`
+-- AUTO_INCREMENT for table `Crews`
 --
-ALTER TABLE `Important_Events`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+ALTER TABLE `Crews`
+  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Soldiers`
 --
 ALTER TABLE `Soldiers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `Important_Events`
---
-ALTER TABLE `Important_Events`
-  ADD CONSTRAINT `Important_Events_ibfk_1` FOREIGN KEY (`Person_Id`) REFERENCES `Soldiers` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
