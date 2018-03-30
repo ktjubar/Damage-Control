@@ -15,13 +15,17 @@ RewriteRule ^about/?$ app/controller/siteController.php?action=about [QSA,L]
 
 
 # Soldier
-RewriteRule ^soldiers/?$ app/controller/soldierController.php?action=soldier [QSA,L]
+RewriteRule ^soldiers/?$ app/controller/soldierController.php?action=soldiers [QSA,L]
 RewriteRule ^soldiers/add/?$ app/controller/soldierController.php?action=addSoldier [QSA,L]
 RewriteRule ^soldiers/add/process/?$ app/controller/soldierController.php?action=addSoldierProcess [QSA,L]
 RewriteRule ^soldiers/add/process/(\d+)/?$ app/controller/soldierController.php?action=addSoldierProcess&id=$1 [QSA,L]
 RewriteRule ^soldiers/edit/(\d+)/?$ app/controller/soldierController.php?action=editSoldiers&id=$1 [QSA,L]
 
 # Crew
-
+RewriteRule ^crews/?$ app/controller/crewController.php?action=crews [QSA,L]
+RewriteRule ^crews/add/?$ app/controller/crewController.php?action=addCrew [QSA,L]
+RewriteRule ^crews/add/process/?$ app/controller/crewController.php?action=addCrewProcess [QSA,L]
+RewriteRule ^crews/add/process/(\d+)/?$ app/controller/crewController.php?action=addCrewProcess&id=$1 [QSA,L]
+RewriteRule ^crews/edit/(\d+)/?$ app/controller/crewController.php?action=editCrew&id=$1 [QSA,L]
 
 # Map
