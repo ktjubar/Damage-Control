@@ -71,19 +71,22 @@
                       <label for="username">
                         <b>Username</b>
                       </label>
-                      <br />
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" placeholder="Enter Username" name="username" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
                       <label for="password">
                         <b>Password</b>
                       </label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="text" placeholder="Enter Username" name="username" required>
-                      <br />
                       <input type="password" placeholder="Enter Password" name="password" required>
-                      <br />
-                      <button type="submit" class="btn btn-default btn-block">Login</button>
                     </div>
                   </div>
+                  <button type="submit" class="btn btn-default btn-block">Login</button>
                 </form>
               </div>
               <div class="modal-footer">
