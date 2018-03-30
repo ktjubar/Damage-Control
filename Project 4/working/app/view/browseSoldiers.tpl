@@ -18,3 +18,7 @@
     </div>
   <div class="row">
 <?php endforeach; ?>
+
+<?php
+  
+?>
