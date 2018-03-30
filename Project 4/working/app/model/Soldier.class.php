@@ -1,8 +1,8 @@
 <?php
 
-class Person
+class Soldier
 {
-    const DB_TABLE = 'family'; // database table name
+    const DB_TABLE = 'soldiers'; // database table name
 
     // database fields for this table
     public $id = 0;
@@ -14,8 +14,8 @@ class Person
     public $creator_id = 0;
     public $birthday = '';
     public $deathday = '';
-    public $married = '';
-    public $gender = '';
+    public $rank = '';
+    public $crewID = '';
 
     // return a Person object by ID
     public static function loadById($id)
@@ -33,39 +33,39 @@ class Person
         } else {
             $row = $result->fetch_assoc(); // get results as associative array
 
-            $person = new Person(); // instantiate new Soldier object
+            $soldier = new Soldier(); // instantiate new Soldier object
 
             // store db results in local object
-            $person->id = $row['id'];
-            $person->first_name = $row['first'];
-            $person->middle_name = $row['middle'];
-            $person->last_name = $row['last'];
-            $person->picture_file = $row['picture'];
-            $person->date_created = $row['date'];
-            $person->creator_id = $row['creator_id'];
-            $person->birthday = $row['birth'];
-            $person->deathday = $row['death'];
-            $person->married = $row['married'];
-            $person->gender = $row['gender'];
+            $soldier->id = $row['ID'];
+            $soldier->first_name = $row['First_Name'];
+            //$soldier->middle_name = $row['middle'];
+            $soldier->last_name = $row['Last_Name'];
+            //$soldier->picture_file = $row['picture'];
+            $soldier->date_created = $row['Date_Created'];
+            $soldier->creator_id = $row['Creator_ID'];
+            $soldier->birthday = $row['Date_of_Birth'];
+            $soldier->deathday = $row['Date_of_Birth'];
+            $soldier->rank = $row['Rank'];
+            $soldier->crewID = $row['Crew_ID'];
 
-            return $person; // return the person
+            return $soldier; // return the person
         }
     }
 
-    // return family as an array
-    public static function getFamily()
+    // return soldiers as an array
+    public static function getSoldiers()
     {
         $db = Db::instance();
-        $q = "SELECT id FROM `" . self::DB_TABLE . "` ORDER BY last ASC;";
+        $q = "SELECT ID FROM `" . self::DB_TABLE . "` ORDER BY Last_Name ASC;";
         $result = $db->query($q);
 
-        $family = array();
+        $soldiers = array();
         if ($result->num_rows != 0) {
             while ($row = $result->fetch_assoc()) {
-                $family[] = self::loadById($row['id']);
+                $soldiers[] = self::loadById($row['ID']);
             }
         }
-        return $family;
+        return $soldiers;
     }
 
     public function save()

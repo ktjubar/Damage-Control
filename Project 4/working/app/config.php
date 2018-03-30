@@ -7,4 +7,4 @@ define('BASE_URL', 'http://ec2-34-235-121-226.compute-1.amazonaws.com/'); # your
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_HOST', 'localhost');
-define('DB_DATABASE', 'project3');
+define('DB_DATABASE', '8thairforce');
