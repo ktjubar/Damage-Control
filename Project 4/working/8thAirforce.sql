@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2018 at 03:36 PM
+-- Generation Time: Mar 30, 2018 at 03:58 PM
 -- Server version: 5.6.39
 -- PHP Version: 7.0.27
 
@@ -99,7 +99,7 @@ ALTER TABLE `Soldiers`
 -- AUTO_INCREMENT for table `Soldiers`
 --
 ALTER TABLE `Soldiers`
-  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
