@@ -1,18 +1,26 @@
-<script src="<?= BASE_URL ?>/public/js/home.js"></script>
-<link rel="stylesheet" href="<?= BASE_URL ?>/public/css/home.css">
-<div id="contentHolder">
-    <h2>Home</h2>
-    <aside id="col1" class="contentCol">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Family_by_Edwina_Sandys.JPG/450px-Family_by_Edwina_Sandys.JPG"
-            alt="Family monument picture" />
-    </aside>
-    <aside id="col2" class="contentCol">
-        <p>Welcome to the Depp family tree website! Here you can find information about the family as a whole as well each member
-            and their relationships to each other.</p>
-        <p>To get started, either head over to the family overview from the navigation bar above, or, input your search terms
-            in the alongside form and hit 'Search'.</p>
-        <p>This website proudly made using HTML, CSS, JS, Tea, and Tears!</p>
-    </aside>
-    
 
-</div>
+  <div class="row">
+    <div class="col-md-8 p-3">
+      <h3>Welcome to FamilySpy</h3><br>
+      <p class="text-justify">Organize your family tree and set up relationships, add documents,
+        fill in bios, and check out the dynamically generated interactive family
+        tree! It's free to sign up and use, and very simple. Check out the video
+        tutorial if you need help getting started.</p>
+
+      <h3>What is FamilySpy?</h3><br>
+      <img class="embed float-left mr-3" src="<?= BASE_URL ?>/public/img/man.jpg" alt="A happy user" />
+      <p class="text-justify">FamilySpy is a comprehensive geneaology management system
+        that allows for adding people, linking them together to create families,
+        and filling in all sorts of information for each person.
+        Look at this happy FamilySpy user! He loves how easy it is to use and the
+        wide range of functionality it provides. If you don't want to start with
+        creating your family right away, check out the People or Family tabs to
+        browse what other people have added.</p>
+    </div>
+
+    <div class="col-sm-4 p-3">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
