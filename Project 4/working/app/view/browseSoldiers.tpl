@@ -11,12 +11,10 @@
   </div>
 </div>
 
-<?php
-$unassigned = Soldier::getUnassigned();
-foreach($unassigned as $s): ?>
+<?php foreach($soldiers as $s): ?>
   <div class="row">
     <div class="col-sm-9">
       <a href="<?= BASE_URL ?>/soldiers/view/<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name; ?></a>
     </div>
-  <div class="row">
+  </div>
 <?php endforeach; ?>
