@@ -83,7 +83,7 @@ class Crew
 
     // TODO fix this
     public function update()
-    {   
+    {
         return null; // return this object's ID
     }
 }

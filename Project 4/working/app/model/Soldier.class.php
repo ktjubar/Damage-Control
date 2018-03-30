@@ -113,7 +113,7 @@ class Soldier
             $db->escape($this->creator_id),
             $db->escape($this->date_created)
         );
-        
+
         $db->query($q); // execute query
         $this->id = $db->getInsertID(); // set the ID for the new object
         return $this->id;
@@ -143,7 +143,7 @@ class Soldier
         }
 
         // build query
-        $q = sprintf("UPDATE `%s` SET 
+        $q = sprintf("UPDATE `%s` SET
         `First_Name` = %s,
         `Last_Name` = %s,
         `Rank` = %d,
@@ -151,7 +151,7 @@ class Soldier
         `Date_of_Death` = %s,
         `Crew_ID` = %d,
         `Creator_ID` = %d,
-        `Date_Created` = %s 
+        `Date_Created` = %s
         WHERE `ID` = %d;",
         self::DB_TABLE,
             $db->escape($this->first_name),
