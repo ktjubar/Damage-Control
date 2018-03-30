@@ -136,7 +136,7 @@ class CrewController
 
     public function deleteCrew($id) {
         if ($this->id != 0) {
-            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Crew::DB_TABLE, $db->escape($this->$id);
+            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Crew::DB_TABLE, $db->escape($this->$id));
             $db->query($q); // execute query
 
             $q = sprintf("UPDATE `%s` SET `Crew_ID` = 0 WHERE `Crew_ID` = %d;",
