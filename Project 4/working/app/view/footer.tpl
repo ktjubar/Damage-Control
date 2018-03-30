@@ -29,7 +29,7 @@
 </div>
 <div id="push"></div>
 
-<script src="<?= BASE_URL ?>/public/js/blueimp-gallery.min.js"></script>
+<!-- <script src="<?= BASE_URL ?>/public/js/blueimp-gallery.min.js"></script>
 <script>
   document.getElementById('links').onclick = function (event) {
     event = event || window.event;
@@ -48,7 +48,7 @@
       carousel: true
     }
   );
-</script>
+</script> -->
 </body>
 
 </html>
