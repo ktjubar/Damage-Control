@@ -44,7 +44,7 @@ class Soldier
             $soldier->date_created = $row['Date_Created'];
             $soldier->creator_id = $row['Creator_ID'];
             $soldier->birthday = $row['Date_of_Birth'];
-            $soldier->deathday = $row['Date_of_Birth'];
+            $soldier->deathday = $row['Date_of_Death'];
             $soldier->rank = $row['Rank'];
             $soldier->crewID = $row['Crew_ID'];
 
