@@ -2,7 +2,7 @@
 
 class Crew
 {
-    const DB_TABLE = 'crews'; // database table name
+    const DB_TABLE = 'Crews'; // database table name
 
     // database fields for this table
     public $id = 0;
