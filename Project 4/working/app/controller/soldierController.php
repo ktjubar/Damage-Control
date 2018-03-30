@@ -6,80 +6,80 @@ include_once '../global.php';
 $action = $_GET['action'];
 
 // instantiate a SoldierController and route it
-$sc = new CrewController();
+$sc = new SoldierController();
 $sc->route($action);
 
-class CrewController
+class SoldierController
 {
 
     // route us to the appropriate class method for this action
     public function route($action)
     {
         switch ($action) {
-            case 'crews':
-                $this->crews();
+            case 'soldiers':
+                $this->soldiers();
                 break;
 
-            case 'viewCrew':
+            case 'viewSoldier':
                 $id = $_GET['id'];
-                $this->viewCrew($id);
+                $this->viewSoldier($id);
                 break;
 
-            case 'addCrew':
-                $this->addCrew();
+            case 'addSoldier':
+                $this->addSoldier();
                 break;
 
-            case 'addCrewProcess':
+            case 'addSoldierProcess':
                 $id = 0;
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                 }
-                $this->addCrewProcess($id);
+                $this->addSoldierProcess($id);
                 break;
 
-            case 'editCrew':
+            case 'editSoldier':
                 $id = $_GET['id'];
-                $this->editCrew($id);
+                $this->editSoldier($id);
                 break;
         }
 
     }
 
-    public function crews()
+    public function soldiers()
     {
-        $pageTitle = 'Browse Crews';
-        $category = 'crews';
+        $pageTitle = 'Browse Soldiers';
+        $category = 'soldiers';
         include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/browseCrews.tpl';
+        include_once SYSTEM_PATH . '/view/browseSoldiers.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    // TODO update this to work with crew back-end
-    public function viewCrew($id)
+    // TODO update this to work with soldier back-end
+    public function viewSoldier($id)
     {
         $person = Person::loadById($id);
         if ($person != null) {
             $pageTitle = $person->last_name;
-            $category = 'crews';
+            $category = 'soldiers';
             include_once SYSTEM_PATH . '/view/header.tpl';
-            include_once SYSTEM_PATH . '/view/crew.tpl';
+            include_once SYSTEM_PATH . '/view/soldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
             die('Invalid soldier ID');
         }
     }
 
-    public function addCrew()
+    public function addSoldier()
     {
-        $pageTitle = 'Add Crew';
-        $category = 'crews';
+        $pageTitle = 'Add Soldier';
+        $category = 'soldiers';
         include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/addCrew.tpl';
+        include_once SYSTEM_PATH . '/view/addSoldier.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    // TODO fix everything in here
-    public function addCrewProcess($id)
+    // TODO Fix everything in here
+    public function addSoldierProcess($id)
     {
         // get POST variables
         $firstName = $_POST['first']; // required
@@ -132,7 +132,7 @@ class CrewController
         header('Location: ' . BASE_URL . '/family/view/' . $personID);exit();
     }
 
-    public function editCrew($id)
+    public function editSoldier($id)
     {
         $person = Person::loadById($id);
         if ($person != null) {
