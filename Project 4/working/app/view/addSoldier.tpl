@@ -1,5 +1,5 @@
 <p>
-    Back end needs the following from POST:
+    Back end needs the following in POST:
     <br>
     $firstName = $_POST['first']; // required
     <br>
