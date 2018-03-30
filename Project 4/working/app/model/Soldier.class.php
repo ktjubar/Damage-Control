@@ -101,7 +101,7 @@ class Soldier
         }
 
         $q = sprintf("INSERT INTO `%s`(`First_Name`, `Last_Name`, `Rank`, `Date_of_Birth`, `Date_of_Death`, `Crew_ID`, `Creator_ID`, `Date_Created`)
-      VALUES (%s, %s, %s, %d, %s, %s, %s, %s, %s, %s);",
+      VALUES (%s, %s, %d, %s, %s, %d, %s, %s);",
             self::DB_TABLE,
             $db->escape($this->first_name),
             //$db->escape($this->middle_name),
@@ -113,7 +113,7 @@ class Soldier
             $db->escape($this->creator_id),
             $db->escape($this->date_created)
         );
-        echo $q;
+        
         $db->query($q); // execute query
         $this->id = $db->getInsertID(); // set the ID for the new object
         return $this->id;

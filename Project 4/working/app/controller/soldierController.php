@@ -89,6 +89,7 @@ class SoldierController
         $birth = $_POST['dob'];
         $death = $_POST['dod'];
         $crew = $_POST['crew'];
+        $rank = $_POST['rank'];
 
         // first name and last name are required
         if (empty($firstName) || empty($lastName)) {
@@ -104,6 +105,7 @@ class SoldierController
         $s->birthday = $birth;
         $s->deathday = $death;
         $s->date_created = '';
+        $s->rank = $rank;
 
         $sID = $s->save();
         header('Location: ' . BASE_URL . '/soldiers/view/' . $sID);exit();
