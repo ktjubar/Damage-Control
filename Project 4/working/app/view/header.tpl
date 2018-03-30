@@ -31,7 +31,9 @@
 
       <div class="col-md-2">
         <?php if(!isset($_SESSION['username'])): ?>
-        <button class="btn btn-default btn-block" onclick="document.getElementById('id01').style.display='block'">Login</button>
+        <a class="btn btn-default btn-block" data-toggle="modal" href="#myModal">Login</a>
+
+        <!-- <button class="btn btn-default btn-block" onclick="document.getElementById('id01').style.display='block'">Login</button> -->
 
         <!-- <div id="id01" class="modal">
           <form class="modal-content" action="<?= BASE_URL ?>/login/process/" method="POST">
