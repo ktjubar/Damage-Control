@@ -5,9 +5,6 @@ RewriteEngine on
 # ErrorDocument 404 /error.php
 
 # Site
-# RewriteRule ^soldiers/monshaur/?$ monshaur.html [QSA,L]
-# RewriteRule ^soldiers/barnes/?$ barnes.html [QSA,L]
-
 RewriteRule ^$ app/controller/siteController.php?action=home [QSA,L]
 RewriteRule ^dashboard/?$ app/controller/siteController.php?action=dashboard [QSA,L]
 RewriteRule ^logout/?$ app/controller/siteController.php?action=logout [QSA,L]
@@ -17,11 +14,19 @@ RewriteRule ^profile/?$ app/controller/siteController.php?action=profile [QSA,L]
 RewriteRule ^about/?$ app/controller/siteController.php?action=about [QSA,L]
 
 
-# Member
-RewriteRule ^family/?$ app/controller/familyController.php?action=family [QSA,L]
-RewriteRule ^family/add/?$ app/controller/familyController.php?action=add [QSA,L]
+# Soldier
+RewriteRule ^soldier/?$ app/controller/familyController.php?action=soldier [QSA,L]
+RewriteRule ^soldier/add/?$ app/controller/familyController.php?action=addSoldier [QSA,L]
+RewriteRule ^soldier/add/process/?$ app/controller/familyController.php?action=addSoldierProcess [QSA,L]
+RewriteRule ^soldier/add/process/(\d+)/?$ app/controller/familyController.php?action=addSoldierProcess&id=$1 [QSA,L]
+
 RewriteRule ^family/add/process/(\d+)/?$ app/controller/familyController.php?action=addProcess&id=$1 [QSA,L]
 RewriteRule ^family/add/process/?$ app/controller/familyController.php?action=addProcess [QSA,L]
 RewriteRule ^family/view/(\d+)/?$ app/controller/familyController.php?action=view&id=$1 [QSA,L]
 RewriteRule ^family/view/(\d+)/life-event/add/process/?$ app/controller/familyController.php?action=addLifeEventProcess&id=$1 [QSA,L]
 RewriteRule ^family/edit/(\d+)/?$ app/controller/familyController.php?action=edit&id=$1 [QSA,L]
+
+# Crew
+
+
+# Map
