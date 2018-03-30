@@ -68,6 +68,20 @@ class Soldier
         return $soldiers;
     }
 
+    public function getUnassigned() {
+        $db = Db::instance();
+        $q = "SELECT ID FROM `" . self::DB_TABLE . "` WHERE Crew_ID = NULL;";
+        $result = $db->query($q);
+        
+        $soldiers = array();
+        if ($result->num_rows != 0) {
+            while ($row = $result->fetch_assoc()) {
+                $soldiers[] = self::loadById($row['ID']);
+            }
+        }
+        return $soldiers;
+    }
+
     public function save()
     {
         if ($this->id == 0) {
@@ -167,5 +181,4 @@ class Soldier
         $db->query($q); // execute query
         return $this->id; // return this object's ID
     }
-
 }
