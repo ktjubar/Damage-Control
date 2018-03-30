@@ -49,6 +49,7 @@ class SoldierController
     {
         $pageTitle = 'Browse Soldiers';
         $category = 'soldiers';
+        $soldiers = Soldier::getSoldiers();
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseSoldiers.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

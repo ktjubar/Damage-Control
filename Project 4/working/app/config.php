@@ -7,4 +7,4 @@ define('BASE_URL', 'http://localhost'); # your base URL
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_HOST', 'localhost');
-define('DB_DATABASE', 'project3');
+define('DB_DATABASE', '8thairforce');
