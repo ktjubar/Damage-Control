@@ -4,15 +4,15 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="foot-links text-center">
-              <a href="<?= BASE_URL ?>/">Home</a> |
-              <a href="<?= BASE_URL ?>/family/">Crews</a> |
-              <a href="<?= BASE_URL ?>/people/">People</a> <!--|
-              <a href="<?= BASE_URL ?>/search/">Search</a> -->
+              <a href="<?= BASE_URL ?>">Home</a> |
+              <a href="javascript:void(0)">Crews</a> |
+              <a href="javascript:void(0)">Soldiers</a> |
+              <a href="javascript:void(0)">Map</a>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="foot-links text-center">
-              <p>&#169; nobody 2018</p>
+              <p>&#169; Damage Control 2018</p>
             </div>
           </div>
           <div class="col-sm-4">
