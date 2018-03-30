@@ -21,7 +21,7 @@
       <div class="col-md-10">
         <img class="img-responsive logo mr-2" src="<?= BASE_URL ?>/public/img/logo.jpg" alt="FamilySpy logo" />
         <h1>
-          Bomber Crews <br>
+          Mighty Eighth <br>
           <small>The bomber crews of the 8th Air Force</small>
         </h1>
       </div>
@@ -47,19 +47,19 @@
           </div>
 
           <script>
-          // Get the modal
-          var modal = document.getElementById('id01');
+            // Get the modal
+            var modal = document.getElementById('id01');
 
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function(event) {
-            if (event.target == modal) {
-              modal.style.display = "none";
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
             }
-          }
           </script>
         <?php else: ?>
           <h4 class="text-center">Logged in as <?= $_SESSION['username'] ?></h4>
-          <form action="<?= BASE_URL ?>/logout/process/">
+          <form action="<?= BASE_URL ?>/logout/">
             <button class="btn btn-default btn-block" type="submit">Logout</button>
           </form>
         <?php endif; ?>
@@ -77,15 +77,15 @@
         <li class="nav-item<?php echo strcmp($category, 'home') ? '' : ' active' ?>">
           <a class="nav-link" href="<?= BASE_URL ?>/">Home</a>
         </li>
-        <li class="nav-item<?php echo strcmp($category, 'family') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/family/">Crews</a>
+        <li class="nav-item<?php echo strcmp($category, 'crews') ? '' : ' active' ?>">
+          <a class="nav-link" href="javascript:void(0)">Crews</a>
         </li>
-        <li class="nav-item<?php echo strcmp($category, 'people') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/people/">People</a>
+        <li class="nav-item<?php echo strcmp($category, 'soldiers') ? '' : ' active' ?>">
+          <a class="nav-link" href="javascript:void(0)">Soldiers</a>
         </li>
-        <!-- <li class="nav-item<?php echo strcmp($category, 'search') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/search/">Search</a>
-        </li> -->
+        <li class="nav-item<?php echo strcmp($category, 'map') ? '' : ' active' ?>">
+          <a class="nav-link" href="javascript:void(0)">Map</a>
+        </li>
       </ul>
       <form class="form-inline ml-auto">
         <button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
