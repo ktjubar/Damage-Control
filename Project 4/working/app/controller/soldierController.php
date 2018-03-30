@@ -41,6 +41,13 @@ class SoldierController
                 $id = $_GET['id'];
                 $this->editSoldier($id);
                 break;
+
+            case 'delete':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id']
+                    $this->deleteSoldier($id);
+                }
+                break;
         }
 
     }
@@ -126,6 +133,13 @@ class SoldierController
             include_once SYSTEM_PATH . '/view/header.tpl';
             die('Invalid soldier ID');
             include_once SYSTEM_PATH . '/view/footer.tpl';
+        }
+    }
+
+    public function deleteSoldier($id) {
+        if ($this->id != 0) {
+            $q = sprintf("DELETE FROM `%s` WHERE ID = $id;", Soldier::DB_TABLE);
+            $db->query($q); // execute query
         }
     }
 }
