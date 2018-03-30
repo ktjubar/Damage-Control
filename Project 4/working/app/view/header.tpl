@@ -66,18 +66,23 @@
               </div>
               <div class="modal-body">
                 <form action="<?= BASE_URL ?>/login/process/" method="POST">
-                  <div>
-                    <label for="username">
-                      <b>Username</b>
-                    </label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-                    <br />
-                    <label for="password">
-                      <b>Password</b>
-                    </label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-                    <br />
-                    <button type="submit" class="btn btn-default">Login</button>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label for="username">
+                        <b>Username</b>
+                      </label>
+                      <br />
+                      <label for="password">
+                        <b>Password</b>
+                      </label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" placeholder="Enter Username" name="username" required>
+                      <br />
+                      <input type="password" placeholder="Enter Password" name="password" required>
+                      <br />
+                      <button type="submit" class="btn btn-default btn-block">Login</button>
+                    </div>
                   </div>
                 </form>
               </div>
