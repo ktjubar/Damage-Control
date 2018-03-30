@@ -15,16 +15,11 @@ RewriteRule ^about/?$ app/controller/siteController.php?action=about [QSA,L]
 
 
 # Soldier
-RewriteRule ^soldier/?$ app/controller/familyController.php?action=soldier [QSA,L]
-RewriteRule ^soldier/add/?$ app/controller/familyController.php?action=addSoldier [QSA,L]
-RewriteRule ^soldier/add/process/?$ app/controller/familyController.php?action=addSoldierProcess [QSA,L]
-RewriteRule ^soldier/add/process/(\d+)/?$ app/controller/familyController.php?action=addSoldierProcess&id=$1 [QSA,L]
-
-RewriteRule ^family/add/process/(\d+)/?$ app/controller/familyController.php?action=addProcess&id=$1 [QSA,L]
-RewriteRule ^family/add/process/?$ app/controller/familyController.php?action=addProcess [QSA,L]
-RewriteRule ^family/view/(\d+)/?$ app/controller/familyController.php?action=view&id=$1 [QSA,L]
-RewriteRule ^family/view/(\d+)/life-event/add/process/?$ app/controller/familyController.php?action=addLifeEventProcess&id=$1 [QSA,L]
-RewriteRule ^family/edit/(\d+)/?$ app/controller/familyController.php?action=edit&id=$1 [QSA,L]
+RewriteRule ^soldiers/?$ app/controller/familyController.php?action=soldier [QSA,L]
+RewriteRule ^soldiers/add/?$ app/controller/familyController.php?action=addSoldier [QSA,L]
+RewriteRule ^soldiers/add/process/?$ app/controller/familyController.php?action=addSoldierProcess [QSA,L]
+RewriteRule ^soldiers/add/process/(\d+)/?$ app/controller/familyController.php?action=addSoldierProcess&id=$1 [QSA,L]
+RewriteRule ^soldiers/edit/(\d+)/?$ app/controller/familyController.php?action=editSoldiers&id=$1 [QSA,L]
 
 # Crew
 
