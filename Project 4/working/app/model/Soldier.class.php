@@ -70,9 +70,9 @@ class Soldier
 
     public function getUnassigned() {
         $db = Db::instance();
-        $q = "SELECT ID FROM `" . self::DB_TABLE . "` WHERE Crew_ID = NULL;";
+        $q = "SELECT ID FROM `" . self::DB_TABLE . "` WHERE Crew_ID = 0;";
         $result = $db->query($q);
-        
+
         $soldiers = array();
         if ($result->num_rows != 0) {
             while ($row = $result->fetch_assoc()) {
