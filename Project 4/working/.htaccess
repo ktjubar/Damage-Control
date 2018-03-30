@@ -29,3 +29,8 @@ RewriteRule ^crews/add/process/(\d+)/?$ app/controller/crewController.php?action
 RewriteRule ^crews/edit/(\d+)/?$ app/controller/crewController.php?action=editCrew&id=$1 [QSA,L]
 
 # Map
+RewriteRule ^maps/?$ app/controller/mapController.php?action=maps [QSA,L]
+RewriteRule ^maps/add/?$ app/controller/mapController.php?action=addMap [QSA,L]
+RewriteRule ^maps/add/process/?$ app/controller/mapController.php?action=addMapProcess [QSA,L]
+RewriteRule ^maps/add/process/(\d+)/?$ app/controller/mapController.php?action=addMapProcess&id=$1 [QSA,L]
+RewriteRule ^maps/edit/(\d+)/?$ app/controller/mapController.php?action=editMap&id=$1 [QSA,L]

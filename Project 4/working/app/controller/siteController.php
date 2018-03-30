@@ -41,10 +41,6 @@ class SiteController
             // case 'dashboard':
             //     $this->dashboard();
             //     break;
-
-            // case 'login':
-            //     $this->login();
-            //     break;
         }
     }
 
@@ -77,7 +73,7 @@ class SiteController
             header('Location: ' . BASE_URL);
         } else {
             $_SESSION['username'] = $un;
-            header('Location: ' . BASE_URL . '/dashboard');exit();
+            header('Location: ' . BASE_URL);
         }
     }
 
