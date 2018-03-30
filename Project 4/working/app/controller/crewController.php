@@ -84,39 +84,25 @@ class CrewController
     // TODO fix everything in here
     public function addCrewProcess($id)
     {
-        // get POST variablespublic $crewID = 0;
-        $name = '';
-        $nick = '';
-        $soldiers = array();
-
-        $firstName = $_POST['first']; // required
-        $middleName = $_POST['middle'];
-        $lastName = $_POST['last']; // required
-        $birth = $_POST['dob'];
-        $death = $_POST['dod'];
-        $married = $_POST['dom'];
-        $mf = $_POST['gender'];
+        // get POST variables
+        $crewID = $_POST['crewID'];
+        $name = $_POST['name'];
+        $nick = $_POST['nickname'];
+        $soldiers = $_POST['soldiers'];;
 
         // first name and last name are required
-        if (empty($firstName) || empty($lastName)) {
-            header('Location: ' . BASE_URL . '/family/add/');exit();
+        if (empty($crewID) || empty($name)) {
+            header('Location: ' . BASE_URL . '/crews/add/');exit();
         }
 
-        $person = new Person();
-        $person->id = $id;
-        $person->first_name = $firstName;
-        $person->last_name = $lastName;
-        $person->middle_name = $middleName;
-        $person->picture_file = $fileName;
-        $person->creator_id = 1; // hard coded user ID for now
-        $person->birthday = $birth;
-        $person->deathday = $death;
-        $person->married = $married;
-        $person->date_created = '';
-        $person->gender = $mf;
+        $crew = new Crew();
+        $crew->crewID = $crewID;
+        $crew->name = $name;
+        $crew->nick = $nick;
+        $crew->soldiers = $soldiers;
 
-        $personID = $person->save();
-        header('Location: ' . BASE_URL . '/family/view/' . $personID);exit();
+        $crewID = $crew->save();
+        header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
     }
 
     public function editCrew($id)
