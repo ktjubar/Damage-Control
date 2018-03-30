@@ -47,6 +47,7 @@ class CrewController
 
     public function crews()
     {
+        $crews = Crew::getCrews();
         $pageTitle = 'Browse Crews';
         $category = 'crews';
         include_once SYSTEM_PATH . '/view/header.tpl';
@@ -57,15 +58,15 @@ class CrewController
     // TODO update this to work with crew back-end
     public function viewCrew($id)
     {
-        $person = Person::loadById($id);
+        $crew = Crew::loadById($id);
         if ($person != null) {
-            $pageTitle = $person->last_name;
+            $pageTitle = $crew->ID;
             $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            die('Invalid soldier ID');
+            die('Invalid crew ID');
         }
     }
 
