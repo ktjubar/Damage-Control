@@ -100,23 +100,18 @@ class Soldier
             $this->deathday = $db->formatDate($this->deathday);
         }
 
-        if ($this->married != '') {
-            $this->married = $db->formatDate($this->married);
-        }
-
-        $q = sprintf("INSERT INTO `%s`(`first`, `middle`, `last`, `creator_id`, `picture`, `date`, `birth`, `death`, `married`, `gender`)
+        $q = sprintf("INSERT INTO `%s`(`First_Name`, `Last_Name`, `Rank`, `Date_of_Birth`, `Date_of_Death`, `Crew_ID`, `Creator_ID`, `Date_Created`)
       VALUES (%s, %s, %s, %d, %s, %s, %s, %s, %s, %s);",
             self::DB_TABLE,
             $db->escape($this->first_name),
-            $db->escape($this->middle_name),
+            //$db->escape($this->middle_name),
             $db->escape($this->last_name),
-            $db->escape($this->creator_id),
-            $db->escape($this->picture_file),
-            $db->escape($this->date_created),
+            $db->escape($this->rank),
             $db->escape($this->birthday),
             $db->escape($this->deathday),
-            $db->escape($this->married),
-            $db->escape($this->gender)
+            $db->escape($this->crewID),
+            $db->escape($this->creator_id),
+            $db->escape($this->date_created)
         );
         echo $q;
         $db->query($q); // execute query
@@ -147,33 +142,26 @@ class Soldier
             $this->deathday = $db->formatDate($this->deathday);
         }
 
-        if ($this->married != '') {
-            $this->married = $db->formatDate($this->married);
-        }
-
         // build query
-        $q = sprintf("UPDATE `%s` SET
-      `first` = %s,
-      `middle` = %s,
-      `last` = %s,
-      `creator_id` = %d,
-      `date` = %s,
-      `birth` = %s,
-      `death` = %s,
-      `married` = %s,
-      `gender` = %s
-      WHERE `id` = %d;",
-            self::DB_TABLE,
+        $q = sprintf("UPDATE `%s` SET 
+        `First_Name` = %s,
+        `Last_Name` = %s,
+        `Rank` = %d,
+        `Date_of_Birth` = %s,
+        `Date_of_Death` = %s,
+        `Crew_ID` = %d,
+        `Creator_ID` = %d,
+        `Date_Created` = %s 
+        WHERE `ID` = %d;",
+        self::DB_TABLE,
             $db->escape($this->first_name),
-            $db->escape($this->middle_name),
             $db->escape($this->last_name),
-            $db->escape($this->creator_id),
-            $db->escape($this->date_created),
+            $db->escape($this->rank),
             $db->escape($this->birthday),
             $db->escape($this->deathday),
-            $db->escape($this->married),
-            $db->escape($this->gender),
-            $db->escape($this->id)
+            $db->escape($this->crewID),
+            $db->escape($this->creator_id),
+            $db->escape($this->date_created)
         );
 
         $db->query($q); // execute query

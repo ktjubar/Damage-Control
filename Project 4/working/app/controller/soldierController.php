@@ -84,7 +84,7 @@ class SoldierController
     {
         // get POST variables
         $firstName = $_POST['first']; // required
-        $middleName = $_POST['middle'];
+        //$middleName = $_POST['middle'];
         $lastName = $_POST['last']; // required
         $birth = $_POST['dob'];
         $death = $_POST['dod'];
@@ -99,7 +99,7 @@ class SoldierController
         $s->id = $id;
         $s->first_name = $firstName;
         $s->last_name = $lastName;
-        $s->middle_name = $middleName;
+        //$s->middle_name = $middleName;
         $s->creator_id = 1; // hard coded user ID for now
         $s->birthday = $birth;
         $s->deathday = $death;
