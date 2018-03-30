@@ -15,11 +15,11 @@ RewriteRule ^about/?$ app/controller/siteController.php?action=about [QSA,L]
 
 
 # Soldier
-RewriteRule ^soldiers/?$ app/controller/familyController.php?action=soldier [QSA,L]
-RewriteRule ^soldiers/add/?$ app/controller/familyController.php?action=addSoldier [QSA,L]
-RewriteRule ^soldiers/add/process/?$ app/controller/familyController.php?action=addSoldierProcess [QSA,L]
-RewriteRule ^soldiers/add/process/(\d+)/?$ app/controller/familyController.php?action=addSoldierProcess&id=$1 [QSA,L]
-RewriteRule ^soldiers/edit/(\d+)/?$ app/controller/familyController.php?action=editSoldiers&id=$1 [QSA,L]
+RewriteRule ^soldiers/?$ app/controller/soldierController.php?action=soldier [QSA,L]
+RewriteRule ^soldiers/add/?$ app/controller/soldierController.php?action=addSoldier [QSA,L]
+RewriteRule ^soldiers/add/process/?$ app/controller/soldierController.php?action=addSoldierProcess [QSA,L]
+RewriteRule ^soldiers/add/process/(\d+)/?$ app/controller/soldierController.php?action=addSoldierProcess&id=$1 [QSA,L]
+RewriteRule ^soldiers/edit/(\d+)/?$ app/controller/soldierController.php?action=editSoldiers&id=$1 [QSA,L]
 
 # Crew
 
