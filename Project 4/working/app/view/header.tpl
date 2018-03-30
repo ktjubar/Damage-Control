@@ -5,9 +5,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bomber Crews |
-    <?= $pageTitle ?>
-  </title>
+  <link rel="icon" href="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.png">
+  <title>The Mighty Eighth | <?= $pageTitle ?></title>
   <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/blueimp-gallery.min.css">
@@ -22,12 +21,11 @@
   <div class="page-header container-fluid p-2 px-3">
     <div class="row">
       <div class="col-md-10">
-        <img class="img-responsive logo mr-2" src="<?= BASE_URL ?>/public/img//logos/Eighth_Air_Force_Emblem.png" alt="8th Air Force Logo"
-        />
+        <img class="img-responsive logo mr-2" src="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.jpg" alt="8th Air Force Logo" />
         <h1>
-          Mighty Eighth
+          The Mighty Eighth
           <br>
-          <small>The bomber crews of the 8th Air Force</small>
+          <small>Bomber crews of the 8th Air Force</small>
         </h1>
       </div>
 
