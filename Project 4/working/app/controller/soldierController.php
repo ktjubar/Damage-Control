@@ -44,7 +44,7 @@ class SoldierController
 
             case 'delete':
                 if (isset($_GET['id'])) {
-                    $id = $_GET['id']
+                    $id = $_GET['id'];
                     $this->deleteSoldier($id);
                 }
                 break;
