@@ -89,7 +89,7 @@ class Soldier
 
         // format dates for insertion
         if ($this->date_created != '') {
-            $this->date_created = $db->formatDate($this->date_created);
+            $this->date_created = date("Y-m-d", time());
         }
 
         if ($this->birthday != '') {
