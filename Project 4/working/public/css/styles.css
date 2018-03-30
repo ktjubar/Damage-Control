@@ -188,6 +188,13 @@ body {
 }
 
 /* Style login box */
+#loginModal.modal-header {
+  background-color: #efebce;
+}
+
+#loginModal.modal-footer {
+  background-color: #847819;
+}
 
 /* Extra styles for the cancel button */
 .cancelbtn {

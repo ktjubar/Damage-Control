@@ -71,13 +71,13 @@
                       <b>Username</b>
                     </label>
                     <input type="text" placeholder="Enter Username" name="username" required>
-
+                    <br />
                     <label for="password">
                       <b>Password</b>
                     </label>
                     <input type="password" placeholder="Enter Password" name="password" required>
-
-                    <button type="submit">Login</button>
+                    <br />
+                    <button type="submit" class="btn btn-default">Login</button>
                   </div>
                 </form>
               </div>
@@ -88,7 +88,7 @@
           </div>
         </div>
 
-        <script>
+        <!-- <script>
           // Get the modal
           var modal = document.getElementById('myModal');
 
@@ -98,7 +98,7 @@
               modal.style.display = "none";
             }
           }
-        </script>
+        </script> -->
         <?php else: ?>
         <h4 class="text-center">Logged in as
           <?= $_SESSION['username'] ?>
