@@ -31,8 +31,6 @@
 
       <div class="col-md-2">
         <?php if(!isset($_SESSION['username'])): ?>
-        <a class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Login</a>
-
         <!-- <button class="btn btn-default btn-block" onclick="document.getElementById('id01').style.display='block'">Login</button> -->
 
         <!-- <div id="id01" class="modal">
@@ -55,23 +53,25 @@
           </form>
         </div> -->
 
-        <div class="modal hide" id="myModal">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">x</button>
-            <h3>Login to MyWebsite.com</h3>
-          </div>
-          <div class="modal-body">
-            <form method="post" action='' name="login_form">
-              <p><input type="text" class="span3" name="username" placeholder="Username"></p>
-              <p><input type="password" class="span3" name="password" placeholder="Password"></p>
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a href="#">Forgot Password?</a>
-              </p>
-            </form>
-          </div>
-          <div class="modal-footer">
-            New To MyWebsite.com?
-            <a href="#" class="btn btn-primary">Register</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
           </div>
         </div>
 
