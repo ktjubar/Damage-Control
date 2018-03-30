@@ -58,9 +58,9 @@ class SoldierController
     // TODO update this to work with soldier back-end
     public function viewSoldier($id)
     {
-        $person = Person::loadById($id);
-        if ($person != null) {
-            $pageTitle = $person->last_name;
+        $s = Soldier::loadById($id);
+        if ($s != null) {
+            $pageTitle = $s->last_name;
             $category = 'soldiers';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/soldier.tpl';
