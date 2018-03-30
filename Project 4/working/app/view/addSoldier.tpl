@@ -18,6 +18,7 @@
     <br> $birth = $_POST['dob'];
     <br> $death = $_POST['dod'];
     <br> $crew = $_POST['crew'];
+    <br> $rank = $_POST['rank']; //Dropdown
     <br> Creator ID hardcoded for now
     <br> Date created auto generated (maybe)
 </p>
