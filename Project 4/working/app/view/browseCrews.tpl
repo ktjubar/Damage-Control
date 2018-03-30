@@ -11,7 +11,7 @@
   </div>
   <?php foreach($crews as $c): ?>
     <div class="col-sm-9">
-      <h5><a href="<?= BASE_URL ?>/crews/view/<?= $c->id ?>"><?= $c->name ?></a></h5>
+      <h5><a href="<?= BASE_URL ?>/crews/view/<?= $c->CrewID ?>"><?= $c->name ?></a></h5>
       <?php foreach($c->soldiers as $s): ?>
         <div class="col-sm-9">
             <a href="<?= BASE_URL ?>/soldiers/view/<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></a>

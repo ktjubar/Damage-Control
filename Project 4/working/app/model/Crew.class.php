@@ -5,7 +5,6 @@ class Crew
     const DB_TABLE = 'Crews'; // database table name
 
     // database fields for this table
-    public $id = 0;
     public $crewID = 0;
     public $name = '';
     public $nick = '';

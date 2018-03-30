@@ -138,7 +138,7 @@ class SoldierController
 
     public function deleteSoldier($id) {
         if ($this->id != 0) {
-            $q = sprintf("DELETE FROM `%s` WHERE ID = $id;", Soldier::DB_TABLE);
+            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $db->escape($this->$id));
             $db->query($q); // execute query
         }
     }
