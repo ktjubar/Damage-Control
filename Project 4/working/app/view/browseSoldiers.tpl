@@ -4,7 +4,7 @@
   </div>
   <div class="col-sm-3">
     <!-- add check for logged in -->
-    <form method="get" action="<?= BASE_URL ?>/people/add/">
+    <form method="get" action="<?= BASE_URL ?>/soldiers/add/">
       <button class="btn btn-default btn-block button">Add Soldier</button>
     </form>
   </div>
