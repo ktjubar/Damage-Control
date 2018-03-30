@@ -59,8 +59,8 @@ class CrewController
     public function viewCrew($id)
     {
         $crew = Crew::loadById($id);
-        if ($person != null) {
-            $pageTitle = $crew->ID;
+        if ($crew != null) {
+            $pageTitle = $crew->crewID;
             $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';

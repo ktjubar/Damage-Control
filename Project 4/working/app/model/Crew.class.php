@@ -31,7 +31,7 @@ class Crew
             $crew = new Crew(); // instantiate new Soldier object
 
             // store db results in local object
-            $crew->id = $row['ID'];
+            $crew->crewID = $row['Crew_ID'];
             $crew->name = $row['Name'];
             $crew->nick = $row['Nickname'];
             $crew->date_created = $row['Date_Created'];
