@@ -88,49 +88,25 @@ class SoldierController
         $lastName = $_POST['last']; // required
         $birth = $_POST['dob'];
         $death = $_POST['dod'];
-        $married = $_POST['dom'];
-        $mf = $_POST['gender'];
+        $crew = $_POST['crew'];
 
         // first name and last name are required
         if (empty($firstName) || empty($lastName)) {
-            header('Location: ' . BASE_URL . '/family/add/');exit();
-        }
-        $fileName = $firstName . "-" . $lastName . "-" . basename($_FILES["image"]["name"]);
-        $target_file = "../../public/img/" . $fileName;
-        $imgType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-            } else {
-                echo "File is not an image.";
-                $fileName = '';
-            }
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-                $fileName = '';
-            }
-        } else {
-            $fileName = '';
+            header('Location: ' . BASE_URL . '/soldiers/add/');exit();
         }
 
-        $person = new Person();
-        $person->id = $id;
-        $person->first_name = $firstName;
-        $person->last_name = $lastName;
-        $person->middle_name = $middleName;
-        $person->picture_file = $fileName;
-        $person->creator_id = 1; // hard coded user ID for now
-        $person->birthday = $birth;
-        $person->deathday = $death;
-        $person->married = $married;
-        $person->date_created = '';
-        $person->gender = $mf;
+        $s = new Soldier();
+        $s->id = $id;
+        $s->first_name = $firstName;
+        $s->last_name = $lastName;
+        $s->middle_name = $middleName;
+        $s->creator_id = 1; // hard coded user ID for now
+        $s->birthday = $birth;
+        $s->deathday = $death;
+        $s->date_created = '';
 
-        $personID = $person->save();
-        header('Location: ' . BASE_URL . '/family/view/' . $personID);exit();
+        $sID = $s->save();
+        header('Location: ' . BASE_URL . '/soldiers/view/' . $sID);exit();
     }
 
     public function editSoldier($id)
