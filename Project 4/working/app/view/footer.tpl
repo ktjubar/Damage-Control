@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="foot-links text-center">
-              <a href="<?= BASE_URL ?>/">Home</a> |
+              <a href="<?= BASE_URL ?>">Home</a> |
               <a href="javascript:void(0)">Crews</a> |
               <a href="javascript:void(0)">Soldiers</a> |
               <a href="javascript:void(0)">Map</a>

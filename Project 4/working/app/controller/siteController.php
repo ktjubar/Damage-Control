@@ -17,7 +17,6 @@ class SiteController
     {
         switch ($action) {
             case 'home':
-                $category = 'home';
                 $this->home();
                 break;
 
@@ -63,6 +62,7 @@ class SiteController
     public function home()
     {
         $pageTitle = 'Home';
+        $category = 'home';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

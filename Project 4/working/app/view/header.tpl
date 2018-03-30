@@ -75,7 +75,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav navbar-left">
         <li class="nav-item<?php echo strcmp($category, 'home') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/">Home</a>
+          <a class="nav-link" href="<?= BASE_URL ?>">Home</a>
         </li>
         <li class="nav-item<?php echo strcmp($category, 'crews') ? '' : ' active' ?>">
           <a class="nav-link" href="javascript:void(0)">Crews</a>
