@@ -9,9 +9,12 @@
     </form>
     <?php endif; ?>
   </div>
-  <?php foreach($soldiers as $s): ?>
+</div>
+
+<?php foreach($soldiers as $s): ?>
+  <div class="row">
     <div class="col-sm-9">
       <a href="<?= BASE_URL ?>/soldiers/view/<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name; ?></a>
     </div>
-  <?php endforeach; ?>
-</div>
+  <div class="row">
+<?php endforeach; ?>
