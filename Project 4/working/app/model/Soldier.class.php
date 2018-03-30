@@ -7,15 +7,15 @@ class Soldier
     // database fields for this table
     public $id = 0;
     public $first_name = '';
-    public $middle_name = '';
+    //public $middle_name = '';
     public $last_name = '';
-    public $picture_file = '';
+    //public $picture_file = '';
     public $date_created = '';
     public $creator_id = 0;
     public $birthday = '';
     public $deathday = '';
-    public $rank = '';
-    public $crewID = '';
+    public $rank = 0;
+    public $crewID = 0;
 
     // return a Person object by ID
     public static function loadById($id)
@@ -59,6 +59,20 @@ class Soldier
         $q = "SELECT ID FROM `" . self::DB_TABLE . "` ORDER BY Last_Name ASC;";
         $result = $db->query($q);
 
+        $soldiers = array();
+        if ($result->num_rows != 0) {
+            while ($row = $result->fetch_assoc()) {
+                $soldiers[] = self::loadById($row['ID']);
+            }
+        }
+        return $soldiers;
+    }
+
+    public function getUnassigned() {
+        $db = Db::instance();
+        $q = "SELECT ID FROM `" . self::DB_TABLE . "` WHERE Crew_ID = NULL;";
+        $result = $db->query($q);
+        
         $soldiers = array();
         if ($result->num_rows != 0) {
             while ($row = $result->fetch_assoc()) {
@@ -167,5 +181,4 @@ class Soldier
         $db->query($q); // execute query
         return $this->id; // return this object's ID
     }
-
 }

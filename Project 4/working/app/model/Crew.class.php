@@ -6,7 +6,9 @@ class Crew
 
     // database fields for this table
     public $id = 0;
+    public $crewID = 0;
     public $name = '';
+    public $nick = '';
     public $soldiers = array();
     public $date_created = '';
     public $creator_id = 0;
@@ -16,7 +18,7 @@ class Crew
     {
         $db = Db::instance(); // create db connection
         // build query
-        $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;",
+        $q = sprintf("SELECT * FROM `%s` WHERE Crew_ID = %d;",
             self::DB_TABLE,
             $id
         );
@@ -32,6 +34,7 @@ class Crew
             // store db results in local object
             $crew->id = $row['ID'];
             $crew->name = $row['Name'];
+            $crew->nick = $row['Nickname'];
             $crew->date_created = $row['Date_Created'];
             $crew->creator_id = $row['Creator_ID'];
 
@@ -54,13 +57,13 @@ class Crew
     public static function getCrews()
     {
         $db = Db::instance();
-        $q = "SELECT ID FROM `" . self::DB_TABLE . "` ORDER BY ID ASC;";
+        $q = "SELECT Crew_ID FROM `" . self::DB_TABLE . "` ORDER BY Crew_ID ASC;";
         $result = $db->query($q);
 
         $crews = array();
         if ($result->num_rows != 0) {
             while ($row = $result->fetch_assoc()) {
-                $crews[] = self::loadById($row['ID']);
+                $crews[] = self::loadById($row['Crew_ID']);
             }
         }
         return $crews;
