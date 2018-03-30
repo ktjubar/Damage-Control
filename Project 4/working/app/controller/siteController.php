@@ -20,13 +20,9 @@ class SiteController
                 $this->home();
                 break;
 
-            // case 'dashboard':
-            //     $this->dashboard();
-            //     break;
-
-            // case 'login':
-            //     $this->login();
-            //     break;
+            case 'map':
+                $this->map();
+                break;
 
             case 'loginProcess':
                 $username = $_POST['username'];
@@ -41,7 +37,33 @@ class SiteController
             // case 'about':
             //     $this->about();
             //     break;
+
+            // case 'dashboard':
+            //     $this->dashboard();
+            //     break;
+
+            // case 'login':
+            //     $this->login();
+            //     break;
         }
+    }
+
+    public function home()
+    {
+        $pageTitle = 'Home';
+        $category = 'home';
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/home.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    public function map()
+    {
+        $pageTitle = 'Map';
+        $category = 'map';
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/map.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
     public function loginProcess($un, $pw)
@@ -59,14 +81,20 @@ class SiteController
         }
     }
 
-    public function home()
+    public function logoutProcess()
     {
-        $pageTitle = 'Home';
-        $category = 'home';
-        include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/home.tpl';
-        include_once SYSTEM_PATH . '/view/footer.tpl';
+        unset($_SESSION['username']); // not necessary, but just to be safe
+        session_destroy();
+        header('Location: ' . BASE_URL);exit(); // send us to home page
     }
+
+    // public function about()
+    // {
+    //     $pageTitle = 'About';
+    //     include_once SYSTEM_PATH . '/view/header.tpl';
+    //     include_once SYSTEM_PATH . '/view/about.tpl';
+    //     include_once SYSTEM_PATH . '/view/footer.tpl';
+    // }
 
     // public function dashboard()
     // {
@@ -86,21 +114,6 @@ class SiteController
     //     $pageTitle = 'Login';
     //     include_once SYSTEM_PATH . '/view/header.tpl';
     //     include_once SYSTEM_PATH . '/view/login.tpl';
-    //     include_once SYSTEM_PATH . '/view/footer.tpl';
-    // }
-
-    public function logoutProcess()
-    {
-        unset($_SESSION['username']); // not necessary, but just to be safe
-        session_destroy();
-        header('Location: ' . BASE_URL);exit(); // send us to home page
-    }
-
-    // public function about()
-    // {
-    //     $pageTitle = 'About';
-    //     include_once SYSTEM_PATH . '/view/header.tpl';
-    //     include_once SYSTEM_PATH . '/view/about.tpl';
     //     include_once SYSTEM_PATH . '/view/footer.tpl';
     // }
 }

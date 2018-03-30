@@ -19,7 +19,7 @@
   <div class="page-header container-fluid p-2 px-3">
     <div class="row">
       <div class="col-md-10">
-        <img class="img-responsive logo mr-2" src="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.png" alt="8th Air Force logo" />
+        <img class="img-responsive logo mr-2" src="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.jpg" alt="8th Air Force logo" />
         <h1>
           Mighty Eighth <br>
           <small>The bomber crews of the 8th Air Force</small>

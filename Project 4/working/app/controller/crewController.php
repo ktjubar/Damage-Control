@@ -6,85 +6,80 @@ include_once '../global.php';
 $action = $_GET['action'];
 
 // instantiate a SoldierController and route it
-$sc = new FamilyController();
+$sc = new CrewController();
 $sc->route($action);
 
-class FamilyController
+class CrewController
 {
 
     // route us to the appropriate class method for this action
     public function route($action)
     {
         switch ($action) {
+            case 'crews':
+                $this->crews();
+                break;
 
-            case 'view':
-                // $name = $_GET['name']; // get the soldier name
+            case 'viewCrew':
                 $id = $_GET['id'];
-                $this->view($id);
+                $this->viewCrew($id);
                 break;
 
-            case 'family':
-                $this->family();
+            case 'addCrew':
+                $this->addCrew();
                 break;
 
-            case 'add':
-                $this->add();
-                break;
-
-            case 'addProcess':
+            case 'addCrewProcess':
                 $id = 0;
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                 }
-                $this->addProcess($id);
+                $this->addCrewProcess($id);
                 break;
 
-            case 'addLifeEventProcess':
+            case 'editCrew':
                 $id = $_GET['id'];
-                $this->addLifeEventProcess($id);
-                break;
-
-            case 'edit':
-                $id = $_GET['id'];
-                $this->displayEdit($id);
+                $this->editCrew($id);
                 break;
         }
 
     }
 
-    public function view($id)
+    public function crews()
+    {
+        $pageTitle = 'Browse Crews';
+        $category = 'crews';
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/browseCrews.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    // TODO update this to work with crew back-end
+    public function viewCrew($id)
     {
         $person = Person::loadById($id);
         if ($person != null) {
-            //$lifeEvents = LifeEvent::getBySoldierId($id);
             $pageTitle = $person->last_name;
+            $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
-            include_once SYSTEM_PATH . '/view/person.tpl';
+            include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            die('Invalid person ID');
+            die('Invalid soldier ID');
         }
     }
 
-    public function family()
+    public function addCrew()
     {
-        $family = Person::getFamily();
-
-        $pageTitle = 'Family';
+        $pageTitle = 'Add Crew';
+        $category = 'crews';
         include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/family.tpl';
+        include_once SYSTEM_PATH . '/view/addCrew.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    public function add()
-    {
-        $pageTitle = 'Add Person';
-        include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/addPerson.tpl';
-        include_once SYSTEM_PATH . '/view/footer.tpl';
-    }
-
-    public function addProcess($id)
+    // TODO fix everything in here
+    public function addCrewProcess($id)
     {
         // get POST variables
         $firstName = $_POST['first']; // required
@@ -137,34 +132,7 @@ class FamilyController
         header('Location: ' . BASE_URL . '/family/view/' . $personID);exit();
     }
 
-    public function addLifeEventProcess($soldierID)
-    {
-        $year = $_POST['year'];
-        $title = $_POST['title'];
-        $details = $_POST['details'];
-
-        $le = new LifeEvent();
-        $le->soldier_id = $soldierID;
-        $le->year = $year;
-        $le->title = $title;
-        $le->details = $details;
-        $le->save();
-
-        if ($le->id != 0) {
-            $json = array(
-                'success' => 'success',
-                'life_event_id' => $le->id,
-            );
-        } else {
-            $json = array('error' => 'Could not save life event.');
-        }
-
-        header('Content-Type: application/json'); // let client know it's Ajax
-        echo json_encode($json); // print the JSON
-
-    }
-
-    public function displayEdit($id)
+    public function editCrew($id)
     {
         $person = Person::loadById($id);
         if ($person != null) {
