@@ -26,7 +26,7 @@ class SiteController
 
             case 'loginProcess':
                 $username = $_POST['username'];
-                $password = $_POST['pw'];
+                $password = $_POST['password'];
                 $this->loginProcess($username, $password);
                 break;
 
