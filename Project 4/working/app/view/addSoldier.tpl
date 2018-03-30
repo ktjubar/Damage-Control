@@ -15,6 +15,7 @@
     <br> $middleName = $_POST['middle'];
     <br> $lastName = $_POST['last']; // required
     <br> $birth = $_POST['dob'];
+    <br> $birth = $_POST['dob'];
     <br> $death = $_POST['dod'];
     <br> $crew = $_POST['crew'];
     <br> Creator ID hardcoded for now

@@ -113,15 +113,15 @@ class SoldierController
 
     public function editSoldier($id)
     {
-        $person = Person::loadById($id);
-        if ($person != null) {
+        $s = Soldier::loadById($id);
+        if ($s != null) {
             //$lifeEvents = LifeEvent::getBySoldierId($id);
-            $pageTitle = $person->last_name;
+            $pageTitle = $s->last_name;
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editPerson.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            die('Invalid person ID');
+            die('Invalid soldier ID');
         }
     }
 }
