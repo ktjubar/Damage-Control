@@ -33,7 +33,7 @@
         <?php if(!isset($_SESSION['username'])): ?>
         <button class="btn btn-default btn-block" onclick="document.getElementById('id01').style.display='block'">Login</button>
 
-        <div id="id01" class="modal">
+        <!-- <div id="id01" class="modal">
           <form class="modal-content" action="<?= BASE_URL ?>/login/process/" method="POST">
             <div>
               <label for="username">
@@ -51,11 +51,31 @@
               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
           </form>
+        </div> -->
+
+        <div class="modal hide" id="myModal">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">x</button>
+            <h3>Login to MyWebsite.com</h3>
+          </div>
+          <div class="modal-body">
+            <form method="post" action='' name="login_form">
+              <p><input type="text" class="span3" name="username" placeholder="Username"></p>
+              <p><input type="password" class="span3" name="password" placeholder="Password"></p>
+              <p><button type="submit" class="btn btn-primary">Sign in</button>
+                <a href="#">Forgot Password?</a>
+              </p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            New To MyWebsite.com?
+            <a href="#" class="btn btn-primary">Register</a>
+          </div>
         </div>
 
         <script>
           // Get the modal
-          var modal = document.getElementById('id01');
+          var modal = document.getElementById('myModal');
 
           // When the user clicks anywhere outside of the modal, close it
           window.onclick = function (event) {
