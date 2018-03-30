@@ -31,28 +31,6 @@
 
       <div class="col-md-2">
         <?php if(!isset($_SESSION['username'])): ?>
-        <!-- <button class="btn btn-default btn-block" onclick="document.getElementById('id01').style.display='block'">Login</button> -->
-
-        <!-- <div id="id01" class="modal">
-          <form class="modal-content" action="<?= BASE_URL ?>/login/process/" method="POST">
-            <div>
-              <label for="username">
-                <b>Username</b>
-              </label>
-              <input type="text" placeholder="Enter Username" name="username" required>
-
-              <label for="password">
-                <b>Password</b>
-              </label>
-              <input type="password" placeholder="Enter Password" name="password" required>
-
-              <button type="submit">Login</button>
-
-              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            </div>
-          </form>
-        </div> -->
-
         <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#loginModal">Login</button>
 
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -95,18 +73,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <script>
-          // Get the modal
-          var modal = document.getElementById('myModal');
-
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function (event) {
-            if (event.target == modal) {
-              modal.style.display = "none";
-            }
-          }
-        </script> -->
         <?php else: ?>
         <h4 class="text-center">Logged in as
           <?= $_SESSION['username'] ?>
@@ -137,7 +103,6 @@
           <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
         </li>
         <li class="nav-item<?php echo strcmp($category, 'map') ? '' : ' active' ?>">
-          <!-- <a class="nav-link" href="<?= BASE_URL ?>/maps/">Maps</a> -->
           <a class="nav-link" href="<?= BASE_URL ?>/">Maps</a>
         </li>
       </ul>
