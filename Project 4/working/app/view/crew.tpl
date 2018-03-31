@@ -4,7 +4,7 @@
     <h4><?= $crew->nick ?></h4><br>
     <p class="text-justify">Here's the description for this Crew! </p>
 
-    <?php foreach($crew->soldiers as $s) ?>
+    <?php foreach($crew->soldiers as $s): ?>
       <div class="row my-1 pt-3 border-top">
         <div class="col-md-3">
           <img class="img-responsive w-100 mb-1" src="" alt="" />
