@@ -141,7 +141,7 @@ class SoldierController
         if ($this->id != 0) {
             $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $db->escape($this->$id));
             $db->query($q); // execute query
-            header('Location: ' . BASE_URL . '/soldiers/view/' . $sID);exit();
+            header('Location: ' . BASE_URL . '/soldiers');exit();
         }
     }
 }
