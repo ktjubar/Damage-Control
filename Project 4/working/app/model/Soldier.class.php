@@ -186,7 +186,7 @@ class Soldier
     }
 
     public function numToRank() {
-        switch($rank) {
+        switch($this->$rank) {
           case 1:
             return "2nd Lietenant";
           case 2:
@@ -207,6 +207,8 @@ class Soldier
             return "Lieutenant General";
           case 10:
             return "General";
+          default:
+            return "No Rank Available";
         }
       }
 }
