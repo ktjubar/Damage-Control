@@ -1,13 +1,14 @@
 <form action="<?= BASE_URL ?>/crews/add/process/" method="POST">
   <div class="row mb-4">
-    <div class="col-md-8">
+    <div class="col-md-7">
       <h5>Crew Number: </h5><input type="number" name="id" required>
       <input type="text" name="name" placeholder="Crew name (including number)" style="width: 300px;" required>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5">
       <?php $unassigned = Soldier::getUnassigned();
             if(!empty($unassigned)): ?>
-        <select name="soldiers" multiple>
+        <h5>Select soldiers to add (hold CTRL to select multiple):</h5>
+        <select class="w-100" name="soldiers" multiple>
           <?php foreach($unassigned as $s): ?>
             <option value="<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></option>
           <?php endforeach; ?>
