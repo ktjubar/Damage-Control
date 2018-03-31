@@ -20,7 +20,7 @@ RewriteRule ^soldiers/view/(\d+)/?$ app/controller/soldierController.php?action=
 RewriteRule ^soldiers/add/?$ app/controller/soldierController.php?action=addSoldier [QSA,L]
 RewriteRule ^soldiers/add/process/?$ app/controller/soldierController.php?action=addSoldierProcess [QSA,L]
 RewriteRule ^soldiers/add/process/(\d+)/?$ app/controller/soldierController.php?action=addSoldierProcess&id=$1 [QSA,L]
-RewriteRule ^soldiers/edit/(\d+)/?$ app/controller/soldierController.php?action=editSoldiers&id=$1 [QSA,L]
+RewriteRule ^soldiers/edit/(\d+)/?$ app/controller/soldierController.php?action=editSoldier&id=$1 [QSA,L]
 RewriteRule ^soldiers/delete/(\d+)/?$ app/controller/soldierController.php?action=deleteSoldier&id=$1 [QSA,L]
 
 # Crew
