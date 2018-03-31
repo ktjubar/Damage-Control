@@ -26,11 +26,3 @@
       </form>
     </div>
   </div>
-
-<p>
-  Back end needs the following in POST:
-  <br>
-  $name = $_POST['name']; //required
-  <br>
-  $soldiers = $_POST[array]; //???
-</p>
