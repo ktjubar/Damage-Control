@@ -9,6 +9,7 @@ class Crew
     public $name = '';
     public $nick = '';
     public $soldiers = array();
+    public $remove = array();
     public $date_created = '';
     public $creator_id = 0;
 
@@ -83,5 +84,24 @@ class Crew
         $db->escape($this->creator_id),
         $db->escape($this->date_created)
         );
+
+        //Parse soldiers
+        if (!empty($this->soldiers)){
+            foreach($this->soldiers as $s) {
+                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
+                Soldier::DB_TABLE,
+                $db->escape($this->crewID),
+                $db->escape($s->ID));
+            }
+        }
+
+        if (!empty($this->remove)){
+            foreach($this->soldiers as $s) {
+                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
+                Soldier::DB_TABLE,
+                0,
+                $db->escape($s->ID));
+            }
+        }
     }
 }
