@@ -71,6 +71,7 @@ class Crew
 
     public function save()
     {
+        $db = Db::instance();
         if ($this->date_created != '') {
             $this->date_created = date("Y-m-d", time());
         }
@@ -84,6 +85,7 @@ class Crew
         $db->escape($this->creator_id),
         $db->escape($this->date_created)
         );
+        $db->query($q);
 
         //Parse soldiers
         if (!empty($this->soldiers)){
@@ -92,15 +94,17 @@ class Crew
                 Soldier::DB_TABLE,
                 $db->escape($this->crewID),
                 $db->escape($s->ID));
+                $db->query($q);
             }
         }
 
         if (!empty($this->remove)){
-            foreach($this->soldiers as $s) {
+            foreach($this->remove as $s) {
                 $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
                 Soldier::DB_TABLE,
                 0,
                 $db->escape($s->ID));
+                $db->query($q);
             }
         }
     }
