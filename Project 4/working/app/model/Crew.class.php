@@ -70,22 +70,18 @@ class Crew
 
     public function save()
     {
-        if ($this->id == 0) {
-            return $this->insert(); // crew is new and needs to be created
-        } else {
-            return $this->update(); // crew already exists and needs to be updated
+        if ($this->date_created != '') {
+            $this->date_created = date("Y-m-d", time());
         }
-    }
 
-    // TODO fix this
-    public function insert()
-    {
-        return null;
-    }
-
-    // TODO fix this
-    public function update()
-    {
-        return null; // return this object's ID
+        $q = sprintf("INSERT INTO `%s`(`Crew_ID`, `Name`, `Nickname`, `Creator_ID`, `Date_Created`)
+        VALUES (%d, %s, %s, %d, %s) ON CONFLICT (`Crew_ID`) DO UPDATE;",
+        self::DB_TABLE,
+        $db->escape($this->crewID),
+        $db->escape($this->name),
+        $db->escape($this->nick),
+        $db->escape($this->creator_id),
+        $db->escape($this->date_created)
+        );
     }
 }

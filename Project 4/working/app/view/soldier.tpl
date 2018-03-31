@@ -6,8 +6,12 @@
 
   <div class="col-md-8">
     <h2><?= $s->last_name.", ".$s->first_name ?> rank rankimage</h2>
-    <h3>birthdate</h3>
-    <h3>deathdate</h3>
+    <?php if(!isset($s->birthday)): ?>
+      <h3><?= $s->birthday ?></h3>
+    <?php endif; ?>
+    <?php if(!isset($s->deathday)): ?>
+      <h3><?= $s->deathday ?></h3>
+    <?php endif; ?>
   </div>
 
   <div class="col-md-1">
