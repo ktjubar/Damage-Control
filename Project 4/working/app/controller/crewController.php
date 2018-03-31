@@ -88,7 +88,8 @@ class CrewController
         $crewID = $_POST['crewID'];
         $name = $_POST['name'];
         $nick = $_POST['nickname'];
-        $soldiers = $_POST['soldiers'];;
+        $soldiers = $_POST['soldiers'];
+        $remove = $_POST['remove'];
 
         // first name and last name are required
         if (empty($crewID) || empty($name)) {
@@ -100,6 +101,7 @@ class CrewController
         $crew->name = $name;
         $crew->nick = $nick;
         $crew->soldiers = $soldiers;
+        $crew->remove = $remove;
 
         $crewID = $crew->save();
         header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
