@@ -130,6 +130,7 @@ class CrewController
             Soldier::DB_TABLE,
             $db->escape($this->$id));
             $db->query($q); // execute query
+            header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
         }
     }
 }
