@@ -178,7 +178,8 @@ class Soldier
             $db->escape($this->deathday),
             $db->escape($this->crewID),
             $db->escape($this->creator_id),
-            $db->escape($this->date_created)
+            $db->escape($this->date_created),
+            $db->escape($this->id)
         );
 
         $db->query($q); // execute query
