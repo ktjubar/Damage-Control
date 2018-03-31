@@ -90,7 +90,7 @@ class CrewController
     public function addCrewProcess($id)
     {
         // get POST variables
-        $crewID = $_POST['crewID'];
+        $crewID = $_POST['id'];
         $name = $_POST['name'];
         $nick = $_POST['nickname'];
         $soldiers = $_POST['soldiers'];
@@ -109,7 +109,7 @@ class CrewController
         $crew->remove = $remove;
 
         $crewID = $crew->save();
-        header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
+        //header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
     }
 
     public function editCrew($id)
