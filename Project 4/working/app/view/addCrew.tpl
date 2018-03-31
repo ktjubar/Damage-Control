@@ -1,20 +1,18 @@
 <form action="<?= BASE_URL ?>/crews/add/process/" method="POST">
   <div class="row mb-4">
-    <div class="col-md-12">
+    <div class="col-md-8">
       <h5>Crew Number: </h5><input type="number" name="id" required>
       <input type="text" name="name" placeholder="Crew name (including number)" style="width: 300px;" required>
-      <select name="rank">
-        <option value="1">2nd Lieutenant</option>
-        <option value="2">1st Lieutenant</option>
-        <option value="3">Captain</option>
-        <option value="4">Major</option>
-        <option value="5">Lieutenant Colonel</option>
-        <option value="6">Colonel</option>
-        <option value="7">Brigadier General</option>
-        <option value="8">Major General</option>
-        <option value="9">Lieutenant General</option>
-        <option value="10">General</option>
-      </select>
+    </div>
+    <div class="col-md-4">
+      <?php $unassigned = Soldier::getUnassigned();
+            if(!empty($unassigned)): ?>
+        <select name="soldiers" multiple>
+          <?php foreach($unassigned as $s): ?>
+            <option value="<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></option>
+          <?php endforeach; ?>
+        </select>
+      <?php endif; ?>
     </div>
   </div>
   <div class="row">
