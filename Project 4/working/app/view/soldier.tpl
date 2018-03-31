@@ -19,5 +19,9 @@
     <form action="<?= BASE_URL ?>/soldiers/edit/<?= $s->id ?>">
       <button class="btn btn-default btn-block button">Edit</button>
     </form>
+    <br>
+    <form action="<?= BASE_URL ?>/soldiers/delete/<?= $s->id ?>">
+      <button class="btn btn-default btn-block button">Delete</button>
+    </form>
   </div>
 </div>
