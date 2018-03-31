@@ -60,7 +60,7 @@ class CrewController
     {
         $crew = Crew::loadById($id);
         if ($crew != null) {
-            $pageTitle = $crew->crewID;
+            $pageTitle = $crew->name;
             $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';
@@ -109,7 +109,8 @@ class CrewController
     {
         $crew = Crew::loadById($id);
         if ($crew != null) {
-            $pageTitle = $crew->crewID;
+            $pageTitle = 'Edit '.$crew->name;
+            $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editPerson.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
