@@ -12,10 +12,10 @@
         <div class="col-md-9">
           <h3><a href="<?= BASE_URL ?>/soldiers/view/<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></a></h3>
           <?php if(isset($s->birthday)): ?>
-            <h4><?= $s->birthday ?></h4>
+            <h4>Born: <?= $s->birthday ?></h4>
           <?php endif; ?>
           <?php if(isset($s->deathday)): ?>
-            <h4><?= $s->deathday ?></h4>
+            <h4>Died: <?= $s->deathday ?></h4>
           <?php endif; ?>
         </div>
       </div><!-- person row -->
