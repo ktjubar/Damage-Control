@@ -41,6 +41,11 @@ class CrewController
                 $id = $_GET['id'];
                 $this->editCrew($id);
                 break;
+
+            case 'deleteCrew':
+                $id = $_GET['id'];
+                $this->deleteCrew($id);
+                break;
         }
 
     }
@@ -124,13 +129,14 @@ class CrewController
     }
 
     public function deleteCrew($id) {
-        if ($this->id != 0) {
-            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Crew::DB_TABLE, $db->escape($this->$id));
+        if ($id != 0) {
+            $db = Db::instance();
+            $q = sprintf("DELETE FROM `%s` WHERE `Crew_ID` = %d;", Crew::DB_TABLE, $db->escape($id));
             $db->query($q); // execute query
 
             $q = sprintf("UPDATE `%s` SET `Crew_ID` = 0 WHERE `Crew_ID` = %d;",
             Soldier::DB_TABLE,
-            $db->escape($this->$id));
+            $db->escape($id));
             $db->query($q); // execute query
             header('Location: ' . BASE_URL . '/crews');exit();
         }
