@@ -42,10 +42,8 @@ class Crew
             $result = $db->query($q);
             $soldiers = array();
             if ($result->num_rows != 0) {
-                $i = 0;
                 while ($row = $result->fetch_assoc()) {
-                    $soldiers[i] = Soldier::loadById($row['ID']);
-                    i++;
+                    $soldiers[] = Soldier::loadById($row['ID']);
                 }
             }
             $crew->soldiers = $soldiers;
