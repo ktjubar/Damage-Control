@@ -18,6 +18,7 @@
     </div>
     <div class="col-md-9">
       <h3><a href="<?= BASE_URL ?>/soldiers/view/<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></a></h3>
+      <h3><?= $s->numToRank() ?></h3>
       <?php if(isset($s->birthday)): ?>
         <h4>Born: <?= $s->birthday ?></h4>
       <?php endif; ?>

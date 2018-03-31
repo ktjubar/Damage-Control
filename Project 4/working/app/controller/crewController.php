@@ -112,7 +112,7 @@ class CrewController
             $pageTitle = 'Edit '.$crew->name;
             $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
-            include_once SYSTEM_PATH . '/view/editPerson.tpl';
+            include_once SYSTEM_PATH . '/view/editCrew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
             include_once SYSTEM_PATH . '/view/header.tpl';
