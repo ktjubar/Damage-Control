@@ -31,39 +31,48 @@
 
       <div class="col-md-2">
         <?php if(!isset($_SESSION['username'])): ?>
-        <button class="btn btn-default btn-block" onclick="document.getElementById('id01').style.display='block'">Login</button>
+        <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#loginModal">Login</button>
 
-        <div id="id01" class="modal">
-          <form class="modal-content" action="<?= BASE_URL ?>/login/process/" method="POST">
-            <div>
-              <label for="username">
-                <b>Username</b>
-              </label>
-              <input type="text" placeholder="Enter Username" name="username" required>
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="<?= BASE_URL ?>/login/process/" method="POST">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label for="username">
+                        <b>Username</b>
+                      </label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" placeholder="Enter Username" name="username" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label for="password">
+                        <b>Password</b>
+                      </label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="password" placeholder="Enter Password" name="password" required>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-default btn-block">Login</button>
+                </form>
+              </div>
+              <div class="modal-footer">
 
-              <label for="password">
-                <b>Password</b>
-              </label>
-              <input type="password" placeholder="Enter Password" name="password" required>
-
-              <button type="submit">Login</button>
-
-              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
-
-        <script>
-          // Get the modal
-          var modal = document.getElementById('id01');
-
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function (event) {
-            if (event.target == modal) {
-              modal.style.display = "none";
-            }
-          }
-        </script>
         <?php else: ?>
         <h4 class="text-center">Logged in as
           <?= $_SESSION['username'] ?>
@@ -94,7 +103,7 @@
           <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
         </li>
         <li class="nav-item<?php echo strcmp($category, 'map') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/maps/">Map</a>
+          <a class="nav-link" href="<?= BASE_URL ?>/">Maps</a>
         </li>
       </ul>
       <form class="form-inline ml-auto">

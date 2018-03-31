@@ -47,6 +47,7 @@ class CrewController
 
     public function crews()
     {
+        $crews = Crew::getCrews();
         $pageTitle = 'Browse Crews';
         $category = 'crews';
         include_once SYSTEM_PATH . '/view/header.tpl';
@@ -57,15 +58,17 @@ class CrewController
     // TODO update this to work with crew back-end
     public function viewCrew($id)
     {
-        $person = Person::loadById($id);
-        if ($person != null) {
-            $pageTitle = $person->last_name;
+        $crew = Crew::loadById($id);
+        if ($crew != null) {
+            $pageTitle = $crew->crewID;
             $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            die('Invalid soldier ID');
+            include_once SYSTEM_PATH . '/view/header.tpl';
+            die('Invalid crew ID');
+            include_once SYSTEM_PATH . '/view/footer.tpl';
         }
     }
 
@@ -82,67 +85,50 @@ class CrewController
     public function addCrewProcess($id)
     {
         // get POST variables
-        $firstName = $_POST['first']; // required
-        $middleName = $_POST['middle'];
-        $lastName = $_POST['last']; // required
-        $birth = $_POST['dob'];
-        $death = $_POST['dod'];
-        $married = $_POST['dom'];
-        $mf = $_POST['gender'];
+        $crewID = $_POST['crewID'];
+        $name = $_POST['name'];
+        $nick = $_POST['nickname'];
+        $soldiers = $_POST['soldiers'];;
 
         // first name and last name are required
-        if (empty($firstName) || empty($lastName)) {
-            header('Location: ' . BASE_URL . '/family/add/');exit();
-        }
-        $fileName = $firstName . "-" . $lastName . "-" . basename($_FILES["image"]["name"]);
-        $target_file = "../../public/img/" . $fileName;
-        $imgType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-            } else {
-                echo "File is not an image.";
-                $fileName = '';
-            }
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-                $fileName = '';
-            }
-        } else {
-            $fileName = '';
+        if (empty($crewID) || empty($name)) {
+            header('Location: ' . BASE_URL . '/crews/add/');exit();
         }
 
-        $person = new Person();
-        $person->id = $id;
-        $person->first_name = $firstName;
-        $person->last_name = $lastName;
-        $person->middle_name = $middleName;
-        $person->picture_file = $fileName;
-        $person->creator_id = 1; // hard coded user ID for now
-        $person->birthday = $birth;
-        $person->deathday = $death;
-        $person->married = $married;
-        $person->date_created = '';
-        $person->gender = $mf;
+        $crew = new Crew();
+        $crew->crewID = $crewID;
+        $crew->name = $name;
+        $crew->nick = $nick;
+        $crew->soldiers = $soldiers;
 
-        $personID = $person->save();
-        header('Location: ' . BASE_URL . '/family/view/' . $personID);exit();
+        $crewID = $crew->save();
+        header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
     }
 
     public function editCrew($id)
     {
-        $person = Person::loadById($id);
-        if ($person != null) {
-            //$lifeEvents = LifeEvent::getBySoldierId($id);
-            $pageTitle = $person->last_name;
+        $crew = Crew::loadById($id);
+        if ($crew != null) {
+            $pageTitle = $crew->crewID;
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editPerson.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
+            include_once SYSTEM_PATH . '/view/header.tpl';
             die('Invalid person ID');
+            include_once SYSTEM_PATH . '/view/footer.tpl';
+        }
+    }
+
+    public function deleteCrew($id) {
+        if ($this->id != 0) {
+            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Crew::DB_TABLE, $db->escape($this->$id));
+            $db->query($q); // execute query
+
+            $q = sprintf("UPDATE `%s` SET `Crew_ID` = 0 WHERE `Crew_ID` = %d;",
+            Soldier::DB_TABLE,
+            $db->escape($this->$id));
+            $db->query($q); // execute query
         }
     }
 }

@@ -95,3 +95,61 @@
     </div>
   </div>
 </footer>
+
+<!-- old login box -->
+<button class="btn btn-default btn-block" onclick="document.getElementById('id01').style.display='block'">Login</button> -->
+
+<div id="id01" class="modal">
+  <form class="modal-content" action="<?= BASE_URL ?>/login/process/" method="POST">
+    <div>
+      <label for="username">
+        <b>Username</b>
+      </label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="password">
+        <b>Password</b>
+      </label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+
+      <button type="submit">Login</button>
+
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+  </form>
+</div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById('myModal');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<!-- script for blueimp-gallery -->
+
+<script src="<?= BASE_URL ?>/public/js/blueimp-gallery.min.js"></script>
+<script>
+  document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+      link = target.src ? target.parentNode : target,
+      options = { index: link, event: event },
+      links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+  };
+</script>
+<script>
+  blueimp.Gallery(
+    document.getElementById('links').getElementsByTagName('a'),
+    {
+      container: '#blueimp-gallery-carousel',
+      carousel: true
+    }
+  );
+</script>
