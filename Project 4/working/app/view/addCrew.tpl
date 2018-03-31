@@ -7,7 +7,7 @@
     <div class="col-md-4">
       <?php $unassigned = Soldier::getUnassigned();
             if(!empty($unassigned)): ?>
-        <select name="soldiers" multiple>
+        <select class="w-100" name="soldiers" multiple>
           <?php foreach($unassigned as $s): ?>
             <option value="<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></option>
           <?php endforeach; ?>
