@@ -8,11 +8,11 @@
   </div>
 
   <div class="col-md-1">
-    <form action="<?= BASE_URL ?>/crews/edit/<?= $s->id ?>">
+    <form action="<?= BASE_URL ?>/crews/edit/<?= $crew->crewID ?>">
       <button class="btn btn-default btn-block button">Edit</button>
     </form>
     <br>
-    <form action="<?= BASE_URL ?>/crews/delete/<?= $s->id ?>">
+    <form action="<?= BASE_URL ?>/crews/delete/<?= $crew->crewID ?>">
       <button class="btn btn-default btn-block button">Delete</button>
     </form>
   </div>
