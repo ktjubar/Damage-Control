@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-7 p-2 px-3">
-    <h3><?= $crew->name ?></h3><br>
-    <h4><?= $crew->nick ?></h4><br>
+    <h3><?= $crew->name ?>
+    <?php if(isset($crew->nick)): ?>
+      <small>- <?= $crew->nick ?></small>
+    <?php endif; ?></h3><br>
     <p class="text-justify">Here's the description for this Crew! </p>
 
     <?php foreach($crew->soldiers as $s): ?>
