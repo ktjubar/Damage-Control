@@ -103,7 +103,7 @@
           <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
         </li>
         <li class="nav-item<?php echo strcmp($category, 'map') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/">Maps</a>
+          <a class="nav-link" href="<?= BASE_URL ?>/news/">News</a>
         </li>
       </ul>
       <form class="form-inline ml-auto">
