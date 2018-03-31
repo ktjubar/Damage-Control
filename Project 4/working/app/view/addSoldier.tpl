@@ -20,8 +20,8 @@
         <option value="9">Lieutenant General</option>
         <option value="10">General</option>
       </select><br><br>
-      <h5>Born: </h5><input type="date" name="dob"><br><br>
-      <h5>Died: </h5><input type="date" name="dod"><br>
+      <h5>Born (leave blank if unknown): </h5><input type="date" name="dob"><br><br>
+      <h5>Died (leave blank if unknown): </h5><input type="date" name="dod"><br>
     </div>
   </div>
   <div class="row">
