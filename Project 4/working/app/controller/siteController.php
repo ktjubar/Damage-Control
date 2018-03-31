@@ -20,10 +20,6 @@ class SiteController
                 $this->home();
                 break;
 
-            case 'map':
-                $this->map();
-                break;
-
             case 'loginProcess':
                 $username = $_POST['username'];
                 $password = $_POST['password'];
@@ -32,6 +28,10 @@ class SiteController
 
             case 'logout':
                 $this->logoutProcess();
+                break;
+
+            case 'news':
+                $this->getNews();
                 break;
 
             // case 'about':
@@ -50,15 +50,6 @@ class SiteController
         $category = 'home';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
-        include_once SYSTEM_PATH . '/view/footer.tpl';
-    }
-
-    public function map()
-    {
-        $pageTitle = 'Map';
-        $category = 'map';
-        include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/map.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
@@ -82,6 +73,12 @@ class SiteController
         unset($_SESSION['username']); // not necessary, but just to be safe
         session_destroy();
         header('Location: ' . BASE_URL);exit(); // send us to home page
+    }
+
+    public function getNews() {
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/news.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
     // public function about()
