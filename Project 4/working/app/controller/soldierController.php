@@ -126,6 +126,7 @@ class SoldierController
         if ($s != null) {
             //$lifeEvents = LifeEvent::getBySoldierId($id);
             $pageTitle = $s->last_name;
+            $category = 'soldiers';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editPerson.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
