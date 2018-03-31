@@ -89,11 +89,11 @@ class SiteController
         shuffle($items);
         $article = $items[0];
         $title = $article->title;
-        
+
         $site = $article->url;
         $data = file_get_contents($site);
         $json = json_decode($data);
-        $pdf = $data->pdf;
+        $pdf = $json->{'pdf'};
         
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/news.tpl';
