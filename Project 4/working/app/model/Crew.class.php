@@ -81,7 +81,7 @@ class Crew
         $db->escape($this->name),
         $db->escape($this->nick),
         $db->escape($this->creator_id),
-        $db->escape($this->date_created),
+        $db->escape($this->date_created)
         );
     }
 }
