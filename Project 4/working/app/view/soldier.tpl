@@ -5,7 +5,8 @@
   </div>
 
   <div class="col-md-8">
-    <h2><?= $s->last_name.", ".$s->first_name ?> rank rankimage</h2>
+    <h2><?= $s->last_name.", ".$s->first_name ?></h2><br>
+    <h3><?= $s->numToRank() ?></h3>
     <?php if(isset($s->birthday)): ?>
       <h3>Born: <?= $s->birthday ?></h3>
     <?php endif; ?>

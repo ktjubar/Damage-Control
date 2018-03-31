@@ -186,7 +186,7 @@ class Soldier
     }
 
     public function numToRank() {
-        switch($this->$rank) {
+        switch($this->rank) {
           case 1:
             return "2nd Lietenant";
           case 2:
