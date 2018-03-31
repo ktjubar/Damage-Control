@@ -94,7 +94,9 @@ class SiteController
         $data = file_get_contents($site);
         $json = json_decode($data);
         $pdf = $json->{'pdf'};
-        
+
+        $category = 'news';
+
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/news.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

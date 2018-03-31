@@ -102,7 +102,7 @@
         <li class="nav-item<?php echo strcmp($category, 'soldiers') ? '' : ' active' ?>">
           <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
         </li>
-        <li class="nav-item<?php echo strcmp($category, 'map') ? '' : ' active' ?>">
+        <li class="nav-item<?php echo strcmp($category, 'news') ? '' : ' active' ?>">
           <a class="nav-link" href="<?= BASE_URL ?>/news/">News</a>
         </li>
       </ul>
