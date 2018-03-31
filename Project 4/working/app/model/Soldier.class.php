@@ -1,5 +1,7 @@
 <?php
 
+require_once '../utility.php';
+
 class Soldier
 {
     const DB_TABLE = 'Soldiers'; // database table name
@@ -16,6 +18,7 @@ class Soldier
     public $deathday = '';
     public $rank = 0;
     public $crewID = 0;
+    public $rank_string = '';
 
     // return a Person object by ID
     public static function loadById($id)
@@ -47,6 +50,7 @@ class Soldier
             $soldier->deathday = $row['Date_of_Death'];
             $soldier->rank = $row['Rank'];
             $soldier->crewID = $row['Crew_ID'];
+            // $soldier->rank_string = numToRank($soldier->id);
 
             return $soldier; // return the person
         }
