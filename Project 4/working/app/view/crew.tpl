@@ -12,9 +12,30 @@
       <button class="btn btn-default btn-block button">Edit</button>
     </form>
     <br>
-    <form action="<?= BASE_URL ?>/crews/delete/<?= $crew->crewID ?>">
-      <button class="btn btn-default btn-block button">Delete</button>
-    </form>
+    <button class="btn btn-default btn-block button" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
+
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteConfirmModalLabel">Delete forever?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="<?= BASE_URL ?>/crews/delete/<?= $crew->crewID ?>" method="POST">
+              <button type="submit" class="btn btn-default btn-block">Delete</button>
+            </form>
+            <br>
+            <button class="btn btn-default btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+          </div>
+          <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- <div class="col-sm-5 p-2 px-3">
