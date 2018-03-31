@@ -42,7 +42,7 @@ class SoldierController
                 $this->editSoldier($id);
                 break;
 
-            case 'delete':
+            case 'deleteSoldier':
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                     $this->deleteSoldier($id);
@@ -138,8 +138,9 @@ class SoldierController
     }
 
     public function deleteSoldier($id) {
-        if ($this->id != 0) {
-            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $db->escape($this->$id));
+        if ($id != 0) {
+            $db = Db::instance(); // connect to db
+            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $db->escape($id));
             $db->query($q); // execute query
             header('Location: ' . BASE_URL . '/soldiers');exit();
         }
