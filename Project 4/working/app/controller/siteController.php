@@ -95,7 +95,6 @@ class SiteController
         $json = json_decode($data);
         $pdf = $json->{'pdf'};
 
-        $pageTitle = 'News';
         $category = 'news';
 
         include_once SYSTEM_PATH . '/view/header.tpl';

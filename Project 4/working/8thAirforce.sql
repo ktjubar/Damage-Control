@@ -74,28 +74,6 @@ INSERT INTO `Soldiers` (`ID`, `First_Name`, `Last_Name`, `Rank`, `Date_of_Birth`
 (1004, 'Melvin', 'Hecker', 4, NULL, '1975-03-01', 381, 1, '2018-03-29 20:39:58'),
 (1005, 'Conway', 'Hall', 6, NULL, NULL, 381, 1, '2018-03-29 20:44:59');
 
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `email` varchar(200) DEFAULT NULL,
-  `role` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`) VALUES
-(1, 'maryh15', 'password', 'maryh15@vt.edu', 2),
-(2, 'ktjubar', 'klob', 'ktjubar@vt.edu', 1);
-(3, 'Mihir', 'Mallya', 'mmihir@vt.edu', 1);
-(4, 'Carl', 'Yao', 'mmk9624@vt.edu', 1);
 --
 -- Indexes for dumped tables
 --
@@ -113,13 +91,6 @@ ALTER TABLE `Soldiers`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Crew_ID` (`Crew_ID`);
 
-  --
-  -- Indexes for table `user`
-  --
-  ALTER TABLE `user`
-    ADD PRIMARY KEY (`id`);
-
-
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -129,13 +100,6 @@ ALTER TABLE `Soldiers`
 --
 ALTER TABLE `Soldiers`
   MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
-COMMIT;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
