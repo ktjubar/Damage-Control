@@ -3,7 +3,7 @@
     <h3>Browse Users</h3>
   </div>
   <div class="col-sm-3">
-    
+
   </div>
 </div>
 
