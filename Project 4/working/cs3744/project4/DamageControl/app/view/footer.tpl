@@ -7,7 +7,8 @@
           <a href="<?= BASE_URL ?>">Home</a> |
           <a href="<?= BASE_URL ?>/crews/">Crews</a> |
           <a href="<?= BASE_URL ?>/soldiers/">Soldiers</a> |
-          <a href="<?= BASE_URL ?>/news/">News</a>
+          <a href="<?= BASE_URL ?>/news/">News</a> |
+          <a href="<?= BASE_URL ?>/users/browse/">Users</a>
         </div>
       </div>
       <div class="col-sm-4">
