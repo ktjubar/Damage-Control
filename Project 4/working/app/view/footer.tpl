@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="foot-links text-center">
-          <a href="<?= BASE_URL ?>">Home</a> |
+          <a href="<?= BASE_URL ?>">Home!</a> |
           <a href="<?= BASE_URL ?>/crews/">Crews</a> |
           <a href="<?= BASE_URL ?>/soldiers/">Soldiers</a> |
           <a href="<?= BASE_URL ?>/news/">News</a>
