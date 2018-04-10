@@ -105,6 +105,9 @@
         <li class="nav-item<?php echo strcmp($category, 'news') ? '' : ' active' ?>">
           <a class="nav-link" href="<?= BASE_URL ?>/news/">News</a>
         </li>
+        <li class="nav-item<?php echo strcmp($category, 'users') ? '' : ' active' ?>">
+          <a class="nav-link" href="<?= BASE_URL ?>/users/browse/">Users</a>
+        </li>
       </ul>
       <form class="form-inline ml-auto">
         <button class="btn btn-light my-2 my-sm-0" type="submit">
