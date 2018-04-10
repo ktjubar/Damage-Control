@@ -79,8 +79,52 @@ class User {
     }
   }
 
-  public function insert() {}
+  public function insert() {
+    if($this->id != 0)
+      return null; // can't insert something that already has an ID
 
-  public function update() {}
+    $db = Db::instance(); // connect to db
+    // build query
+
+    $q = sprintf("INSERT INTO `%s` (`id`, `username`, `password`, `email`, `role`)
+    VALUES (%s, %s, %s, %s, %d);",
+      self::DB_TABLE,
+      $db->escape($this->id),
+      $db->escape($this->username),
+      $db->escape($this->password),
+      $db->escape($this->email),
+      $db->escape($this->role),
+      );
+    //echo $q;
+    $db->query($q); // execute query
+    $this->id = $db->getInsertID(); // set the ID for the new object
+    return $this->id;
+  }
+
+  public function update() {
+    if($this->id == 0)
+      return null; // can't update something without an ID
+
+    $db = Db::instance(); // connect to db
+
+    // build query
+    $q = sprintf("UPDATE `%s` SET
+      `id`        = %s,
+      `username`  = %s,
+      `password`  = %s,
+      `email`     = %s,
+      `role`      = %d
+      WHERE `id` = %d;",
+      self::DB_TABLE,
+      $db->escape($this->id),
+      $db->escape($this->username),
+      $db->escape($this->password),
+      $db->escape($this->email),
+      $db->escape($this->role),
+      );
+    $db->query($q); // execute query
+    return $db->id; // return this object's ID
+
+  }
 
 }
