@@ -77,9 +77,19 @@
         <h4 class="text-center">Logged in as
           <?= $_SESSION['username'] ?>
         </h4>
-        <form action="<?= BASE_URL ?>/logout/">
-          <button class="btn btn-default btn-block" type="submit">Logout</button>
-        </form>
+        <div class="row">
+          <div class="col-md-6">
+            <form method="get" action="<?= BASE_URL ?>/users/myProfile/">
+              <button class="btn btn-default btn-block button"><span style="font-size:smaller;">My Profile</span></button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <form action="<?= BASE_URL ?>/logout/">
+              <button class="btn btn-default btn-block" type="submit">Logout</button>
+            </form>
+
+          </div>
+        </div>
         <?php endif; ?>
       </div>
     </div>
@@ -104,6 +114,9 @@
         </li>
         <li class="nav-item<?php echo strcmp($category, 'news') ? '' : ' active' ?>">
           <a class="nav-link" href="<?= BASE_URL ?>/news/">News</a>
+        </li>
+        <li class="nav-item<?php echo strcmp($category, 'users') ? '' : ' active' ?>">
+          <a class="nav-link" href="<?= BASE_URL ?>/users/browse/">Users</a>
         </li>
       </ul>
       <form class="form-inline ml-auto">
