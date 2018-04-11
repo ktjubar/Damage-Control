@@ -123,7 +123,7 @@ class User {
       $db->escape($this->username),
       $db->escape($this->password),
       $db->escape($this->email),
-      $db->escape($this->role),
+      $db->escape($this->role)
       );
     //echo $q;
     $db->query($q); // execute query
