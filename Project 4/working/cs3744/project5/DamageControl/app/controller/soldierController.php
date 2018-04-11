@@ -117,6 +117,13 @@ class SoldierController
         $s->rank = $rank;
 
         $sID = $s->save();
+
+        $feed = new Feed();
+        $feed->creator_id = $_SESSION['user_id'];
+        $feed->soldier_name = $firstName.$lastName;
+        $feed->type = 'addSoldier';
+        $feed->save();
+
         header('Location: ' . BASE_URL . '/soldiers/view/' . $sID);exit();
     }
 
