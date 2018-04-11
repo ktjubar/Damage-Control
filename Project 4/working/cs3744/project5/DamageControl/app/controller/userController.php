@@ -43,6 +43,14 @@ class UserController
     {
         // check password against username
         $user = User::loadByUsername($un);
+        if (password_verify($pw, $user->getHashedPass())) {
+            // log in
+            $_SESSION['username'] = $un;
+            header('refresh');
+        } else {
+            // invalid password
+            header('Location: ' . BASE_URL);exit();
+        }
     }
 
     public function logoutProcess()

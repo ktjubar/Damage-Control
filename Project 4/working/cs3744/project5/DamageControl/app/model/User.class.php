@@ -1,7 +1,7 @@
 <?php
 
 class User {
-  const DB_TABLE = 'user'; // database table name
+  const DB_TABLE = 'User'; // database table name
 
   const roles = array(
       'new' => 0,
@@ -29,7 +29,7 @@ class User {
   public static function loadById($id) {
       $db = Db::instance(); // create db connection
       // build query
-      $q = sprintf("SELECT * FROM `%s` WHERE id = %d;",
+      $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;",
               self::DB_TABLE,
               $id
           );
@@ -46,8 +46,8 @@ class User {
           $user->id           = $row['ID'];
           $user->username     = $row['User'];
           $user->firstname    = $row['First_Name'];
-          $user->$lastname    = $row['Last_Name'];
-          $user->$middlename  = $row['Middle_Name'];
+          $user->lastname     = $row['Last_Name'];
+          $user->middlename   = $row['Middle_Name'];
           $user->password     = $row['Pass'];
           $user->email        = $row['Email'];
           $user->role         = $row['Auth_Level'];
@@ -59,7 +59,7 @@ class User {
   public static function loadByUsername($username) {
       $db = Db::instance(); // create db connection
       // build query
-      $q = sprintf("SELECT * FROM `%s` WHERE username = '%s';",
+      $q = sprintf("SELECT * FROM `%s` WHERE User = '%s';",
               self::DB_TABLE,
               $username
           );
@@ -76,8 +76,8 @@ class User {
         $user->id           = $row['ID'];
         $user->username     = $row['User'];
         $user->firstname    = $row['First_Name'];
-        $user->$lastname    = $row['Last_Name'];
-        $user->$middlename  = $row['Middle_Name'];
+        $user->lastname     = $row['Last_Name'];
+        $user->middlename   = $row['Middle_Name'];
         $user->password     = $row['Pass'];
         $user->email        = $row['Email'];
         $user->role         = $row['Auth_Level'];
@@ -86,6 +86,20 @@ class User {
       }
   }
 
+  /**
+   *  Gets the hashed password for this user from the database
+   */
+  public function getHashedPass() {
+      $db = Db::instance();
+      $q = sprintf("SELECT Pass FROM `%s` WHERE User = '%s';",
+              self::DB_TABLE,
+              $this->$username
+          );
+
+      $result = $db->query($q);   // don't have to check if it returned because we know it did since this is an object method
+      $row = $result->fetch_assoc();
+      return $row['Pass'];
+  }
 
   public function save(){
     if($this->id == 0) {
