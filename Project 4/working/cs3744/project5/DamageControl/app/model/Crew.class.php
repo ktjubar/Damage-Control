@@ -39,7 +39,7 @@ class Crew
             $crew->creator_id = $row['Creator_ID'];
 
             //Get the soldiers in this crew
-            $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $id);
+            $q = sprintf("SELECT * FROM `%s` WHERE Crew_ID = %d;", Soldier::DB_TABLE, $id);
             $result = $db->query($q);
             $soldiers = array();
             if ($result->num_rows != 0) {
@@ -90,7 +90,7 @@ class Crew
         //Parse soldiers
         if (!empty($this->soldiers)){
             foreach($this->soldiers as $s) {
-                $q = sprintf("UPDATE `%s` SET `ID = %d WHERE `ID` = %d;",
+                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `Crew_ID` = %d;",
                 Soldier::DB_TABLE,
                 $db->escape($this->crewID),
                 $db->escape($s->ID));
@@ -100,7 +100,7 @@ class Crew
 
         if (!empty($this->remove)){
             foreach($this->remove as $s) {
-                $q = sprintf("UPDATE `%s` SET `ID = %d WHERE `ID` = %d;",
+                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `Crew_ID` = %d;",
                 Soldier::DB_TABLE,
                 0,
                 $db->escape($s->ID));
