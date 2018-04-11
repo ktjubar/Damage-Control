@@ -1,7 +1,7 @@
 <?php
 
 class User {
-  const DB_TABLE = 'User'; // database table name
+  const DB_TABLE = 'Users'; // database table name
 
   const roles = array(
       'new' => 0,
