@@ -18,7 +18,7 @@ class Crew
     {
         $db = Db::instance(); // create db connection
         // build query
-        $q = sprintf("SELECT * FROM `%s` WHERE Crew_ID = %d;",
+        $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;",
             self::DB_TABLE,
             $id
         );
@@ -32,14 +32,14 @@ class Crew
             $crew = new Crew(); // instantiate new Soldier object
 
             // store db results in local object
-            $crew->crewID = $row['Crew_ID'];
+            $crew->crewID = $row['ID'];
             $crew->name = $row['Name'];
             $crew->nick = $row['Nickname'];
             $crew->date_created = $row['Date_Created'];
             $crew->creator_id = $row['Creator_ID'];
 
             //Get the soldiers in this crew
-            $q = sprintf("SELECT * FROM `%s` WHERE Crew_ID = %d;", Soldier::DB_TABLE, $id);
+            $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $id);
             $result = $db->query($q);
             $soldiers = array();
             if ($result->num_rows != 0) {
@@ -57,13 +57,13 @@ class Crew
     public static function getCrews()
     {
         $db = Db::instance();
-        $q = "SELECT Crew_ID FROM `" . self::DB_TABLE . "` ORDER BY Crew_ID ASC;";
+        $q = "SELECT ID FROM `" . self::DB_TABLE . "` ORDER BY ID ASC;";
         $result = $db->query($q);
 
         $crews = array();
         if ($result->num_rows != 0) {
             while ($row = $result->fetch_assoc()) {
-                $crews[] = self::loadById($row['Crew_ID']);
+                $crews[] = self::loadById($row['ID']);
             }
         }
         return $crews;
@@ -76,8 +76,8 @@ class Crew
             $this->date_created = date("Y-m-d", time());
         }
 
-        $q = sprintf("INSERT INTO `%s`(`Crew_ID`, `Name`, `Nickname`, `Creator_ID`, `Date_Created`)
-        VALUES (%d, %s, %s, %d, %s) ON CONFLICT (`Crew_ID`) DO UPDATE;",
+        $q = sprintf("INSERT INTO `%s`(`ID`, `Name`, `Nickname`, `Creator_ID`, `Date_Created`)
+        VALUES (%d, %s, %s, %d, %s) ON CONFLICT (`ID`) DO UPDATE;",
         self::DB_TABLE,
         $db->escape($this->crewID),
         $db->escape($this->name),
@@ -90,7 +90,7 @@ class Crew
         //Parse soldiers
         if (!empty($this->soldiers)){
             foreach($this->soldiers as $s) {
-                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
+                $q = sprintf("UPDATE `%s` SET `ID = %d WHERE `ID` = %d;",
                 Soldier::DB_TABLE,
                 $db->escape($this->crewID),
                 $db->escape($s->ID));
@@ -100,7 +100,7 @@ class Crew
 
         if (!empty($this->remove)){
             foreach($this->remove as $s) {
-                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
+                $q = sprintf("UPDATE `%s` SET `ID = %d WHERE `ID` = %d;",
                 Soldier::DB_TABLE,
                 0,
                 $db->escape($s->ID));
