@@ -1,7 +1,7 @@
 <?php
 
 class Feed {
-  const DB_TABLE = 'feed_activity'; // database table name
+  const DB_TABLE = 'Feed_Activity'; // database table name
 
   // database fields for this table
   public $id = 0;

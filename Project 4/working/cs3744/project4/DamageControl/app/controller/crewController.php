@@ -109,6 +109,13 @@ class CrewController
         $crew->remove = $remove;
 
         $crewID = $crew->save();
+
+        $feed = new Feed();
+        $feed->creator_id = $_SESSION['user_id'];
+        $feed->soldier_name = $Name;
+        $feed->type = 'addCrew';
+        $feed->save();
+
         //header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
     }
 
