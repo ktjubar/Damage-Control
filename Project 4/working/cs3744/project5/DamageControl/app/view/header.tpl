@@ -84,7 +84,7 @@
             </form>
           </div>
           <div class="col-md-6">
-            <form action="<?= BASE_URL ?>/logout/">
+            <form action="<?= BASE_URL ?>/logout/process/">
               <button class="btn btn-default btn-block" type="submit">Logout</button>
             </form>
 

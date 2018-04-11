@@ -41,17 +41,8 @@ class UserController
 
     public function loginProcess($un, $pw)
     {
-        $correctUsername = 'admin';
-        $correctPassword = 'admin';
-
-        if ($un != $correctUsername) {
-            header('Location: ' . BASE_URL);
-        } elseif ($pw != $correctPassword) {
-            header('Location: ' . BASE_URL);
-        } else {
-            $_SESSION['username'] = $un;
-            header('Location: ' . BASE_URL);
-        }
+        // check password against username
+        $user = User::loadByUsername($un);
     }
 
     public function logoutProcess()
