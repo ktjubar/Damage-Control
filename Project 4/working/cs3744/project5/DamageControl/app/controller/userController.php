@@ -16,6 +16,16 @@ class UserController
     public function route($action)
     {
         switch ($action) {
+            case 'loginProcess':
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $this->loginProcess($username, $password);
+                break;
+
+            case 'logoutProcess':
+                $this->logoutProcess();
+                break;
+
             case 'profile':
                 if(isset($_GET['id']))
                     $this->viewPerson($_GET['id']);
@@ -27,6 +37,27 @@ class UserController
                 $this->browse();
                 break;
         }
+    }
+
+    public function loginProcess($un, $pw)
+    {
+        // check password against username
+        $user = User::loadByUsername($un);
+        if (password_verify($pw, $user->getHashedPass())) {
+            // log in
+            $_SESSION['username'] = $un;
+            header('refresh');
+        } else {
+            // invalid password
+            header('Location: ' . BASE_URL);exit();
+        }
+    }
+
+    public function logoutProcess()
+    {
+        unset($_SESSION['username']); // not necessary, but just to be safe
+        session_destroy();
+        header('Location: ' . BASE_URL);exit(); // send us to home page
     }
 
     public function viewPerson($id)

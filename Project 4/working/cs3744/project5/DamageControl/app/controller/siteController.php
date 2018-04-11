@@ -20,16 +20,6 @@ class SiteController
                 $this->home();
                 break;
 
-            case 'loginProcess':
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-                $this->loginProcess($username, $password);
-                break;
-
-            case 'logout':
-                $this->logoutProcess();
-                break;
-
             case 'news':
                 $q = "8th air force";
                 if (isset($_GET['query'])) {
@@ -55,28 +45,6 @@ class SiteController
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
-    }
-
-    public function loginProcess($un, $pw)
-    {
-        $correctUsername = 'admin';
-        $correctPassword = 'admin';
-
-        if ($un != $correctUsername) {
-            header('Location: ' . BASE_URL);
-        } elseif ($pw != $correctPassword) {
-            header('Location: ' . BASE_URL);
-        } else {
-            $_SESSION['username'] = $un;
-            header('Location: ' . BASE_URL);
-        }
-    }
-
-    public function logoutProcess()
-    {
-        unset($_SESSION['username']); // not necessary, but just to be safe
-        session_destroy();
-        header('Location: ' . BASE_URL);exit(); // send us to home page
     }
 
     public function getNews($q) {
