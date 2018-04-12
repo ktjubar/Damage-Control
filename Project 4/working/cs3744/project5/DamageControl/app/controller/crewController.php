@@ -147,7 +147,7 @@ class CrewController
         if ($id != 0) {
             $feed = new Feed();
             $feed->creator_id = $_SESSION['user_id'];
-            $feed->crew_id = $id;
+            $feed->crew_id = $crew->name;
             $feed->type = 'deleteCrew';
             $feed->save();
 

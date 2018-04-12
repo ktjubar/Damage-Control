@@ -21,24 +21,28 @@ function formatEvent($event) {
 
     case 'deleteSoldier':
       $creator = User::loadById($event->creator_id);
-      $soldier = Soldier::loadById($event->soldier_id);
-      $name = $soldier->first_name.' '.$soldier->last_name;
 
-      $str = '<strong>'.$creator->username.'</strong> deleted the soldier <strong>'.$name.'</strong>. <small>('.time2str($event->date_created).')</small>';
+      $str = '<strong>'.$creator->username.'</strong> deleted the soldier <strong>'.$event->delete_name.'</strong>. <small>('.time2str($event->date_created).')</small>';
       break;
 
     case 'addCrew':
       $creator = User::loadById($event->creator_id);
       $crew = Crew::loadById($event->crew_id);
 
-      $str = '<strong>'.$creator->username.'</strong> added the crew <strong>'.$crew->$name.'</strong>. <small>('.time2str($event->date_created).')</small>';
+      $str = '<strong>'.$creator->username.'</strong> added the crew <strong>'.$crew->name.'</strong>. <small>('.time2str($event->date_created).')</small>';
       break;
 
     case 'editCrew':
       $creator = User::loadById($event->creator_id);
       $crew = Crew::loadById($event->crew_id);
 
-      $str = '<strong>'.$creator->username.'</strong> edited the crew <strong>'.$crew->$name.'</strong>. <small>('.time2str($event->date_created).')</small>';
+      $str = '<strong>'.$creator->username.'</strong> edited the crew <strong>'.$crew->name.'</strong>. <small>('.time2str($event->date_created).')</small>';
+      break;
+
+    case 'deleteCrew':
+      $creator = User::loadById($event->creator_id);
+
+      $str = '<strong>'.$creator->username.'</strong> edited the crew <strong>'.$event->delete_name.'</strong>. <small>('.time2str($event->date_created).')</small>';
       break;
 
     default:

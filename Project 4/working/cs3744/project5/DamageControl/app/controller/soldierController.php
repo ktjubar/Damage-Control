@@ -152,10 +152,11 @@ class SoldierController
     }
 
     public function deleteSoldier($id) {
+        $s = Soldier::loadByID($id);
         if ($id != 0) {
             $feed = new Feed();
             $feed->creator_id = $_SESSION['user_id'];
-            $feed->soldier_id = $id;
+            $feed->delete_name = $s->first_name.' '.$s->last_name;
             $feed->type = 'deleteSoldier';
             $feed->save();
 
