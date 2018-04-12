@@ -7,13 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.png">
   <title>The Mighty Eighth | <?= $pageTitle ?></title>
+  <!-- styles -->
   <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/blueimp-gallery.min.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
+  <!-- scripts -->
   <script src="<?= BASE_URL ?>/public/js/jquery-3.3.1.min.js"></script>
   <script src="<?= BASE_URL ?>/public/js/bootstrap.min.js"></script>
   <script src="<?= BASE_URL ?>/public/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= BASE_URL ?>/public/js/js.cookie.js"></script>
   <script src="<?= BASE_URL ?>/public/js/scripts.js"></script>
 </head>
 
@@ -95,7 +98,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-sm navbar-light bg-faded sticky-top">
+  <nav id="mainNav" class="navbar navbar-expand-sm navbar-light bg-faded sticky-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -125,6 +128,7 @@
         </button>
         <input class="form-control mr-sm-2 searchbox" type="search" placeholder="Quick search">
       </form>
+      <button id="hideNav" class="btn btn-default"><i class="fa fa-times"></i></button>
     </div>
   </nav>
 
