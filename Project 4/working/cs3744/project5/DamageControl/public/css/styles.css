@@ -394,6 +394,14 @@ img.embed {
   background-color: #555;
 }
 
+/* Style feeds */
+.feed {
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 2px solid #000;
+}
+
 /* General styles */
 .w-100 {
   width: 100%;

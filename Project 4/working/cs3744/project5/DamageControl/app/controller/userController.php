@@ -46,10 +46,13 @@ class UserController
         if (password_verify($pw, $user->getHashedPass())) {
             // log in
             $_SESSION['username'] = $un;
-            header('refresh');
+            header('Location: ' . BASE_URL);exit();
         } else {
             // invalid password
-            header('Location: ' . BASE_URL);exit();
+            echo '<script language="javascript">';
+            echo 'alert("Invalid password")';
+            echo '</script>';
+            // header('Location: ' . BASE_URL);exit();
         }
     }
 
@@ -71,7 +74,7 @@ class UserController
 
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/user.tpl';
-        include_once SYSTEM_PATH . '/view/activity.tpl';
+        // include_once SYSTEM_PATH . '/view/activity.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
