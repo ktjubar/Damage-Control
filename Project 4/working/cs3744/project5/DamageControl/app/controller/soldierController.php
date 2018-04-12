@@ -120,7 +120,7 @@ class SoldierController
 
         $feed = new Feed();
         $feed->creator_id = $_SESSION['user_id'];
-        $feed->soldier_name = $firstName.$lastName;
+        $feed->soldier_id = $id;
         $feed->type = 'addSoldier';
         $feed->save();
 
@@ -137,6 +137,13 @@ class SoldierController
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editSoldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
+
+            $feed = new Feed();
+            $feed->creator_id = $_SESSION['user_id'];
+            $feed->soldier_id = $id;
+            $feed->type = 'editSoldier';
+            $feed->save();
+
         } else {
             include_once SYSTEM_PATH . '/view/header.tpl';
             die('Invalid soldier ID');
@@ -146,9 +153,16 @@ class SoldierController
 
     public function deleteSoldier($id) {
         if ($id != 0) {
+            $feed = new Feed();
+            $feed->creator_id = $_SESSION['user_id'];
+            $feed->soldier_id = $id;
+            $feed->type = 'deleteSoldier';
+            $feed->save();
+
             $db = Db::instance(); // connect to db
             $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $db->escape($id));
             $db->query($q); // execute query
+
             header('Location: ' . BASE_URL . '/soldiers');exit();
         }
     }
