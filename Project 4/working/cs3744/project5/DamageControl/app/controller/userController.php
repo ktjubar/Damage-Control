@@ -74,7 +74,7 @@ class UserController
 
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/user.tpl';
-        include_once SYSTEM_PATH . '/view/activity.tpl';
+        // include_once SYSTEM_PATH . '/view/activity.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
