@@ -22,6 +22,16 @@
         <p class="text-justify">Here you can check out some of the things users have been doing!</p>
         <div id="globalFeed" class="feed my-2 mx-1">
 
+          <?php if(empty($fes)): ?>
+            <p>No events yet.</p>
+          <?php else: ?>
+          <ul>
+          <?php foreach($fes as $fe): ?>
+            <li><?= formatEvent($fe) ?></li>
+          <?php endforeach; ?>
+          </ul>
+          <?php endif; ?>
+          
         </div>
       <?php endif; ?>
     </div>
