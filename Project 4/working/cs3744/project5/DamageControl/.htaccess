@@ -38,3 +38,5 @@ RewriteRule ^login/process/?$ app/controller/userController.php?action=loginProc
 RewriteRule ^logout/process/?$ app/controller/userController.php?action=logoutProcess [QSA,L]
 RewriteRule ^users/register/?$ app/controller/userController.php?action=register [QSA,L]
 RewriteRule ^users/registerProcess/?$ app/controller/userController.php?action=registerProcess [QSA,L]
+RewriteRule ^users/friend/?$ app/controller/userController.php?action=friend [QSA,L]
+RewriteRule ^users/unfriend/?$ app/controller/userController.php?action=unfriend [QSA,L]

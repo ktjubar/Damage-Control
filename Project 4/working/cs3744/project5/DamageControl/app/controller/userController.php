@@ -11,7 +11,7 @@ $sc->route($action);
 
 class UserController
 {
-
+    const DB_REL_TABLE = 'User_Relations';
     // route us to the appropriate class method for this action
     public function route($action)
     {
@@ -45,6 +45,18 @@ class UserController
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $this->registerProcess($username, $password);
+                break;
+
+            case 'friend':
+                $user = $_POST['user'];
+                $friend = $_POST['friend'];
+                $this->friend($user, $friend, 1);
+                break;
+            
+            case 'unfriend':
+                $user = $_POST['user'];
+                $friend = $_POST['friend'];
+                $this->friend($user, $friend, 0);
                 break;
         }
     }
@@ -125,6 +137,33 @@ class UserController
             echo '<script language="javascript">';
             echo 'alert("Username is already taken!")';
             echo '</script>';
+        }
+    }
+
+    //To use unfriend get user if from session and pass user id of other person as well.
+    //redirects to here from <BASEURL>/users/friend/ and <BASEURL>/users/unfriend/
+    //Requires $_POST variables user id1 and user id2
+    public function friend($id1, $id2, $op)
+    {
+        $db = Db::instance();
+        if($op == 1) { //Add friend
+            $q = sprintf("INSERT INTO `%s` (`User1`, `User2`, `Relationship`)
+                VALUES (%d, %d, %d);",
+                self::DB_REL_TABLE,
+                $db->escape($id1),
+                $db->escape($id2),
+                $db->escape($op)
+            );
+            $db->query($q); // execute query
+            header('Location: ' . BASE_URL . '/users/view/' . $id2);exit();
+        } else if ($op == 0) { //remove friend
+            $q = sprintf("DELETE FROM `%s` WHERE `User1` = %d AND `User2` = %d",
+            self::DB_REL_TABLE,
+            $db->escape($id1),
+            $db->escape($id2),
+        );
+        $db->query($q); // execute query
+        header('Location: ' . BASE_URL . '/users/view/');exit();
         }
     }
 }
