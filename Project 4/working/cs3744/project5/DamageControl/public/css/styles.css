@@ -414,3 +414,7 @@ img.embed {
 .line-10 {
   line-height: 10px;
 }
+
+.text-red {
+  color: red;
+}

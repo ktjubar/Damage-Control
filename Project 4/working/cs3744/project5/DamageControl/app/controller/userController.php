@@ -111,7 +111,7 @@ class UserController
 
     public function register()
     {
-        $pageTitle = 'Regsiter';
+        $pageTitle = 'Register';
         $category = 'users';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/register.tpl';

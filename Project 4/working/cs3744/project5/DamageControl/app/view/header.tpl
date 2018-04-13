@@ -35,9 +35,6 @@
       <div class="col-md-2">
         <?php if(!isset($_SESSION['username'])): ?>
         <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#loginModal">Login</button>
-        <form method="get" action="<?= BASE_URL ?>/users/register/">
-          <button type="submit" class="btn btn-default btn-block">Register</button>
-        </form>
 
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -70,11 +67,12 @@
                       <input type="password" placeholder="Enter Password" name="password" required>
                     </div>
                   </div>
+                  <br>
                   <button type="submit" class="btn btn-default btn-block">Login</button>
                 </form>
               </div>
               <div class="modal-footer">
-
+                <span>Don't have an account? <a href="<?= BASE_URL ?>/users/register/"> Register</a></span>
               </div>
             </div>
           </div>
