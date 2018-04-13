@@ -121,7 +121,7 @@ class UserController
     public function registerProcess($un, $pw)
     {
         //Check if username exists in database.
-        $user = Users::loadByUsername($un);
+        $user = User::loadByUsername($un);
         if ($user == null) {//Create new user
             $user = new User();
             $user->username     = $un;
