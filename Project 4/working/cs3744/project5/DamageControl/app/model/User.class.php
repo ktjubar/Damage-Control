@@ -93,7 +93,7 @@ class User {
       $db = Db::instance();
       $q = sprintf("SELECT Pass FROM `%s` WHERE User = '%s';",
               self::DB_TABLE,
-              $this->$username
+              $this->username
           );
 
       $result = $db->query($q);   // don't have to check if it returned because we know it did since this is an object method

@@ -36,3 +36,7 @@ RewriteRule ^users/view/(\d+)/?$ app/controller/userController.php?action=profil
 RewriteRule ^users/browse/?$ app/controller/userController.php?action=browse [QSA,L]
 RewriteRule ^login/process/?$ app/controller/userController.php?action=loginProcess [QSA,L]
 RewriteRule ^logout/process/?$ app/controller/userController.php?action=logoutProcess [QSA,L]
+RewriteRule ^users/register/?$ app/controller/userController.php?action=register [QSA,L]
+RewriteRule ^users/registerProcess/?$ app/controller/userController.php?action=registerProcess [QSA,L]
+RewriteRule ^users/friend/?$ app/controller/userController.php?action=friend [QSA,L]
+RewriteRule ^users/unfriend/?$ app/controller/userController.php?action=unfriend [QSA,L]
