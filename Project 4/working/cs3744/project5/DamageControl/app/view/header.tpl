@@ -129,7 +129,7 @@
         </button>
         <input class="form-control mr-sm-2 searchbox" type="search" placeholder="Quick search">
       </form>
-      <button id="hideNav" class="btn btn-default"><i class="fa fa-times"></i></button>
+      <!-- <button id="hideNav" class="btn btn-default"><i class="fa fa-times"></i></button> -->
     </div>
   </nav>
 
