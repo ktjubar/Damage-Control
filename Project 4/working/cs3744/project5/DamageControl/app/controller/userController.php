@@ -36,6 +36,14 @@ class UserController
             case 'browse':
                 $this->browse();
                 break;
+
+            case 'register':
+                $this->register();
+                break;
+
+            case 'registerProcess':
+                $this->registerProcess();
+                break;
         }
     }
 
@@ -86,5 +94,20 @@ class UserController
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseUsers.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    public function register()
+    {
+// get all the users
+$pageTitle = 'Browse Users';
+$category = 'users';
+include_once SYSTEM_PATH . '/view/header.tpl';
+include_once SYSTEM_PATH . '/view/browseUsers.tpl';
+include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    public function registerProcess()
+    {
+        
     }
 }
