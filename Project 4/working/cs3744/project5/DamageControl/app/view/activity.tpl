@@ -1,10 +1,17 @@
+<?php include_once 'view/helpers.php' ?>
+
 <div id='activity_feed'>
 
   <h2>Recent Activities</h2>
 
+  <?php if(empty($fes)): ?>
+    <p>No events yet.</p>
+  <?php else: ?>
+  <ul>
   <?php foreach($fes as $fe): ?>
-    <li><?= $fe->type ?></li>
-    <li><?= $fe->soldier_name ?></li>
+    <li><?= formatEvent($fe) ?></li>
   <?php endforeach; ?>
-  
+  </ul>
+  <?php endif; ?>
+
 </div>

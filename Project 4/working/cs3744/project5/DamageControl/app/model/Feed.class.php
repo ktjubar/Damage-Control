@@ -8,7 +8,9 @@ class Feed {
   public $type = '';
   public $creator_id = 0;
   public $user_name = '';
-  public $soldier_name = '';
+  public $soldier_id = 0;
+  public $crew_id = 0;
+  public $delete_name = '';
   public $date_created = 0;
 
   // return object by ID
@@ -33,7 +35,9 @@ class Feed {
         $fa->type         = $row['type'];
         $fa->creator_id   = $row['creator_id'];
         $fa->user_name    = $row['user_name'];
-        $fa->soldier_name = $row['soldier_name'];
+        $fa->soldier_id   = $row['soldier_id'];
+        $fa->crew_id      = $row['crew_id'];
+        $fa->delete_name  = $row['delete_name'];
         $fa->date_created = $row['date_created'];
 
         return $fa; // return the object
@@ -78,14 +82,18 @@ class Feed {
         `type`,
         `creator_id`,
         `user_name`,
-        `soldier_name`,
+        `soldier_id`,
+        'crew_id',
+        'delete_name',
         `date_created`
-      ) VALUES (%s, %d, %s, %s, %s);",
+      ) VALUES (%s, %d, %s, %s, %s, %s);",
       self::DB_TABLE,
       $db->escape($this->type),
       $db->escape($this->creator_id),
       $db->escape($this->user_name),
-      $db->escape($this->soldier_name),
+      $db->escape($this->soldier_id),
+      $db->escape($this->crew_id),
+      $db->escape($this->delete_name),
       $db->escape($this->date_created)
       );
     //echo $q;

@@ -112,7 +112,7 @@ class CrewController
 
         $feed = new Feed();
         $feed->creator_id = $_SESSION['user_id'];
-        $feed->soldier_name = $Name;
+        $feed->crew_id = $crewID;
         $feed->type = 'addCrew';
         $feed->save();
 
@@ -128,15 +128,29 @@ class CrewController
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editCrew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
+
+            $feed = new Feed();
+            $feed->creator_id = $_SESSION['user_id'];
+            $feed->crew_id = $id;
+            $feed->type = 'editCrew';
+            $feed->save();
+
         } else {
             include_once SYSTEM_PATH . '/view/header.tpl';
-            die('Invalid person ID');
+            die('Invalid crew ID');
             include_once SYSTEM_PATH . '/view/footer.tpl';
         }
     }
 
     public function deleteCrew($id) {
+        $crew = Crew::loadById($id);
         if ($id != 0) {
+            $feed = new Feed();
+            $feed->creator_id = $_SESSION['user_id'];
+            $feed->crew_id = $crew->name;
+            $feed->type = 'deleteCrew';
+            $feed->save();
+
             $db = Db::instance();
             $q = sprintf("DELETE FROM `%s` WHERE `Crew_ID` = %d;", Crew::DB_TABLE, $db->escape($id));
             $db->query($q); // execute query
@@ -144,7 +158,8 @@ class CrewController
             $q = sprintf("UPDATE `%s` SET `Crew_ID` = 0 WHERE `Crew_ID` = %d;",
             Soldier::DB_TABLE,
             $db->escape($id));
-            $db->query($q); // execute query
+            $db->query($q); // execute quer
+
             header('Location: ' . BASE_URL . '/crews');exit();
         }
     }
