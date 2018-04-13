@@ -42,7 +42,9 @@ class UserController
                 break;
 
             case 'registerProcess':
-                $this->registerProcess();
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $this->registerProcess($username, $password);
                 break;
         }
     }
@@ -60,7 +62,6 @@ class UserController
             echo '<script language="javascript">';
             echo 'alert("Invalid password")';
             echo '</script>';
-            // header('Location: ' . BASE_URL);exit();
         }
     }
 
@@ -98,16 +99,32 @@ class UserController
 
     public function register()
     {
-// get all the users
-$pageTitle = 'Browse Users';
-$category = 'users';
-include_once SYSTEM_PATH . '/view/header.tpl';
-include_once SYSTEM_PATH . '/view/browseUsers.tpl';
-include_once SYSTEM_PATH . '/view/footer.tpl';
+        $pageTitle = 'Regsiter';
+        $category = 'users';
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/register.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    public function registerProcess()
+    public function registerProcess($un, $pw)
     {
-        
+        //Check if username exists in database.
+        $user = Users::loadByUsername($un);
+        if ($user == null) {//Create new user
+            $user = new User();
+            $user->username     = $un;
+            $user->firstname    = $_POST['firstname'];
+            $user->lastname     = $_POST['lastname'];
+            $user->middlename   = $_POST['middlename'];
+            $user->password     = $pw;
+            $user->email        = $_POST['email'];
+            $id = $user->save();
+            header('Location: ' . BASE_URL . '/users/view/' . $sID);exit();
+        } else {
+            // invalid username
+            echo '<script language="javascript">';
+            echo 'alert("Username is already taken!")';
+            echo '</script>';
+        }
     }
 }

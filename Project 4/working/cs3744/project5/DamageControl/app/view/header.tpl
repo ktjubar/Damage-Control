@@ -35,6 +35,9 @@
       <div class="col-md-2">
         <?php if(!isset($_SESSION['username'])): ?>
         <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#loginModal">Login</button>
+        <form method="get" action="<?= BASE_URL ?>/users/register/">
+          <button type="submit" class="btn btn-default btn-block">Register</button>
+        </form>
 
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
