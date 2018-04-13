@@ -157,11 +157,11 @@ class UserController
             $db->query($q); // execute query
             header('Location: ' . BASE_URL . '/users/view/' . $id2);exit();
         } else if ($op == 0) { //remove friend
-            $q = sprintf("DELETE FROM `%s` WHERE `User1` = %d AND `User2` = %d"),
+            $q = sprintf("DELETE FROM `%s` WHERE `User1` = %d AND `User2` = %d",
             self::DB_REL_TABLE,
             $db->escape($id1),
-            $db->escape($id2),
-        );
+            $db->escape($id2)
+            );
         $db->query($q); // execute query
         header('Location: ' . BASE_URL . '/users/view/');exit();
         }
