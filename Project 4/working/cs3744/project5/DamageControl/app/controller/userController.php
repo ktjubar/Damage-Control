@@ -131,7 +131,7 @@ class UserController
             $user->password     = $pw;
             $user->email        = $_POST['email'];
             $id = $user->save();
-            header('Location: ' . BASE_URL . '/users/view/' . $sID);exit();
+            header('Location: ' . BASE_URL . '/users/view/' . $id . '/');exit();
         } else {
             // invalid username
             echo '<script language="javascript">';
