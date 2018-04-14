@@ -111,26 +111,37 @@ class UserController
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    public function registerProcess($un, $pw, $id = 0)
+    public function registerProcess($un, $pw, $id)
     {
         //Check if username exists in database.
         $user = User::loadByUsername($un);
-        if ($user == null) {//Create new user
+        if ($user != NULL && $id == 0) {
+            // invalid username
+            echo '<script language="javascript">';
+            echo 'alert("Username is already taken!")';
+            echo '</script>';
+        }
+        else if ($user == NULL && $id == 0) {//Create new user
             $user = new User();
             $user->username     = $un;
-            $user->id     = $id;
+            $user->id           = $id;
             $user->firstname    = $_POST['firstname'];
             $user->lastname     = $_POST['lastname'];
             $user->middlename   = $_POST['middlename'];
             $user->password     = password_hash($pw, PASSWORD_DEFAULT);
             $user->email        = $_POST['email'];
+            //$user->gender = $_POST['gender'];
             $id = $user->save();
-            header('Location: ' . BASE_URL . '/users/view/' . $id . '/');exit();
-        } else {
-            // invalid username
-            echo '<script language="javascript">';
-            echo 'alert("Username is already taken!")';
-            echo '</script>';
+            header('Location: ' . BASE_URL . '/users/view/'.$id.'/');exit();
+        }
+        else {
+            $user = User::loadById($id);
+            $user->firstname    = $_POST['firstname'];
+            $user->lastname     = $_POST['lastname'];
+            $user->middlename   = $_POST['middlename'];
+            //$user->gender = $_POST['gender'];
+            $id = $user->save();
+            header('Location: ' . BASE_URL . '/users/view/'.$id.'/');exit();
         }
     }
 

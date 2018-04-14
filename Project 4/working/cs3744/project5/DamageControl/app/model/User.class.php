@@ -142,22 +142,18 @@ class User {
 
     // build query
     $q = sprintf("UPDATE `%s` SET
-      `id`        = %s,
-      `username`  = %s,
-      `password`  = %s,
-      `email`     = %s,
-      `role`      = %d
+      `First_Name` = %s
+      `Middle_Name` = %s
+      `Last_Name` = %s
       WHERE `id` = %d;",
       self::DB_TABLE,
-      $db->escape($this->id),
-      $db->escape($this->username),
-      $db->escape($this->password),
-      $db->escape($this->email),
-      $db->escape($this->role)
+      $db->escape($this->firstname),
+      $db->escape($this->middlename),
+      $db->escape($this->lastname),
+      $db->escape($this->id)
       );
     $db->query($q); // execute query
-    return $db->id; // return this object's ID
-
+    return $this->id; // return this object's ID
   }
 
   public static function getUsers()
