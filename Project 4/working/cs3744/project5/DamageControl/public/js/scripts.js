@@ -18,3 +18,16 @@ $(function() {
     // alert('you clicked the X');
   });
 });
+
+function userRank(num) {
+  switch (num) {
+    case 0:
+      return 'New User';
+    case 1:
+      return 'Member';
+    case 2:
+      return 'Administrator';
+    default:
+      return 'undefined';
+  }
+}

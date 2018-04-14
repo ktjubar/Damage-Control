@@ -157,4 +157,19 @@ class User {
 
   }
 
+  public static function getUsers()
+  {
+      $db = Db::instance();
+      $q = "SELECT ID FROM `" . self::DB_TABLE . "` ORDER BY Last_Name ASC;";
+      $result = $db->query($q);
+
+      $users = array();
+      if ($result->num_rows != 0) {
+          while ($row = $result->fetch_assoc()) {
+              $users[] = self::loadById($row['ID']);
+          }
+      }
+      return $users;
+  }
+
 }

@@ -101,7 +101,7 @@ class UserController
 
     public function browse()
     {
-        // get all the users
+        $users = User::getUsers();
         $pageTitle = 'Browse Users';
         $category = 'users';
         include_once SYSTEM_PATH . '/view/header.tpl';

@@ -3,24 +3,19 @@
     <h3>Browse Users</h3>
   </div>
   <div class="col-sm-3">
-    
+
   </div>
 </div>
 
-<!-- <?php foreach($soldiers as $s): ?>
+<?php foreach($users as $u): ?>
   <div class="row my-1 pt-3 border-top">
     <div class="col-md-3">
-      <img class="img-responsive w-100 mb-1" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" alt="<?= $s->last_name.", ".$s->first_name ?>" />
+      <img class="img-responsive w-100 mb-1" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" alt="<?= $u->lastname.", ".$u->firstname ?>" />
     </div>
     <div class="col-md-9">
-      <h3><a href="<?= BASE_URL ?>/soldiers/view/<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></a></h3>
-      <h3><?= $s->numToRank() ?></h3>
-      <?php if(isset($s->birthday)): ?>
-        <h4>Born: <?= $s->birthday ?></h4>
-      <?php endif; ?>
-      <?php if(isset($s->deathday)): ?>
-        <h4>Died: <?= $s->deathday ?></h4>
-      <?php endif; ?>
+      <h3><a href="<?= BASE_URL ?>/users/view/<?= $u->id ?>"><?= $u->lastname.", ".$u->firstname ?></a></h3>
+      <h4>Username: <?= $u->username ?></h4>
+      <h4>User Rank: <script type="text/javascript">userRank("<?php echo $u->role ?>")</script>
     </div>
-  </div>--><!-- person row -->
-<!-- <?php endforeach; ?> -->
+  </div><!-- person row -->
+<?php endforeach; ?>
