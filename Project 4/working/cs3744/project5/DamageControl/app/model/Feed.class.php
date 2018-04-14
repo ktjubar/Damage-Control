@@ -47,12 +47,26 @@ class Feed {
   public static function getFeedEvents($limit = null, $un = null) {
     $db = Db::instance(); // create db connection
     // build query
+<<<<<<< HEAD
+    $q = sprintf("SELECT id FROM `%s`",
+      self::DB_TABLE
+      );
+    if($un !== null) {
+      $qVar = sprintf("WHERE ");
+      $users = User::getFriendUsers($un);
+      foreach ($users as $u)
+      {
+        $qCar .= " `creator_id` = ".$u->id." ID";
+      }
+=======
     $q = sprintf("SELECT ID FROM `%s` ORDER BY Date_Created DESC ",
       self::DB_TABLE
       );
     if($un !== null) {
 
+>>>>>>> 20b73f234897642160c656ae0a80da85f8db6ff7
     }
+    $q .= " ORDER BY date_created DESC";
     if($limit !== null)
       $q .= " LIMIT ".$limit;
     $result = $db->query($q); // retrieve results
