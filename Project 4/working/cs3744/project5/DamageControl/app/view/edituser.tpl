@@ -1,5 +1,3 @@
-<?php include 'helper.php'; ?>
-
 <img class="rounded mx-auto mb-4 d-block" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
 <form action="<?= BASE_URL ?>/users/registerProcess/<?= $user->id ?>/" method="POST">
   <input type="text" name="firstname" value="<?= $user->firstname ?>" required>
