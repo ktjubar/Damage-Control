@@ -113,7 +113,7 @@ class UserController
             $user->firstname    = $_POST['firstname'];
             $user->lastname     = $_POST['lastname'];
             $user->middlename   = $_POST['middlename'];
-            $user->password     = $pw;
+            $user->password     = password_hash($pw, PASSWORD_DEFAULT);
             $user->email        = $_POST['email'];
             $id = $user->save();
             header('Location: ' . BASE_URL . '/users/view/' . $id . '/');exit();
