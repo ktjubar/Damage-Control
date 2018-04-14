@@ -142,10 +142,10 @@ class User {
 
     // build query
     $q = sprintf("UPDATE `%s` SET
-      `First_Name` = %s
-      `Middle_Name` = %s
+      `First_Name` = %s,
+      `Middle_Name` = %s,
       `Last_Name` = %s
-      WHERE `id` = %d;",
+      WHERE `ID` = %d;",
       self::DB_TABLE,
       $db->escape($this->firstname),
       $db->escape($this->middlename),
