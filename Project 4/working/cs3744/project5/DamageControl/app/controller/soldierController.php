@@ -120,6 +120,8 @@ class SoldierController
         $feed->creator_id = $_SESSION['user_id'];
         $feed->soldier_id = $sID;
         $feed->type = 'addSoldier';
+        if ($id !== 0)
+            $feed->type = 'editSoldier';
         $feed->save();
 
         //header('Location: ' . BASE_URL . '/soldiers/view/' . $sID);exit();
