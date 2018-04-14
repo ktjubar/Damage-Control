@@ -109,18 +109,16 @@ class SoldierController
         $s->id = $id;
         $s->first_name = $firstName;
         $s->last_name = $lastName;
-        //$s->middle_name = $middleName;
-        $s->creator_id = 1; // hard coded user ID for now
+        $s->creator_id = $_SESSION['user_id']; // hard coded user ID for now
         $s->birthday = $birth;
         $s->deathday = $death;
         $s->date_created = '';
         $s->rank = $rank;
-
         $sID = $s->save();
 
         $feed = new Feed();
         $feed->creator_id = $_SESSION['user_id'];
-        $feed->soldier_id = $id;
+        $feed->soldier_id = $sID;
         $feed->type = 'addSoldier';
         $feed->save();
 
