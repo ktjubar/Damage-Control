@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2018 at 06:53 PM
+-- Generation Time: Apr 14, 2018 at 01:26 AM
 -- Server version: 5.6.39
 -- PHP Version: 7.0.27
 
@@ -51,17 +51,22 @@ INSERT INTO `Crews` (`ID`, `Name`, `Nickname`, `Creator_ID`, `Date_Created`) VAL
 --
 
 CREATE TABLE `Feed_Activity` (
-  `Type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `User_ID` int(11) UNSIGNED NOT NULL,
-  `Date_Created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `user_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `soldier_id` int(11) DEFAULT NULL,
+  `crew_id` int(11) DEFAULT NULL,
+  `delete_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `Feed_Activity`
 --
 
-INSERT INTO `Feed_Activity` (`Type`, `User_ID`, `Date_Created`) VALUES
-('addSoldier', 1, '2018-04-11 15:52:37');
+INSERT INTO `Feed_Activity` (`id`, `type`, `creator_id`, `user_name`, `soldier_id`, `crew_id`, `delete_name`, `date_created`) VALUES
+(3, 'addSoldier', 1, NULL, 3, NULL, NULL, '2018-04-12 18:44:01');
 
 -- --------------------------------------------------------
 
@@ -145,7 +150,7 @@ ALTER TABLE `Crews`
 -- Indexes for table `Feed_Activity`
 --
 ALTER TABLE `Feed_Activity`
-  ADD KEY `User_ID` (`User_ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `Soldiers`
@@ -173,6 +178,12 @@ ALTER TABLE `User_Relations`
 --
 
 --
+-- AUTO_INCREMENT for table `Feed_Activity`
+--
+ALTER TABLE `Feed_Activity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `Soldiers`
 --
 ALTER TABLE `Soldiers`
@@ -193,12 +204,6 @@ ALTER TABLE `Users`
 --
 ALTER TABLE `Crews`
   ADD CONSTRAINT `Crew_Creator` FOREIGN KEY (`Creator_ID`) REFERENCES `Users` (`ID`) ON DELETE SET NULL;
-
---
--- Constraints for table `Feed_Activity`
---
-ALTER TABLE `Feed_Activity`
-  ADD CONSTRAINT `Feed_User` FOREIGN KEY (`User_ID`) REFERENCES `Users` (`ID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `Soldiers`
