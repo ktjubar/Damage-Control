@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2018 at 01:50 AM
+-- Generation Time: Apr 14, 2018 at 02:50 AM
 -- Server version: 5.6.39
 -- PHP Version: 7.0.27
 
@@ -222,8 +222,7 @@ ALTER TABLE `Feed_Activity`
 -- Constraints for table `Soldiers`
 --
 ALTER TABLE `Soldiers`
-  ADD CONSTRAINT `Soldier_Creator` FOREIGN KEY (`Creator_ID`) REFERENCES `Users` (`ID`) ON DELETE SET NULL,
-  ADD CONSTRAINT `Soldier_Crew` FOREIGN KEY (`Crew_ID`) REFERENCES `Crews` (`ID`);
+  ADD CONSTRAINT `Soldier_Creator` FOREIGN KEY (`Creator_ID`) REFERENCES `Users` (`ID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `User_Relations`
