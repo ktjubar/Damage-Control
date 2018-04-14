@@ -5,11 +5,15 @@
 <h4 class="text-center"><?= $user->username ?></h4>
 <?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($friend)): ?>
 <form action="<?= BASE_URL ?>/users/friend/" method="POST">
-  <button class="btn btn-default">Add Friend</button>
+  <button class="btn btn-default" type="submit">Add Friend</button>
 </form>
 <?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $friend): ?>
 <form action="<?= BASE_URL ?>/users/unfriend/" method="POST">
-  <button class="btn btn-default">Remove Friend</button>
+  <button class="btn btn-default" type="submit">Remove Friend</button>
+</form>
+<?php elseif(isset($_SESSION['username']) && $user->username == $_SESSION['username']): ?>
+<form action="<?= BASE_URL ?>/users/edit/" method="POST">
+  <button class="btn btn-default" type="submit">Edit Profile</button>
 </form>
 <?php endif; ?>
 <div class="row border-top mt-4">
