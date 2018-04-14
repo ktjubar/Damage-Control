@@ -130,6 +130,7 @@ class Soldier
             $db->escape($this->creator_id),
             $db->escape($this->date_created)
         );
+        echo($q);
 
         $db->query($q); // execute query
         $this->id = $db->getInsertID(); // set the ID for the new object
