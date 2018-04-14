@@ -66,7 +66,7 @@ class Feed {
     $objects = array();
     if($result->num_rows != 0) {
       while($row = $result->fetch_assoc()) {
-        $objects[] = self::loadById($row['ID']);
+        $objects[] = self::loadById($row['id']);
       }
     }
     return $objects;
