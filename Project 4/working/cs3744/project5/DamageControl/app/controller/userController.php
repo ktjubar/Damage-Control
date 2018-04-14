@@ -58,6 +58,10 @@ class UserController
                 $friend = $_POST['friend'];
                 $this->friend($user, $friend, 0);
                 break;
+
+                case 'view':
+                $id = $_GET['id'];
+                $this->view($id);
         }
     }
 
@@ -167,5 +171,15 @@ class UserController
         $db->query($q); // execute query
         header('Location: ' . BASE_URL . '/users/view/');exit();
         }
+    }
+
+    public function view($id)
+    {
+        $user = User::loadById($id);
+        $pageTitle = 'View '.$user->lastname;
+        $category = 'users';
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/user.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 }
