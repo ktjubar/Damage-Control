@@ -42,6 +42,7 @@ class SiteController
     {
         $pageTitle = 'Home';
         $category = 'home';
+        $feeds = Feed::getFeedEvents(10);
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

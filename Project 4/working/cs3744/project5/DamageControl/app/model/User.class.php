@@ -116,19 +116,21 @@ class User {
     $db = Db::instance(); // connect to db
     // build query
 
-    $q = sprintf("INSERT INTO `%s` (`id`, `username`, `password`, `email`, `role`)
-    VALUES (%s, %s, %s, %s, %d);",
+    $q = sprintf("INSERT INTO `%s` (`User`, `Pass`, `First_Name`, `Last_Name`, `Middle_Name`, `Gender`, `Email`)
+    VALUES (%s, %s, %s, %s, %s,  %d, %s);",
       self::DB_TABLE,
-      $db->escape($this->id),
       $db->escape($this->username),
       $db->escape($this->password),
-      $db->escape($this->email),
-      $db->escape($this->role)
+      $db->escape($this->firstname),
+      $db->escape($this->lastname),
+      $db->escape($this->middlename),
+      $db->escape($this->gender),
+      $db->escape($this->email)
       );
     //echo $q;
     $db->query($q); // execute query
-    $this->id = $db->getInsertID(); // set the ID for the new object
-    return $this->id;
+    $id = $db->getInsertID(); // set the ID for the new object
+    return $id;
   }
 
   public function update() {
