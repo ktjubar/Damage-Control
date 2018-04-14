@@ -27,6 +27,7 @@
           <?php else: ?>
           <ul>
           <?php foreach($fes as $fe): ?>
+          <?php include 'helper.php'; ?>
             <li><?= formatEvent($fe) ?></li>
           <?php endforeach; ?>
           </ul>

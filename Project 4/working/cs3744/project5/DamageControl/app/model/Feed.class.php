@@ -44,12 +44,15 @@ class Feed {
       }
   }
 
-  public static function getFeedEvents($limit = null) {
+  public static function getFeedEvents($limit = null, $un = null) {
     $db = Db::instance(); // create db connection
     // build query
     $q = sprintf("SELECT id FROM `%s` ORDER BY date_created DESC ",
       self::DB_TABLE
       );
+    if($un !== null) {
+      
+    }
     if($limit !== null)
       $q .= " LIMIT ".$limit;
     $result = $db->query($q); // retrieve results

@@ -59,7 +59,7 @@ class UserController
                 $this->friend($user, $friend, 0);
                 break;
 
-                case 'view':
+            case 'view':
                 $id = $_GET['id'];
                 $this->view($id);
         }
