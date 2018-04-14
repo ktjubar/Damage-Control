@@ -12,7 +12,7 @@
   <button class="btn btn-default" type="submit">Remove Friend</button>
 </form>
 <?php elseif(isset($_SESSION['username']) && $user->username == $_SESSION['username']): ?>
-<form action="<?= BASE_URL ?>/users/edit/" method="POST">
+<form action="<?= BASE_URL ?>/users/edit/<?= $_SESSION['user_id'] ?>/" method="POST">
   <button class="btn btn-default" type="submit">Edit Profile</button>
 </form>
 <?php endif; ?>
