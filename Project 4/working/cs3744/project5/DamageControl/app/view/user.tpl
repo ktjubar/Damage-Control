@@ -10,7 +10,22 @@
   <div class="col-md-8">
     <!-- main column -->
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4 mt-4">
     <!-- activity feed -->
+    <h4>User Feed</h4>
+    <br>
+    <div id="userFeed" class="feed my-2 mx-1">
+      <?php if(empty($fes)): ?>
+        <p>No events yet.</p>
+      <?php else: ?>
+      <?php foreach($fes as $fe): ?>
+        <div class="row p-2 border">
+          <div class="col-12">
+            <?= formatEvent($fe) ?>
+          </div>
+        </div>
+      <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
   </div>
 </div>
