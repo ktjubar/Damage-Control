@@ -4,7 +4,7 @@
 <h3 class="text-center"><?= $user->firstname ?> <?= $user->middlename ?> <?= $user->lastname ?></h3>
 <h4 class="text-center"><?= $user->username ?></h4>
 <?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username']): ?>
-<form>
+<form action="<?= BASE_URL ?>/users/friend/" method="POST">
   <button class="btn btn-default">Add Friend</button>
 </form>
 <?php endif; ?>
