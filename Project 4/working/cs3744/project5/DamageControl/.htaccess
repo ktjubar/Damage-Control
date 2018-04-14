@@ -40,3 +40,4 @@ RewriteRule ^users/register/?$ app/controller/userController.php?action=register
 RewriteRule ^users/registerProcess/?$ app/controller/userController.php?action=registerProcess [QSA,L]
 RewriteRule ^users/friend/?$ app/controller/userController.php?action=friend [QSA,L]
 RewriteRule ^users/unfriend/?$ app/controller/userController.php?action=unfriend [QSA,L]
+RewriteRule ^users/view/(\d+)/?$ app/controller/userController.php?action=edit&id=$1 [QSA,L]

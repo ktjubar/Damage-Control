@@ -55,6 +55,10 @@ class UserController
             case 'view':
                 $id = $_GET['id'];
                 $this->view($id);
+
+            case 'edit':
+                $id = $_GET['id'];
+                $this->edit($id);
         }
     }
 
@@ -167,6 +171,23 @@ class UserController
         }
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/user.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    public function edit($id)
+    {
+        $user = User::loadById($id);
+        $pageTitle = 'View '.$user->lastname;
+        $category = 'users';
+        if(isset($_SESSION['username'])) {
+            $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
+            $friends = User::getFriendUsers($_SESSION['user_id']);
+            $friend = User::isFriend($_SESSION['user_id'], $user->id);
+        } else {
+            $fes = Feed::getFeedEvents(10);
+        }
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/edituser.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 }
