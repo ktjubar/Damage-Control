@@ -89,21 +89,6 @@ class UserController
         header('Location: ' . BASE_URL);exit(); // send us to home page
     }
 
-    public function viewPerson($id)
-    {
-        // get person's shit
-        // set pageTitle to the user's name
-        $pageTitle = 'View Person';
-        $category = 'users';
-
-        $fes = Feed::getFeedEvents(0);
-
-        include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/user.tpl';
-        // include_once SYSTEM_PATH . '/view/activity.tpl';
-        include_once SYSTEM_PATH . '/view/footer.tpl';
-    }
-
     public function browse()
     {
         $users = User::getUsers();
