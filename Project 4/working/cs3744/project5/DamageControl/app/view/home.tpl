@@ -14,7 +14,17 @@
         <h4>Friend Feed</h4>
         <br>
         <div id="friendFeed" class="feed my-2 mx-1">
-          something?
+          <!--FIX THIS KALEB-->
+          <?php if(empty($fes)): ?>
+            <p>No events yet.</p>
+          <?php else: ?>
+          <ul>
+          <?php foreach($fes as $fe): ?>
+          <?php include 'helper.php'; ?>
+            <li><?= formatEvent($fe) ?></li>
+          <?php endforeach; ?>
+          </ul>
+          <?php endif; ?>
         </div>
       <?php else: ?>
         <!-- global feed -->

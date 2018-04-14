@@ -2,6 +2,7 @@
 
 class User {
   const DB_TABLE = 'Users'; // database table name
+  const DB_REL_TABLE = 'User_Relations';
 
   const roles = array(
       'new' => 0,
@@ -174,4 +175,34 @@ class User {
       return $users;
   }
 
+  public static function getFriendUsers($un)
+  {
+    $db = Db::instance();
+    $q = sprintf("SELECT `User1` AS `users` FROM %s WHERE `User2` = %s",
+      self::DB_REL_TABLE,
+      $db->escape($un)
+    );
+    $res1 = $db->query($q);
+    $users1 = array();
+    if ($res1->num_rows != 0) {
+      while ($row = $res1->fetch_assoc()) {
+          $users1[] = self::loadByUsername($row['users']);
+      }
+    }
+
+    $q = sprintf("SELECT `User2` AS `users` FROM %s WHERE `User1` = %s",
+      self::DB_REL_TABLE,
+      $db->escape($un)
+    );
+    $res2 = $db->query($q);
+    $users2 = array();
+    if ($res2->num_rows != 0) {
+      while ($row = $res2->fetch_assoc()) {
+          $users2[] = self::loadByUsername($row['users']);
+      }
+    }
+
+    $users = array_merge($users1, $users2);
+    return $users;
+  }
 }
