@@ -17,7 +17,7 @@ class Feed {
   public static function loadById($id) {
       $db = Db::instance(); // create db connection
       // build query
-      $q = sprintf("SELECT * FROM `%s` WHERE id = %d;",
+      $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;",
         self::DB_TABLE,
         $id
         );
@@ -47,7 +47,7 @@ class Feed {
   public static function getFeedEvents($limit = null, $un = null) {
     $db = Db::instance(); // create db connection
     // build query
-    $q = sprintf("SELECT id FROM `%s` ORDER BY date_created DESC ",
+    $q = sprintf("SELECT ID FROM `%s` ORDER BY Date_Created DESC ",
       self::DB_TABLE
       );
     if($un !== null) {
