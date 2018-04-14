@@ -26,13 +26,6 @@ class UserController
                 $this->logoutProcess();
                 break;
 
-            case 'profile':
-                if(isset($_GET['id']))
-                    $this->viewPerson($_GET['id']);
-                else
-                    $this->viewPerson(0);
-                break;
-
             case 'browse':
                 $this->browse();
                 break;
@@ -72,6 +65,7 @@ class UserController
         if (password_verify($pw, $user->getHashedPass())) {
             // log in
             $_SESSION['username'] = $un;
+            $_SESSION['user_id'] = $user->id;
             header('Location: ' . BASE_URL);exit();
         } else {
             // invalid password
