@@ -1,3 +1,5 @@
+<?php include 'helper.php'; ?>
+
 <img class="rounded mx-auto mb-4 d-block" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
 <h3 class="text-center"><?= $user->firstname ?> <?= $user->middlename ?> <?= $user->lastname ?></h3>
 <h4 class="text-center"><?= $user->username ?></h4>
