@@ -160,8 +160,8 @@ class UserController
         $category = 'users';
         if(isset($_SESSION['username'])) {
             $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
-            $friends = User::getFriendsUsers($_SESSION['user_id']);
-            $friend = User::isFriends($_SESSION['user_id'], $user->id);
+            $friends = User::getFriendUsers($_SESSION['user_id']);
+            $friend = User::isFriend($_SESSION['user_id'], $user->id);
         } else {
             $fes = Feed::getFeedEvents(10);
         }

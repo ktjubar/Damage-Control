@@ -50,7 +50,7 @@ class Feed {
     $q = sprintf("SELECT id FROM `%s`",
       self::DB_TABLE
       );
-    if($un !== null) {
+    if($id !== null) {
       $qVar = sprintf("WHERE ");
       $users = User::getFriendUsers($id);
       foreach ($users as $u)
