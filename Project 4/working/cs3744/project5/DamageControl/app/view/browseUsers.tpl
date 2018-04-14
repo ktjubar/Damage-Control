@@ -15,7 +15,7 @@
     <div class="col-md-9">
       <h3><a href="<?= BASE_URL ?>/users/view/<?= $u->id ?>"><?= $u->lastname.", ".$u->firstname ?></a></h3>
       <h4>Username: <?= $u->username ?></h4>
-      <h4>User Rank: <script type="text/javascript">userRank("<?php echo $u->role ?>")</script>
+      <h4>User Rank: 
     </div>
   </div><!-- person row -->
 <?php endforeach; ?>
