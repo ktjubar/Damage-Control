@@ -37,6 +37,7 @@ class UserController
             case 'registerProcess':
                 $username = $_POST['username'];
                 $password = $_POST['password'];
+                $id = 0;
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                 }
@@ -130,7 +131,6 @@ class UserController
             echo '<script language="javascript">';
             echo 'alert("Username is already taken!")';
             echo '</script>';
-            // header('Locat: ' . BASE_URL);exit();
         }
     }
 
@@ -183,13 +183,6 @@ class UserController
         $user = User::loadById($id);
         $pageTitle = 'View '.$user->lastname;
         $category = 'users';
-        if(isset($_SESSION['username'])) {
-            $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
-            $friends = User::getFriendUsers($_SESSION['user_id']);
-            $friend = User::isFriend($_SESSION['user_id'], $user->id);
-        } else {
-            $fes = Feed::getFeedEvents(10);
-        }
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/edituser.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
