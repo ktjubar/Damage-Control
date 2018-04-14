@@ -66,6 +66,7 @@ class UserController
             // log in
             $_SESSION['username'] = $un;
             $_SESSION['user_id'] = $user->id;
+            $_SESSION['role'] = $user->role;
             header('Location: ' . BASE_URL);exit();
         } else {
             // invalid password
