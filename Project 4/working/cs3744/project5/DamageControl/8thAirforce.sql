@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2018 at 01:36 AM
+-- Generation Time: Apr 14, 2018 at 01:50 AM
 -- Server version: 5.6.39
 -- PHP Version: 7.0.27
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `8thAirforce`
 --
+CREATE DATABASE IF NOT EXISTS `8thAirforce` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `8thAirforce`;
 
 -- --------------------------------------------------------
 
@@ -66,7 +68,7 @@ CREATE TABLE `Feed_Activity` (
 --
 
 INSERT INTO `Feed_Activity` (`ID`, `Type`, `Creator_ID`, `User_Name`, `Soldier_ID`, `Crew_ID`, `Delete_Name`, `Date_Created`) VALUES
-(3, 'addSoldier', 1, '', 3, NULL, NULL, '2018-04-12 18:44:01');
+(1000, 'addSoldier', 1, 'admin', 1000, NULL, NULL, '2018-04-12 18:44:01');
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,7 @@ ALTER TABLE `User_Relations`
 -- AUTO_INCREMENT for table `Feed_Activity`
 --
 ALTER TABLE `Feed_Activity`
-  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- AUTO_INCREMENT for table `Soldiers`
@@ -207,6 +209,14 @@ ALTER TABLE `Users`
 --
 ALTER TABLE `Crews`
   ADD CONSTRAINT `Crew_Creator` FOREIGN KEY (`Creator_ID`) REFERENCES `Users` (`ID`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `Feed_Activity`
+--
+ALTER TABLE `Feed_Activity`
+  ADD CONSTRAINT `Feed_Creator` FOREIGN KEY (`Creator_ID`) REFERENCES `Users` (`ID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Feed_Crew` FOREIGN KEY (`Crew_ID`) REFERENCES `Crews` (`ID`),
+  ADD CONSTRAINT `Feed_Soldier` FOREIGN KEY (`Soldier_ID`) REFERENCES `Soldiers` (`ID`);
 
 --
 -- Constraints for table `Soldiers`
