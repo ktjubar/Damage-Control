@@ -30,5 +30,23 @@
       <?php endforeach; ?>
       <?php endif; ?>
     </div>
+    <br>
+    <!-- friend list -->
+    <h4>Friends</h4>
+    <br>
+    <div id="friendsList" class="feed my-2 mx-1">
+      <?php if(empty($friends)): ?>
+        <p>This user has no friends!</p>
+      <?php else: ?>
+      <?php foreach($friends as $f): ?>
+        <div class="row my-1 pt-3 border-top">
+          <div class="col-md-12">
+            <h3><a href="<?= BASE_URL ?>/users/view/<?= $f->id ?>/"><?= $f->lastname.", ".$f->firstname ?></a></h3>
+            <h4>Username: <?= $f->username ?></h4>
+          </div>
+        </div>
+      <?php endforeach;?>
+      <?php endif; ?>
+    </div>
   </div>
 </div>
