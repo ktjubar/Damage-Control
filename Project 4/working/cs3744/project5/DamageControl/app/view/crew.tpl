@@ -8,10 +8,12 @@
   </div>
 
   <div class="col-md-1">
+    <?php if(isset($_SESSION['username'])): ?>
     <form action="<?= BASE_URL ?>/crews/edit/<?= $crew->crewID ?>">
       <button class="btn btn-default btn-block button">Edit</button>
     </form>
     <br>
+    <?php if($_SESSION['role'] >= 1): ?>
     <button class="btn btn-default btn-block button" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
 
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
@@ -36,6 +38,8 @@
         </div>
       </div>
     </div>
+    <?php endif; ?>
+    <?php endif; ?>
   </div>
 
   <!-- <div class="col-sm-5 p-2 px-3">
