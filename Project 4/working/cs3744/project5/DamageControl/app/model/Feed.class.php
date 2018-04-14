@@ -17,7 +17,7 @@ class Feed {
   public static function loadById($id) {
       $db = Db::instance(); // create db connection
       // build query
-      $q = sprintf("SELECT * FROM `%s` WHERE id = %d;",
+      $q = sprintf("SELECT * FROM `%s` WHERE ID = %d;",
         self::DB_TABLE,
         $id
         );
@@ -31,14 +31,14 @@ class Feed {
         $fa = new Feed(); // instantiate new object
 
         // store db results in local object
-        $fa->id           = $row['id'];
-        $fa->type         = $row['type'];
-        $fa->creator_id   = $row['creator_id'];
-        $fa->user_name    = $row['user_name'];
-        $fa->soldier_id   = $row['soldier_id'];
-        $fa->crew_id      = $row['crew_id'];
-        $fa->delete_name  = $row['delete_name'];
-        $fa->date_created = $row['date_created'];
+        $fa->id           = $row['ID'];
+        $fa->type         = $row['Type'];
+        $fa->creator_id   = $row['Creator_ID'];
+        $fa->user_name    = $row['User_Name'];
+        $fa->soldier_id   = $row['Soldier_ID'];
+        $fa->crew_id      = $row['Crew_ID'];
+        $fa->delete_name  = $row['Delete_Name'];
+        $fa->date_created = $row['Date_Created'];
 
         return $fa; // return the object
       }
@@ -47,6 +47,7 @@ class Feed {
   public static function getFeedEvents($limit = null, $un = null) {
     $db = Db::instance(); // create db connection
     // build query
+<<<<<<< HEAD
     $q = sprintf("SELECT id FROM `%s`",
       self::DB_TABLE
       );
@@ -57,6 +58,13 @@ class Feed {
       {
         $qCar .= " `creator_id` = ".$u->id." ID";
       }
+=======
+    $q = sprintf("SELECT ID FROM `%s` ORDER BY Date_Created DESC ",
+      self::DB_TABLE
+      );
+    if($un !== null) {
+
+>>>>>>> 20b73f234897642160c656ae0a80da85f8db6ff7
     }
     $q .= " ORDER BY date_created DESC";
     if($limit !== null)
@@ -66,7 +74,7 @@ class Feed {
     $objects = array();
     if($result->num_rows != 0) {
       while($row = $result->fetch_assoc()) {
-        $objects[] = self::loadById($row['id']);
+        $objects[] = self::loadById($row['ID']);
       }
     }
     return $objects;
@@ -88,13 +96,13 @@ class Feed {
     // build query
 
     $q = sprintf("INSERT INTO `%s` (
-        `type`,
-        `creator_id`,
-        `user_name`,
-        `soldier_id`,
-        'crew_id',
-        'delete_name',
-        `date_created`
+        `Type`,
+        `Creator_ID`,
+        `User_Name`,
+        `Soldier_ID`,
+        'Crew_ID',
+        'Delete_Name',
+        `Date_Created`
       ) VALUES (%s, %d, %s, %s, %s, %s);",
       self::DB_TABLE,
       $db->escape($this->type),
