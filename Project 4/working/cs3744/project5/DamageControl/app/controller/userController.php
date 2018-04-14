@@ -37,6 +37,7 @@ class UserController
             case 'registerProcess':
                 $username = $_POST['username'];
                 $password = $_POST['password'];
+                $id = 0;
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                 }
@@ -130,7 +131,6 @@ class UserController
             echo '<script language="javascript">';
             echo 'alert("Username is already taken!")';
             echo '</script>';
-            // header('Locat: ' . BASE_URL);exit();
         }
     }
 
