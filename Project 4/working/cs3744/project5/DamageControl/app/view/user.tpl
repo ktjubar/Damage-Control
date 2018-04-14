@@ -3,9 +3,13 @@
 <img class="rounded mx-auto mb-4 d-block" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
 <h3 class="text-center"><?= $user->firstname ?> <?= $user->middlename ?> <?= $user->lastname ?></h3>
 <h4 class="text-center"><?= $user->username ?></h4>
-<?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username']): ?>
-<form>
+<?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($friend)): ?>
+<form action="<?= BASE_URL ?>/users/friend/" method="POST">
   <button class="btn btn-default">Add Friend</button>
+</form>
+<?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $friend): ?>
+<form action="<?= BASE_URL ?>/users/unfriend/" method="POST">
+  <button class="btn btn-default">Remove Friend</button>
 </form>
 <?php endif; ?>
 <div class="row border-top mt-4">
@@ -28,6 +32,24 @@
           </div>
         </div>
       <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+    <br>
+    <!-- friend list -->
+    <h4>Friends</h4>
+    <br>
+    <div id="friendsList" class="feed my-2 mx-1">
+      <?php if(empty($friends)): ?>
+        <p>This user has no friends!</p>
+      <?php else: ?>
+      <?php foreach($friends as $f): ?>
+        <div class="row my-1 pt-3 border-top">
+          <div class="col-md-12">
+            <h3><a href="<?= BASE_URL ?>/users/view/<?= $f->id ?>/"><?= $f->lastname.", ".$f->firstname ?></a></h3>
+            <h4>Username: <?= $f->username ?></h4>
+          </div>
+        </div>
+      <?php endforeach;?>
       <?php endif; ?>
     </div>
   </div>
