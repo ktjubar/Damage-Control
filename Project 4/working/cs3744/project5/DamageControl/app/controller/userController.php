@@ -74,7 +74,7 @@ class UserController
             echo '<script language="javascript">';
             echo 'alert("Invalid password")';
             echo '</script>';
-            header('Location: ' . BASE_URL);exit();
+            // header('Location: ' . BASE_URL);exit();
         }
     }
 
@@ -138,7 +138,7 @@ class UserController
             echo '<script language="javascript">';
             echo 'alert("Username is already taken!")';
             echo '</script>';
-            header('Locat: ' . BASE_URL);exit();
+            // header('Locat: ' . BASE_URL);exit();
         }
     }
 
