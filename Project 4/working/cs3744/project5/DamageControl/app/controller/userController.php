@@ -158,6 +158,11 @@ class UserController
         $user = User::loadById($id);
         $pageTitle = 'View '.$user->lastname;
         $category = 'users';
+        if(isset($_SESSION['username'])) {
+            $fes = Feed::getFeedEvents(10, $_SESSION['username']);
+        } else {
+            $fes = Feed::getFeedEvents(10);
+        }
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/user.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
