@@ -1,4 +1,4 @@
-  <?php include 'helper.php'; ?>
+  <?php include_once 'helper.php'; ?>
 
   <div class="row px-1">
     <div class="col-md-8">
