@@ -1,3 +1,5 @@
+  <?php include 'helper.php'; ?>
+
   <div class="row px-1">
     <div class="col-md-8">
       <!-- main column -->
@@ -12,18 +14,19 @@
       <?php if(isset($_SESSION['username'])): ?>
         <!-- user + friends feed -->
         <h4>Friend Feed</h4>
-        <br>
+        <p class="text-justify">Here are some of the things your friends have been up to!</p>
         <div id="friendFeed" class="feed my-2 mx-1">
           <!--FIX THIS KALEB-->
           <?php if(empty($fes)): ?>
             <p>No events yet.</p>
           <?php else: ?>
-          <ul>
           <?php foreach($fes as $fe): ?>
-          <?php include 'helper.php'; ?>
-            <li><?= formatEvent($fe) ?></li>
+            <div class="row p-2 border">
+              <div class="col-12">
+                <?= formatEvent($fe) ?>
+              </div>
+            </div>
           <?php endforeach; ?>
-          </ul>
           <?php endif; ?>
         </div>
       <?php else: ?>
@@ -31,18 +34,17 @@
         <h4>Global Feed</h4>
         <p class="text-justify">Here you can check out some of the things users have been doing!</p>
         <div id="globalFeed" class="feed my-2 mx-1">
-
           <?php if(empty($fes)): ?>
             <p>No events yet.</p>
           <?php else: ?>
-          <ul>
           <?php foreach($fes as $fe): ?>
-          <?php include 'helper.php'; ?>
-            <li><?= formatEvent($fe) ?></li>
+            <div class="row p-2 border">
+              <div class="col-12">
+                <?= formatEvent($fe) ?>
+              </div>
+            </div>
           <?php endforeach; ?>
-          </ul>
           <?php endif; ?>
-          
         </div>
       <?php endif; ?>
     </div>
