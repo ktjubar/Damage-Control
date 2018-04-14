@@ -57,7 +57,7 @@ class UserController
                 break;
 
             case 'view':
-                $id = $_GET['id'];
+                $id = $_SESSION['user_id'];
                 $this->view($id);
 
             case 'edit':
