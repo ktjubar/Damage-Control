@@ -37,7 +37,10 @@ class UserController
             case 'registerProcess':
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                $this->registerProcess($username, $password);
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                }
+                $this->registerProcess($username, $password, $id);
                 break;
 
             case 'friend':
@@ -107,13 +110,14 @@ class UserController
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    public function registerProcess($un, $pw)
+    public function registerProcess($un, $pw, $id = 0)
     {
         //Check if username exists in database.
         $user = User::loadByUsername($un);
         if ($user == null) {//Create new user
             $user = new User();
             $user->username     = $un;
+            $user->id     = $id;
             $user->firstname    = $_POST['firstname'];
             $user->lastname     = $_POST['lastname'];
             $user->middlename   = $_POST['middlename'];
