@@ -175,12 +175,12 @@ class User {
       return $users;
   }
 
-  public static function getFriendUsers($un)
+  public static function getFriendUsers($id)
   {
     $db = Db::instance();
-    $q = sprintf("SELECT `User1` AS `users` FROM %s WHERE `User2` = %s",
+    $q = sprintf("SELECT `User1` AS `users` FROM %s WHERE `User2` = %d",
       self::DB_REL_TABLE,
-      $db->escape($un)
+      $db->escape($id)
     );
     $res1 = $db->query($q);
     $users1 = array();
@@ -190,9 +190,9 @@ class User {
       }
     }
 
-    $q = sprintf("SELECT `User2` AS `users` FROM %s WHERE `User1` = %s",
+    $q = sprintf("SELECT `User2` AS `users` FROM %s WHERE `User1` = %d",
       self::DB_REL_TABLE,
-      $db->escape($un)
+      $db->escape($id)
     );
     $res2 = $db->query($q);
     $users2 = array();
@@ -204,5 +204,15 @@ class User {
 
     $users = array_merge($users1, $users2);
     return $users;
+  }
+
+  public static function isFriend($un1, $un2)
+  {
+    $q = sprintf("SELECT FROM %s WHERE `User1` = %s AND `User2` = %s",
+      self::DB_REL_TABLE,
+      $db->escape($un1),
+      $db->escape($un2)
+    );
+    $res1 = $db->query($q);
   }
 }

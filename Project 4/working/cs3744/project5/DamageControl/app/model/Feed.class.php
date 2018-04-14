@@ -44,7 +44,7 @@ class Feed {
       }
   }
 
-  public static function getFeedEvents($limit = null, $un = null) {
+  public static function getFeedEvents($limit = null, $id = null) {
     $db = Db::instance(); // create db connection
     // build query
     $q = sprintf("SELECT id FROM `%s`",
@@ -52,7 +52,7 @@ class Feed {
       );
     if($un !== null) {
       $qVar = sprintf("WHERE ");
-      $users = User::getFriendUsers($un);
+      $users = User::getFriendUsers($id);
       foreach ($users as $u)
       {
         $qCar .= " `creator_id` = ".$u->id." ID";
