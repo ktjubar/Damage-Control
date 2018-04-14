@@ -124,7 +124,7 @@ class SoldierController
         $feed->type = 'addSoldier';
         $feed->save();
 
-        header('Location: ' . BASE_URL . '/soldiers/view/' . $sID);exit();
+        //header('Location: ' . BASE_URL . '/soldiers/view/' . $sID);exit();
     }
 
     public function editSoldier($id)

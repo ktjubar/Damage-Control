@@ -183,6 +183,10 @@ class Soldier
         );
 
         $db->query($q); // execute query
+        
+        //Register a feed event
+
+
         return $this->id; // return this object's ID
     }
 
