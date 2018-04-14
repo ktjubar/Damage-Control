@@ -216,8 +216,10 @@ class User {
       $db->escape($un2),
       $db->escape($un1)
     );
-    $res1 = $db->query($q);
-
-
+    $res = $db->query($q);
+    if ($res !== NULL) {
+      return true;
+    }
+    return false;
   }
 }

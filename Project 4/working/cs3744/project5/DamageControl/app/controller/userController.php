@@ -37,7 +37,10 @@ class UserController
             case 'registerProcess':
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                $this->registerProcess($username, $password);
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                }
+                $this->registerProcess($username, $password, $id);
                 break;
 
             case 'friend':
@@ -55,6 +58,10 @@ class UserController
             case 'view':
                 $id = $_GET['id'];
                 $this->view($id);
+
+            case 'edit':
+                $id = $_GET['id'];
+                $this->edit($id);
         }
     }
 
@@ -103,13 +110,14 @@ class UserController
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    public function registerProcess($un, $pw)
+    public function registerProcess($un, $pw, $id = 0)
     {
         //Check if username exists in database.
         $user = User::loadByUsername($un);
         if ($user == null) {//Create new user
             $user = new User();
             $user->username     = $un;
+            $user->id     = $id;
             $user->firstname    = $_POST['firstname'];
             $user->lastname     = $_POST['lastname'];
             $user->middlename   = $_POST['middlename'];
@@ -167,6 +175,23 @@ class UserController
         }
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/user.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    public function edit($id)
+    {
+        $user = User::loadById($id);
+        $pageTitle = 'View '.$user->lastname;
+        $category = 'users';
+        if(isset($_SESSION['username'])) {
+            $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
+            $friends = User::getFriendUsers($_SESSION['user_id']);
+            $friend = User::isFriend($_SESSION['user_id'], $user->id);
+        } else {
+            $fes = Feed::getFeedEvents(10);
+        }
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/edituser.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 }
