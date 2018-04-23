@@ -31,7 +31,12 @@ class UserController
                 break;
 
             case 'register':
-                $this->register();
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $this->register();
+                } else {
+                    $this->register();
+                }
                 break;
 
             case 'registerProcess':
@@ -102,7 +107,7 @@ class UserController
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    public function register()
+    public function register($id = NULL)
     {
         $pageTitle = 'Register';
         $category = 'users';
