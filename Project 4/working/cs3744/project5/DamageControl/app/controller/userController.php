@@ -118,9 +118,10 @@ class UserController
         if ($user != NULL && $id == 0) {
             // invalid username
             echo '<script language="javascript">';
-            echo 'alert("Username is already taken!")';
+            echo 'alert("Username is already taken!");';
+            echo 'window.location = "'. BASE_URL .'/users/register/";';
             echo '</script>';
-            header('Location: ' . BASE_URL . '/users/register/');exit();
+            //header('Location: ' . BASE_URL . '/users/register/');exit();
         }
         else if ($user == NULL && $id == 0) {//Create new user
             $user = new User();
