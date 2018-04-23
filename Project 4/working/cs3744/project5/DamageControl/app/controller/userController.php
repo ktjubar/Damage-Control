@@ -117,11 +117,13 @@ class UserController
         $user = User::loadByUsername($un);
         if ($user != NULL && $id == 0) {
             // invalid username
+            header('Location: ' . BASE_URL . '/users/register/');
             echo '<script language="javascript">';
             echo 'alert("Username is already taken!");';
-            echo 'window.location = "'. BASE_URL .'/users/register/";';
+            //echo 'window.location = "'. BASE_URL .'/users/register/";';
             echo '</script>';
             //header('Location: ' . BASE_URL . '/users/register/');exit();
+            exit();
         }
         else if ($user == NULL && $id == 0) {//Create new user
             $user = new User();
