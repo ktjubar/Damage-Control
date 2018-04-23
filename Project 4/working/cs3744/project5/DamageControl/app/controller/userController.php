@@ -114,6 +114,11 @@ class UserController
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/register.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
+        if ($id == 1) {
+            echo '<script language="javascript">';
+            echo 'alert("Username is already taken!");';
+            echo '</script>';
+        }
     }
 
     public function registerProcess($un, $pw, $id)
@@ -122,13 +127,7 @@ class UserController
         $user = User::loadByUsername($un);
         if ($user != NULL && $id == 0) {
             // invalid username
-            header('Location: ' . BASE_URL . '/users/register/');
-            echo '<script language="javascript">';
-            echo 'alert("Username is already taken!");';
-            //echo 'window.location = "'. BASE_URL .'/users/register/";';
-            echo '</script>';
-            //header('Location: ' . BASE_URL . '/users/register/');exit();
-            exit();
+            header('Location: ' . BASE_URL . '/users/register/1');exit();
         }
         else if ($user == NULL && $id == 0) {//Create new user
             $user = new User();
