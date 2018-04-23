@@ -63,10 +63,12 @@ class UserController
             case 'view':
                 $id = $_SESSION['user_id'];
                 $this->view($id);
+                break;
 
             case 'edit':
                 $id = $_GET['id'];
                 $this->edit($id);
+                break;
         }
     }
 
