@@ -127,7 +127,7 @@ class UserController
         $user = User::loadByUsername($un);
         if ($user != NULL && $id == 0) {
             // invalid username
-            header('Location: ' . BASE_URL . '/users/register/1');exit();
+            header('Location: ' . BASE_URL . '/users/register/err/');exit();
         }
         else if ($user == NULL && $id == 0) {//Create new user
             $user = new User();
