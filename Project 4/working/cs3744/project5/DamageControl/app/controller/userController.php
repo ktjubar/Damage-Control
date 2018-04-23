@@ -120,6 +120,7 @@ class UserController
             echo '<script language="javascript">';
             echo 'alert("Username is already taken!")';
             echo '</script>';
+            // TODO: Pause and not display blank
         }
         else if ($user == NULL && $id == 0) {//Create new user
             $user = new User();
