@@ -31,12 +31,11 @@ class UserController
                 break;
 
             case 'register':
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    $this->register();
-                } else {
-                    $this->register();
-                }
+                $this->register();
+                break;
+
+            case 'registerErr':
+                $this->register(1);
                 break;
 
             case 'registerProcess':
