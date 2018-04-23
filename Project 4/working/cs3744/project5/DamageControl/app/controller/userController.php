@@ -133,7 +133,8 @@ class UserController
             $user->email        = $_POST['email'];
             //$user->gender = $_POST['gender'];
             $id = $user->save();
-            header('Location: ' . BASE_URL . '/users/view/'.$id.'/');exit();
+            $this->loginProcess($un, $pw);
+            //header('Location: ' . BASE_URL . '/users/view/'.$id.'/');exit();
         }
         else {
             $user = User::loadById($id);
