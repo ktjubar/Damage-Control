@@ -126,6 +126,7 @@ class CrewController
         if ($crew != null) {
             $pageTitle = 'Edit '.$crew->name;
             $category = 'crews';
+            
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editCrew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
