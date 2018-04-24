@@ -76,14 +76,16 @@ class Crew
             $this->date_created = date("Y-m-d", time());
         }
 
-        $q = sprintf("INSERT INTO `%s`(`ID`, `Name`, `Nickname`, `Creator_ID`, `Date_Created`)
-        VALUES (%d, %s, %s, %d, %s) ON CONFLICT (`ID`) DO UPDATE;",
+        // INSERT INTO `Crews`(`ID`, `Name`, `Creator_ID`) VALUES (23, '23rd Testing', 1) ON DUPLICATE KEY UPDATE `Name`='23rd testing', `Creator_ID`=1
+
+        $q = sprintf("INSERT INTO `%s`(`ID`, `Name`, `Creator_ID`)
+        VALUES (%d, %s, %d) ON DUPLICATE KEY UPDATE `Name` = %s, `Creator_ID` = %d;",
         self::DB_TABLE,
         $db->escape($this->crewID),
         $db->escape($this->name),
-        $db->escape($this->nick),
         $db->escape($this->creator_id),
-        $db->escape($this->date_created)
+        $db->escape($this->name),
+        $db->escape($this->creator_id)
         );
         $db->query($q);
 

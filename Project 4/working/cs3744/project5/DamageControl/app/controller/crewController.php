@@ -116,8 +116,7 @@ class CrewController
         $feed->type = 'addCrew';
         $feed->save();
 
-        echo($soldiers);
-        //header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
+        header('Location: ' . BASE_URL . '/crews/view/' . $crewID);exit();
     }
 
     public function editCrew($id)
