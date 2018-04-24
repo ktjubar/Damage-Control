@@ -49,14 +49,14 @@ class UserController
                 break;
 
             case 'friend':
-                $user = $_POST['user'];
-                $friend = $_POST['friend'];
+                $user = $_SESSION['user_id'];
+                $friend = $_GET['id'];
                 $this->friend($user, $friend, 1);
                 break;
 
             case 'unfriend':
-                $user = $_POST['user'];
-                $friend = $_POST['friend'];
+                $user = $_SESSION['user_id'];
+                $friend = $_GET['id'];
                 $this->friend($user, $friend, 0);
                 break;
 
@@ -169,7 +169,7 @@ class UserController
                 $db->escape($id2)
             );
             $db->query($q); // execute query
-            header('Location: ' . BASE_URL . '/users/view/' . $id2);exit();
+            header('Location: ' . BASE_URL . '/users/view/' . $id2.'/');exit();
         } else if ($op == 0) { //remove friend
             $q = sprintf("DELETE FROM `%s` WHERE `User1` = %d AND `User2` = %d",
             self::DB_REL_TABLE,
