@@ -202,15 +202,15 @@ class User {
     return $users;
   }
 
-  public static function isFriend($un1, $un2)
+  public static function isFriend($id1, $id2)
   {
     $db = Db::instance();
-    $q = sprintf("SELECT FROM %s WHERE (`User1` = %s AND `User2` = %s) OR (`User1` = %s AND `User2` = %s)",
+    $q = sprintf("SELECT FROM %s WHERE (`User1` = %d AND `User2` = %d) OR (`User1` = %d AND `User2` = %d)",
       self::DB_REL_TABLE,
-      $db->escape($un1),
-      $db->escape($un2),
-      $db->escape($un2),
-      $db->escape($un1)
+      $db->escape($id1),
+      $db->escape($id2),
+      $db->escape($id2),
+      $db->escape($id1)
     );
     $res = $db->query($q);
     if ($res != NULL) {
