@@ -109,7 +109,7 @@ class CrewController
         $crew->remove = $remove;
         $crew->creator_id = $_SESSION['user_id'];
 
-        $crewID = $crew->save();
+        $crew->save();
 
         $feed = new Feed();
         $feed->creator_id = $_SESSION['user_id'];
