@@ -95,7 +95,7 @@ class CrewController
         $nick = $_POST['nickname'];
         $soldiers = $_POST['soldiers'];
         $remove = $_POST['remove'];
-
+        echo($soldiers);
         // first name and last name are required
         if (empty($crewID) || empty($name)) {
             header('Location: ' . BASE_URL . '/crews/add/');exit();
