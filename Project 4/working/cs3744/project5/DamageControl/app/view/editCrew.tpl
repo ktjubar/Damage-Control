@@ -1,8 +1,8 @@
 <form action="<?= BASE_URL ?>/crews/add/process/" method="POST">
     <div class="row mb-4">
       <div class="col-md-7">
-        <h5>Crew Number: </h5><input type="number" name="id" required>
-        <input type="text" name="name" placeholder="Crew name (including number)" style="width: 300px;" required><br><br>
+        <h5>Crew Number: </h5><input type="number" name="id" required value="<?= $crew->crewID ?>">
+        <input type="text" name="name" placeholder="Crew name (including number)" style="width: 300px;" required value="<?= $crew->name ?>"><br><br>
         <h5>Crew Description: </h5>
         <textarea rows="10" cols="70"></textarea>
       </div>
@@ -28,7 +28,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <button type="submit" class="btn btn-default btn-block" value="Add">Add</button>
+        <button type="submit" class="btn btn-default btn-block" value="Edit">Add</button>
       </div>
     </form>
       <div class="col-md-6">
