@@ -93,7 +93,7 @@ class CrewController
         $crewID = $_POST['id'];
         $name = $_POST['name'];
         $nick = $_POST['nickname'];
-        $soldiers = $_POST['soldiers[]'];
+        $soldiers = array($_POST['soldiers[]']);
         $remove = $_POST['remove'];
         echo($soldiers);
         // first name and last name are required
