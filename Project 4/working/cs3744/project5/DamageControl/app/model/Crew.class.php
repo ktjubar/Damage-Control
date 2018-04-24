@@ -93,7 +93,7 @@ class Crew
                 $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
                 Soldier::DB_TABLE,
                 $db->escape($this->crewID),
-                $db->escape($s->ID));
+                $db->escape($s));
                 $db->query($q);
             }
         }
@@ -103,7 +103,7 @@ class Crew
                 $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
                 Soldier::DB_TABLE,
                 0,
-                $db->escape($s->ID));
+                $db->escape($s));
                 $db->query($q);
             }
         }
