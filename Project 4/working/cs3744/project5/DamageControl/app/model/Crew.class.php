@@ -76,8 +76,6 @@ class Crew
             $this->date_created = date("Y-m-d", time());
         }
 
-        // INSERT INTO `Crews`(`ID`, `Name`, `Creator_ID`) VALUES (23, '23rd Testing', 1) ON DUPLICATE KEY UPDATE `Name`='23rd testing', `Creator_ID`=1
-
         $q = sprintf("INSERT INTO `%s`(`ID`, `Name`, `Creator_ID`)
         VALUES (%d, %s, %d) ON DUPLICATE KEY UPDATE `Name` = %s, `Creator_ID` = %d;",
         self::DB_TABLE,
@@ -88,7 +86,7 @@ class Crew
         $db->escape($this->creator_id)
         );
         $db->query($q);
-
+        echo($q);
         //Parse soldiers
         if (!empty($this->soldiers)){
             foreach($this->soldiers as $s) {

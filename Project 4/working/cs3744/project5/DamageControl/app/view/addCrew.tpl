@@ -10,7 +10,7 @@
       <?php $unassigned = Soldier::getUnassigned();
             if(!empty($unassigned)): ?>
         <h5>Select soldiers to add (hold CTRL to select multiple):</h5>
-        <select class="w-100" name="soldiers" multiple>
+        <select class="w-100" name="soldiers[]" multiple>
           <?php foreach($unassigned as $s): ?>
             <option value="<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></option>
           <?php endforeach; ?>
