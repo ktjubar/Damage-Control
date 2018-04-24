@@ -162,12 +162,11 @@ class UserController
     {
         $db = Db::instance();
         if($op == 1) { //Add friend
-            $q = sprintf("INSERT INTO `%s` (`User1`, `User2`, `Relationship`)
-                VALUES (%d, %d, %d);",
+            $q = sprintf("INSERT INTO `%s` (`User1`, `User2`)
+                VALUES (%d, %d);",
                 self::DB_REL_TABLE,
                 $db->escape($id1),
-                $db->escape($id2),
-                $db->escape($op)
+                $db->escape($id2)
             );
             $db->query($q); // execute query
             header('Location: ' . BASE_URL . '/users/view/' . $id2);exit();
@@ -190,7 +189,7 @@ class UserController
         if(isset($_SESSION['username'])) {
             $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
             $friends = User::getFriendUsers($_SESSION['user_id']);
-            $friend = User::isFriend($_SESSION['user_id'], $user->id);
+            $friend = User::isFriend($_SESSION['user_id'], $id);
         } else {
             $fes = Feed::getFeedEvents(10);
         }

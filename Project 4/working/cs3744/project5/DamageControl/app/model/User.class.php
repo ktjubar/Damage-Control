@@ -213,7 +213,7 @@ class User {
       $db->escape($un1)
     );
     $res = $db->query($q);
-    if ($res !== NULL) {
+    if ($res != NULL) {
       return true;
     }
     return false;
