@@ -91,7 +91,7 @@ class Crew
         if (!empty($this->soldiers)){
             foreach($this->soldiers as $s) {
                 echo($s);
-                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
+                $q = sprintf("UPDATE `%s` SET `Crew_ID` = %d WHERE `ID` = %d;",
                 Soldier::DB_TABLE,
                 $db->escape($this->crewID),
                 $db->escape($s));
@@ -102,7 +102,7 @@ class Crew
         if (!empty($this->remove)){
             foreach($this->remove as $s) {
                 echo($s);
-                $q = sprintf("UPDATE `%s` SET `Crew_ID = %d WHERE `ID` = %d;",
+                $q = sprintf("UPDATE `%s` SET `Crew_ID` = %d WHERE `ID` = %d;",
                 Soldier::DB_TABLE,
                 0,
                 $db->escape($s));
