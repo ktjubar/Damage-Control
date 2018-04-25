@@ -139,7 +139,7 @@ class User {
       $$db->escape($id)
     );
     $db->query($q); // execute query
-
+    echo($q);
     return $id;
   }
 

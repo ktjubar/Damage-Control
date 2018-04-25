@@ -141,7 +141,7 @@ class UserController
             $user->email        = $_POST['email'];
             //$user->gender = $_POST['gender'];
             $id = $user->save();
-            $this->loginProcess($un, $pw);
+            //$this->loginProcess($un, $pw);
             //header('Location: ' . BASE_URL . '/users/view/'.$id.'/');exit();
         }
         else {
