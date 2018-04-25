@@ -118,7 +118,7 @@ class User {
     // build query
 
     $q = sprintf("INSERT INTO `%s` (`User`, `Pass`, `First_Name`, `Last_Name`, `Middle_Name`, `Gender`, `Email`)
-    VALUES (%s, %s, %s, %s, %s,  %d, %s);",
+      VALUES (%s, %s, %s, %s, %s,  %d, %s);",
       self::DB_TABLE,
       $db->escape($this->username),
       $db->escape($this->password),
@@ -131,6 +131,15 @@ class User {
     //echo $q;
     $db->query($q); // execute query
     $id = $db->getInsertID(); // set the ID for the new object
+
+    // Make person follow self
+    $q = sprintf("INSERT INTO `%s` (`User1`, `User2`) VALUES (%d, %d);",
+      self::DB_REL_TABLE,
+      $$db->escape($id),
+      $$db->escape($id)
+    );
+    $db->query($q); // execute query
+
     return $id;
   }
 
