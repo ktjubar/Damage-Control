@@ -158,9 +158,6 @@ class UserController
     //Requires $_POST variables user id1 and user id2
     public function follow($id, $op)
     {
-        if (!isset($_SESSION['user_id'])) //Not logged in (extraneous case handling)
-            header('Location: ' . BASE_URL . '/users/view/' . $id.'/');exit();
-
         $db = Db::instance();
         if($op == 1) { // Follow user
             $q = sprintf("INSERT INTO `%s` (`User1`, `User2`) VALUES (%d, %d);",
