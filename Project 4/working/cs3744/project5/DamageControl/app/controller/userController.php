@@ -76,7 +76,10 @@ class UserController
     {
         // check password against username
         $user = User::loadByUsername($un);
-        if (password_verify($pw, $user->getHashedPass())) {
+        if ($user == null) {
+            // invalid username
+            header('Location: ' . BASE_URL . '/loginerr/');exit();
+        } else if (password_verify($pw, $user->getHashedPass())) {
             // log in
             $_SESSION['username'] = $un;
             $_SESSION['user_id'] = $user->id;
@@ -84,10 +87,7 @@ class UserController
             header('Location: ' . BASE_URL);exit();
         } else {
             // invalid password
-            echo '<script language="javascript">';
-            echo 'alert("Invalid password")';
-            echo '</script>';
-            // header('Location: ' . BASE_URL);exit();
+            header('Location: ' . BASE_URL . '/loginerr/');exit();
         }
     }
 

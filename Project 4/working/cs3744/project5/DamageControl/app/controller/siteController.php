@@ -28,17 +28,13 @@ class SiteController
                 $this->getNews($q);
                 break;
 
-            // case 'about':
-            //     $this->about();
-            //     break;
-
-            // case 'dashboard':
-            //     $this->dashboard();
-            //     break;
+            case 'loginerr':
+                $this->home(1);
+                break;
         }
     }
 
-    public function home()
+    public function home($id = 0)
     {
         $pageTitle = 'Home';
         $category = 'home';
@@ -50,6 +46,11 @@ class SiteController
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
+        if ($id == 1) {
+            echo '<script language="javascript">';
+            echo 'alert("Invalid credentials or user does not exist!");';
+            echo '</script>';
+        }
     }
 
     public function getNews($q) {
