@@ -135,11 +135,10 @@ class User {
     // Make person follow self
     $q = sprintf("INSERT INTO `%s` (`User1`, `User2`) VALUES (%d, %d);",
       self::DB_REL_TABLE,
-      $$db->escape($id),
-      $$db->escape($id)
+      $db->escape($id),
+      $db->escape($id)
     );
     $db->query($q); // execute query
-    echo($q);
     return $id;
   }
 
