@@ -52,7 +52,7 @@ class Feed {
       );
     if($id !== null) {
       $qVar = sprintf("WHERE ");
-      $users = User::getFriendUsers($id);
+      $users = User::getFollowing($id);
       foreach ($users as $u)
       {
         $qCar .= " `creator_id` = ".$u->id." ID";
