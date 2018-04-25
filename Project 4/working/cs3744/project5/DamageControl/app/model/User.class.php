@@ -188,10 +188,11 @@ class User {
       $db->escape($id)
     );
     $result = $db->query($q);
+
     $users = array();
     if ($result->num_rows != 0) {
       while ($row = $result->fetch_assoc()) {
-          $users[] = self::loadByUsername($row['users']);
+          $users[] = self::loadById($row['users']);
       }
     }
     return $users;
