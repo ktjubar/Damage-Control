@@ -163,8 +163,7 @@ class UserController
 
         $db = Db::instance();
         if($op == 1) { // Follow user
-            $q = sprintf("INSERT INTO `%s` (`User1`, `User2`)
-                VALUES (%d, %d);",
+            $q = sprintf("INSERT INTO `%s` (`User1`, `User2`) VALUES (%d, %d);",
                 self::DB_REL_TABLE,
                 $db->escape($_SESSION['user_id']),
                 $db->escape($id)
@@ -177,9 +176,10 @@ class UserController
             $db->escape($_SESSION['user_id']),
                 $db->escape($id)
             );
-        $db->query($q); // execute query
-        header('Location: ' . BASE_URL . '/users/view/');exit();
+            $db->query($q); // execute query
+            header('Location: ' . BASE_URL . '/users/view/');exit();
         }
+        echo("broke: ".$q);
     }
 
     public function view($id)
