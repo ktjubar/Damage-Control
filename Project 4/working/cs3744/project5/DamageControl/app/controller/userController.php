@@ -48,12 +48,12 @@ class UserController
                 $this->registerProcess($username, $password, $id);
                 break;
 
-            case 'friend':
+            case 'follow':
                 $id = $_GET['id'];
                 $this->follow($id, 1);
                 break;
 
-            case 'unfriend':
+            case 'unfollow':
                 $id = $_GET['id'];
                 $this->follow($id, 0);
                 break;
@@ -170,7 +170,7 @@ class UserController
                 $db->escape($id)
             );
             $db->query($q); // execute query
-            header('Location: ' . BASE_URL . '/users/view/' . $id2.'/');exit();
+            header('Location: ' . BASE_URL . '/users/view/' . $id.'/');exit();
         } else if ($op == 0) { // Unfollow user
             $q = sprintf("DELETE FROM `%s` WHERE `User1` = %d AND `User2` = %d;",
             self::DB_REL_TABLE,

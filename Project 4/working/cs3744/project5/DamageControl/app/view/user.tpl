@@ -4,11 +4,11 @@
 <h3 class="text-center"><?= $user->firstname ?> <?= $user->middlename ?> <?= $user->lastname ?></h3>
 <h4 class="text-center"><?= $user->username ?></h4>
 <?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($isFollowing)): ?>
-<form action="<?= BASE_URL ?>/users/friend/<?= $user->id ?>/" method="POST">
+<form action="<?= BASE_URL ?>/users/follow/<?= $user->id ?>/" method="POST">
   <button class="btn btn-default" type="submit">Follow</button>
 </form>
 <?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $isFollowing): ?>
-<form action="<?= BASE_URL ?>/users/unfriend/<?= $user->id ?>/" method="POST">
+<form action="<?= BASE_URL ?>/users/unfollow/<?= $user->id ?>/" method="POST">
   <button class="btn btn-default" type="submit">Unfollow</button>
 </form>
 <?php elseif(isset($_SESSION['username']) && $user->username == $_SESSION['username']): ?>
