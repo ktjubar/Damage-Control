@@ -3,13 +3,13 @@
 <img class="rounded mx-auto mb-4 d-block" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
 <h3 class="text-center"><?= $user->firstname ?> <?= $user->middlename ?> <?= $user->lastname ?></h3>
 <h4 class="text-center"><?= $user->username ?></h4>
-<?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($friend)): ?>
+<?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($isFollowing)): ?>
 <form action="<?= BASE_URL ?>/users/friend/<?= $user->id ?>/" method="POST">
-  <button class="btn btn-default" type="submit">Add Friend</button>
+  <button class="btn btn-default" type="submit">Follow</button>
 </form>
-<?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $friend): ?>
+<?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $isFollowing): ?>
 <form action="<?= BASE_URL ?>/users/unfriend/<?= $user->id ?>/" method="POST">
-  <button class="btn btn-default" type="submit">Remove Friend</button>
+  <button class="btn btn-default" type="submit">Unfollow</button>
 </form>
 <?php elseif(isset($_SESSION['username']) && $user->username == $_SESSION['username']): ?>
 <form action="<?= BASE_URL ?>/users/edit/<?= $_SESSION['user_id'] ?>/" method="POST">
@@ -43,10 +43,10 @@
     <h4>Friends</h4>
     <br>
     <div id="friendsList" class="feed my-2 mx-1">
-      <?php if(empty($friends)): ?>
-        <p>This user has no friends!</p>
+      <?php if(empty($following)): ?>
+        <p>This user is not following anyone!</p>
       <?php else: ?>
-      <?php foreach($friends as $f): ?>
+      <?php foreach($following as $f): ?>
         <div class="row my-1 pt-3 border-top">
           <div class="col-md-12">
             <h3><a href="<?= BASE_URL ?>/users/view/<?= $f->id ?>/"><?= $f->lastname.", ".$f->firstname ?></a></h3>

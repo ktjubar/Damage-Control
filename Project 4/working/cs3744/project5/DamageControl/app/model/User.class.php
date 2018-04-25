@@ -179,46 +179,31 @@ class User {
       return $users;
   }
 
-  public static function getFriendUsers($id)
+  public static function getFollowing($id)
   {
     $db = Db::instance();
-    $q = sprintf("SELECT `User1` AS `users` FROM %s WHERE `User2` = %d",
+    $q = sprintf("SELECT `User2` AS `users` FROM %s WHERE `User1` = %d AND NOT `User2` = %d",
       self::DB_REL_TABLE,
+      $db->escape($id),
       $db->escape($id)
     );
-    $res1 = $db->query($q);
-    $users1 = array();
-    if ($res1->num_rows != 0) {
-      while ($row = $res1->fetch_assoc()) {
-          $users1[] = self::loadByUsername($row['users']);
+    $result = $db->query($q);
+    $users = array();
+    if ($result->num_rows != 0) {
+      while ($row = $result->fetch_assoc()) {
+          $users[] = self::loadByUsername($row['users']);
       }
     }
-
-    $q = sprintf("SELECT `User2` AS `users` FROM %s WHERE `User1` = %d",
-      self::DB_REL_TABLE,
-      $db->escape($id)
-    );
-    $res2 = $db->query($q);
-    $users2 = array();
-    if ($res2->num_rows != 0) {
-      while ($row = $res2->fetch_assoc()) {
-          $users2[] = self::loadByUsername($row['users']);
-      }
-    }
-
-    $users = array_merge($users1, $users2);
     return $users;
   }
 
-  public static function isFriend($id1, $id2)
+  public static function isFollowing($id)
   {
     $db = Db::instance();
-    $q = sprintf("SELECT FROM %s WHERE (`User1` = %d AND `User2` = %d) OR (`User1` = %d AND `User2` = %d)",
+    $q = sprintf("SELECT FROM %s WHERE `User1` = %d AND `User2` = %d;",
       self::DB_REL_TABLE,
-      $db->escape($id1),
-      $db->escape($id2),
-      $db->escape($id2),
-      $db->escape($id1)
+      $db->escape($_SESSION['user_id']),
+      $db->escape($id)
     );
     $res = $db->query($q);
     if ($res != NULL) {

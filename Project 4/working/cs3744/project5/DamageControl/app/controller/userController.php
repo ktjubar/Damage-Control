@@ -158,23 +158,26 @@ class UserController
     //To use unfriend get user if from session and pass user id of other person as well.
     //redirects to here from <BASEURL>/users/friend/ and <BASEURL>/users/unfriend/
     //Requires $_POST variables user id1 and user id2
-    public function friend($id1, $id2, $op)
+    public function follow($id, $op)
     {
+        if (!isset($_SESSION['user_id'])) //Not logged in (extraneous case handling)
+            header('Location: ' . BASE_URL . '/users/view/' . $id.'/');exit();
+
         $db = Db::instance();
-        if($op == 1) { //Add friend
+        if($op == 1) { // Follow user
             $q = sprintf("INSERT INTO `%s` (`User1`, `User2`)
                 VALUES (%d, %d);",
                 self::DB_REL_TABLE,
-                $db->escape($id1),
-                $db->escape($id2)
+                $db->escape($_SESSION['user_id']),
+                $db->escape($id)
             );
             $db->query($q); // execute query
             header('Location: ' . BASE_URL . '/users/view/' . $id2.'/');exit();
-        } else if ($op == 0) { //remove friend
-            $q = sprintf("DELETE FROM `%s` WHERE `User1` = %d AND `User2` = %d",
+        } else if ($op == 0) { // Unfollow user
+            $q = sprintf("DELETE FROM `%s` WHERE `User1` = %d AND `User2` = %d;",
             self::DB_REL_TABLE,
-            $db->escape($id1),
-            $db->escape($id2)
+            $db->escape($_SESSION['user_id']),
+                $db->escape($id)
             );
         $db->query($q); // execute query
         header('Location: ' . BASE_URL . '/users/view/');exit();
@@ -187,9 +190,9 @@ class UserController
         $pageTitle = 'View '.$user->lastname;
         $category = 'users';
         if(isset($_SESSION['username'])) {
-            $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
-            $friends = User::getFriendUsers($_SESSION['user_id']);
-            $friend = User::isFriend($_SESSION['user_id'], $id);
+            $fes = Feed::getFeedEvents(10, $id);
+            $following = User::getFollowing($id);
+            $isFollowing = User::isFollowing($id);
         } else {
             $fes = Feed::getFeedEvents(10);
         }
