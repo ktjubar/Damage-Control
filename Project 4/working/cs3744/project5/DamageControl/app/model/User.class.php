@@ -200,13 +200,13 @@ class User {
   public static function isFollowing($id)
   {
     $db = Db::instance();
-    $q = sprintf("SELECT FROM %s WHERE `User1` = %d AND `User2` = %d;",
+    $q = sprintf("SELECT * FROM %s WHERE `User1` = %d AND `User2` = %d;",
       self::DB_REL_TABLE,
       $db->escape($_SESSION['user_id']),
       $db->escape($id)
     );
     $res = $db->query($q);
-    if ($res != NULL) {
+    if ($res->fetch_assoc() != NULL) {
       return true;
     }
     return false;
