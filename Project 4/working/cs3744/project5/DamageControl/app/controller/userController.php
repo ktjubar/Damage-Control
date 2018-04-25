@@ -49,15 +49,13 @@ class UserController
                 break;
 
             case 'friend':
-                $user = $_SESSION['user_id'];
-                $friend = $_GET['id'];
-                $this->friend($user, $friend, 1);
+                $id = $_GET['id'];
+                $this->follow($id, 1);
                 break;
 
             case 'unfriend':
-                $user = $_SESSION['user_id'];
-                $friend = $_GET['id'];
-                $this->friend($user, $friend, 0);
+                $id = $_GET['id'];
+                $this->follow($id, 0);
                 break;
 
             case 'view':
