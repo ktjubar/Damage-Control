@@ -40,7 +40,7 @@
     </div>
     <br>
     <!-- friend list -->
-    <h4>Friends</h4>
+    <h4>Following</h4>
     <br>
     <div id="friendsList" class="feed my-2 mx-1">
       <?php if(empty($following)): ?>
