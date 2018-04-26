@@ -52,7 +52,10 @@ class Feed {
       $q .= sprintf(" WHERE `Creator_ID` = %d", $db->escape($id));
     } else if (isset($_SESSION['user_id'])) { // If login, get feeds created by $id and following
       $q .= sprintf(" WHERE `Creator_ID` = %d", $db->escape($_SESSION['user_id']));
-      //TODO: Add code to query following users
+      $following = User::getFollowing($id);
+      foreach ($following as $f) {
+        $q .= sprintf(" OR `Creator_ID` = %d", $db->escape($f->id));
+      }
     }
 
     if ($id == null && $limit == null && !isset($_SESSION['user_id'])) {
