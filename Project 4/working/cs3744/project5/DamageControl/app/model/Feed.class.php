@@ -92,20 +92,14 @@ class Feed {
     $q = sprintf("INSERT INTO `%s` (
         `Type`,
         `Creator_ID`,
-        `User_Name`,
         `Soldier_ID`,
         'Crew_ID',
-        'Delete_Name',
-        `Date_Created`
-      ) VALUES (%s, %d, %s, %s, %s, %s);",
+      ) VALUES (%s, %d, %d, %d);",
       self::DB_TABLE,
       $db->escape($this->type),
       $db->escape($this->creator_id),
-      $db->escape($this->user_name),
       $db->escape($this->soldier_id),
-      $db->escape($this->crew_id),
-      $db->escape($this->delete_name),
-      $db->escape($this->date_created)
+      $db->escape($this->crew_id)
       );
     //echo $q;
     $db->query($q); // execute query
