@@ -38,11 +38,7 @@ class SiteController
     {
         $pageTitle = 'Home';
         $category = 'home';
-        if(isset($_SESSION['user_id'])) {
-            $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
-        } else {
-            $fes = Feed::getFeedEvents(10);
-        }
+        $fes = Feed::getFeedEvents(10);
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
