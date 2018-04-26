@@ -46,30 +46,29 @@ class Feed {
 
   public static function getFeedEvents($limit = null, $id = null) {
     $db = Db::instance(); // create db connection
-    // build query
-    $q = sprintf("SELECT id FROM `%s`",
-      self::DB_TABLE
-      );
-    if($id !== null) {
-      $qVar = sprintf("WHERE ");
-      $users = User::getFollowing($id);
-      foreach ($users as $u)
-      {
-        $qCar .= " `creator_id` = ".$u->id." ID";
-      }
+    $q = sprintf("SELECT * FROM `%s`", self::DB_TABLE);
+    
+    if ($id != null) { // If id, get feeds created by $id
+      $q .= sprintf(" WHERE `Creator_ID` = %d", $db->escape($id));
+    } else if (isset($_SESSION['user_id'])) { // If login, get feeds created by $id and following
+      $q .= sprintf(" WHERE `Creator_ID` = %d", $db->escape($_SESSION['user_id']));
+      //TODO: Add code to query following users
     }
-    $q .= " ORDER BY date_created DESC";
-    if($limit !== null)
-      $q .= " LIMIT ".$limit;
-    $result = $db->query($q); // retrieve results
 
-    $objects = array();
+    if ($id == null && $limit == null && !isset($_SESSION['user_id'])) {
+      $q .= " LIMIT 15";
+    } else if ($limit != null) {
+      $q .= sprintf(" LIMIT %d", $db->escape($limit));
+    }
+    
+    $result = $db->query($q);
+    $feeds = array();
     if($result->num_rows != 0) {
       while($row = $result->fetch_assoc()) {
-        $objects[] = self::loadById($row['id']);
+        $feeds[] = self::loadById($row['id']);
       }
     }
-    return $objects;
+    return $feeds;
   }
 
   public function save(){
