@@ -38,8 +38,8 @@ class SiteController
     {
         $pageTitle = 'Home';
         $category = 'home';
-        if(isset($_SESSION['username'])) {
-            $fes = Feed::getFeedEvents(10, $_SESSION['username']);
+        if(isset($_SESSION['user_id'])) {
+            $fes = Feed::getFeedEvents(10, $_SESSION['user_id']);
         } else {
             $fes = Feed::getFeedEvents(10);
         }
