@@ -23,7 +23,7 @@
 <div class="row border-top mt-4">
   <div class="col-md-8 mt-4">
     <!-- main column -->
-    This is this user's main page! There will be some other stuff here later.
+    Welcome to your main page!
   </div>
   <div class="col-md-4 mt-4">
     <!-- activity feed -->
