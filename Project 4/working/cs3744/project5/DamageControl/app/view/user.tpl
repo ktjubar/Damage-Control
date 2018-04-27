@@ -3,20 +3,23 @@
 <img class="rounded mx-auto mb-4 d-block" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
 <h3 class="text-center"><?= $user->firstname ?> <?= $user->middlename ?> <?= $user->lastname ?></h3>
 <h4 class="text-center"><?= $user->username ?></h4>
-<?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($isFollowing)): ?>
-<form action="<?= BASE_URL ?>/users/follow/<?= $user->id ?>/" method="POST">
-  <button class="btn btn-default" type="submit">Follow</button>
-</form>
-<?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $isFollowing): ?>
-<form action="<?= BASE_URL ?>/users/unfollow/<?= $user->id ?>/" method="POST">
-  <button class="btn btn-default" type="submit">Unfollow</button>
-</form>
-<?php endif; ?>
-<?php if((isset($_SESSION['username']) && $user->username == $_SESSION['username']) || $_SESSION['role'] == 2): ?>
-<form action="<?= BASE_URL ?>/users/edit/<?= $_SESSION['user_id'] ?>/" method="POST">
-  <button class="btn btn-default" type="submit">Edit Profile</button>
-</form>
-<?php endif; ?>
+<div class="row">
+  <?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($isFollowing)): ?>
+  <form action="<?= BASE_URL ?>/users/follow/<?= $user->id ?>/" method="POST" class="col-md-2">
+    <button class="btn btn-default btn-block" type="submit">Follow</button>
+  </form>
+  <?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $isFollowing): ?>
+  <form action="<?= BASE_URL ?>/users/unfollow/<?= $user->id ?>/" method="POST" class="col-md-2">
+    <button class="btn btn-default btn-block" type="submit">Unfollow</button>
+  </form>
+  <?php endif; ?>
+  <?php if((isset($_SESSION['username']) && $user->username == $_SESSION['username']) || $_SESSION['role'] == 2): ?>
+  <form action="<?= BASE_URL ?>/users/edit/<?= $user->id ?>/" method="POST" class="col-md-2">
+    <button class="btn btn-default btn-block" type="submit">Edit Profile</button>
+  </form>
+  <?php else:
+        endif; ?>
+</div>
 <div class="row border-top mt-4">
   <div class="col-md-8 mt-4">
     <!-- main column -->

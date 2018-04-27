@@ -7,7 +7,7 @@
       <span class="text-red">*</span> E-mail Address:
     </label>
     <div class="col-7">
-      <input class="form-control" type="text" name="email" required>
+      <input class="form-control" type="text" name="email" maxlength="100" required>
     </div>
   </div>
   <div class="form-group row">
@@ -15,7 +15,7 @@
       <span class="text-red">*</span> Username:
     </label>
     <div class="col-7">
-      <input class="form-control" type="text" name="username" required>
+      <input class="form-control" type="text" name="username" maxlength="40" required>
     </div>
   </div>
   <div class="form-group row">
@@ -31,7 +31,7 @@
       <span class="text-red">*</span> First Name:
     </label>
     <div class="col-7">
-      <input class="form-control" type="text" name="firstname" required>
+      <input class="form-control" type="text" name="firstname" maxlength="100" required>
     </div>
   </div>
   <div class="form-group row">
@@ -39,7 +39,7 @@
       Middle Name:
     </label>
     <div class="col-7">
-      <input class="form-control" type="text" name="middlename">
+      <input class="form-control" type="text" name="middlename" maxlength="100">
     </div>
   </div>
   <div class="form-group row">
@@ -47,7 +47,7 @@
       <span class="text-red">*</span> Last Name:
     </label>
     <div class="col-7">
-      <input class="form-control" type="text" name="lastname">
+      <input class="form-control" type="text" name="lastname" maxlength="100" required>
     </div>
   </div>
   <div class="form-group row">

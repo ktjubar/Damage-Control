@@ -201,7 +201,7 @@ class UserController
         $pageTitle = 'View '.$user->lastname;
         $category = 'users';
         include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/edituser.tpl';
+        include_once SYSTEM_PATH . '/view/editUser.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 }
