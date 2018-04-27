@@ -1,8 +1,8 @@
 <img class="rounded mx-auto mb-4 d-block" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
 <form action="<?= BASE_URL ?>/users/registerProcess/<?= $user->id ?>/" method="POST">
-  <input type="text" name="firstname" value="<?= $user->firstname ?>" required>
-  <input type="text" name="middlename" value="<?= $user->middlename ?>">
-  <input type="text" name="lastname" value="<?= $user->lastname ?>" required>
+  <input type="text" name="firstname" value="<?= $user->firstname ?>" maxlength="100" required>
+  <input type="text" name="middlename" value="<?= $user->middlename ?>" maxlength="100">
+  <input type="text" name="lastname" value="<?= $user->lastname ?>" maxlength="100" required>
   <select>
     <option value="0">Male</option>
     <option value="1">Female</option>

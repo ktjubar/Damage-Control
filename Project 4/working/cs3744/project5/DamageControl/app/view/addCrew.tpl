@@ -1,8 +1,8 @@
 <form action="<?= BASE_URL ?>/crews/add/process/" method="POST">
   <div class="row mb-4">
     <div class="col-md-7">
-      <h5>Crew Number: </h5><input type="number" name="id" required>
-      <input type="text" name="name" placeholder="Crew name (including number)" style="width: 300px;" required><br><br>
+      <h5>Crew Number: </h5><input type="number" name="id" min="1" required>
+      <input type="text" name="name" placeholder="Crew name (including number)" style="width: 300px;" maxlength="100" required><br><br>
       <h5>Crew Description: </h5>
       <textarea rows="10" cols="70"></textarea>
     </div>

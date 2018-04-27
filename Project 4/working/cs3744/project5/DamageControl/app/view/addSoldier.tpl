@@ -6,8 +6,8 @@
     </div>
 
     <div class="col-md-8">
-      <input type="text" placeholder="First name" name="first" required>
-      <input type="text" placeholder="Last name" name="last" required>
+      <input type="text" placeholder="First name" name="first" maxlength="100" required>
+      <input type="text" placeholder="Last name" name="last" maxlength="100" required>
       <select name="rank">
         <option value="1">2nd Lieutenant</option>
         <option value="2">1st Lieutenant</option>

@@ -6,8 +6,8 @@
     </div>
 
     <div class="col-md-8">
-      <input type="text" placeholder="First name" name="first" value="<?= $s->first_name ?>" required>
-      <input type="text" placeholder="Last name" name="last" value="<?= $s->last_name ?>" required>
+      <input type="text" placeholder="First name" name="first" value="<?= $s->first_name ?>" maxlength="100" required>
+      <input type="text" placeholder="Last name" name="last" value="<?= $s->last_name ?>" maxlength="100" required>
       <select name="rank">
         <option value="1">2nd Lieutenant</option>
         <option value="2">1st Lieutenant</option>
