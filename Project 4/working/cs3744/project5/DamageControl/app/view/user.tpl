@@ -52,7 +52,7 @@
       <?php else: ?>
       <?php foreach($following as $f): ?>
         <div class="row my-1 pt-3 border-top">
-          <div class="col-md-12">
+          <div class="col-md-12 mx-2">
             <h3><a href="<?= BASE_URL ?>/users/view/<?= $f->id ?>/"><?= $f->lastname.", ".$f->firstname ?></a></h3>
             <h4>Username: <?= $f->username ?></h4>
           </div>

@@ -83,7 +83,7 @@
         </h4>
         <div class="row">
           <div class="col-md-6">
-            <form method="get" action="<?= BASE_URL ?>/users/myProfile/">
+            <form method="get" action="<?= BASE_URL ?>/users/view/<?= $_SESSION['user_id'] ?>/">
               <button class="btn btn-default btn-block button"><span style="font-size:smaller;">My Profile</span></button>
             </form>
           </div>

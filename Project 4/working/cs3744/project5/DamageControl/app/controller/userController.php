@@ -174,7 +174,7 @@ class UserController
                 $db->escape($id)
             );
             $db->query($q); // execute query
-            header('Location: ' . BASE_URL . '/users/browse/');exit();
+            header('Location: ' . BASE_URL . '/users/view/' . $id.'/');exit();
         }
     }
 
