@@ -1,8 +1,8 @@
 <form action="<?= BASE_URL ?>/crews/add/process/" method="POST">
     <div class="row mb-4">
       <div class="col-md-7">
-        <h5>Crew Number: </h5><input type="number" name="id" required value="<?= $crew->crewID ?>" min="1">
-        <input type="text" name="name" placeholder="Crew name (including number)" style="width: 300px;" required value="<?= $crew->name ?>" maxlength="100"><br><br>
+        <h5>Crew Number and Name: </h5><input type="number" name="id" required value="<?= $crew->crewID ?>" min="1">
+        <input type="text" name="name" style="width: 300px;" required value="<?= $crew->name ?>" maxlength="100"><br><br>
         <h5>Crew Description: </h5>
         <textarea rows="10" cols="70"></textarea>
       </div>
@@ -15,7 +15,7 @@
               <option value="<?= $s->id ?>"><?= $s->last_name.", ".$s->first_name ?></option>
             <?php endforeach; ?>
           </select>
-
+          
           <h5>Select soldiers to remove (hold CTRL to select multiple):</h5>
           <select class="w-100" name="remove[]" multiple>
             <?php foreach($crew->soldiers as $s): ?>
