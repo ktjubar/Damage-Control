@@ -11,7 +11,8 @@
 <form action="<?= BASE_URL ?>/users/unfollow/<?= $user->id ?>/" method="POST">
   <button class="btn btn-default" type="submit">Unfollow</button>
 </form>
-<?php elseif(isset($_SESSION['username']) && $user->username == $_SESSION['username']): ?>
+<?php endif; ?>
+<?php if((isset($_SESSION['username']) && $user->username == $_SESSION['username']) || $_SESSION['role'] == 2): ?>
 <form action="<?= BASE_URL ?>/users/edit/<?= $_SESSION['user_id'] ?>/" method="POST">
   <button class="btn btn-default" type="submit">Edit Profile</button>
 </form>

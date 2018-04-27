@@ -3,7 +3,7 @@
     <h3>Browse Crews</h3>
   </div>
   <div class="col-sm-3">
-    <?php if(isset($_SESSION['username'])): ?>
+    <?php if($_SESSION['role'] >= 1): ?>
     <form method="get" action="<?= BASE_URL ?>/crews/add/">
       <button class="btn btn-default btn-block button">Add Crew</button>
     </form>

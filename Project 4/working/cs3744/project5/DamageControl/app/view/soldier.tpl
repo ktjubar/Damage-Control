@@ -16,12 +16,13 @@
   </div>
 
   <div class="col-md-1">
-    <?php if(isset($_SESSION['username'])): ?>
+    <?php if($_SESSION['role'] >= 1): ?>
     <form action="<?= BASE_URL ?>/soldiers/edit/<?= $s->id ?>">
       <button class="btn btn-default btn-block button" type="submit">Edit</button>
     </form>
     <br>
-    <?php if($_SESSION['role'] >= 1): ?>
+    <?php endif; ?>
+    <?php if($_SESSION['role'] == 2): ?>
     <button class="btn btn-default btn-block button" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
 
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
@@ -46,7 +47,6 @@
         </div>
       </div>
     </div>
-    <?php endif; ?>
     <?php endif; ?>
   </div>
 </div>

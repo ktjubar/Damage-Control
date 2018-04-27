@@ -13,10 +13,9 @@
       <!-- activity feed -->
       <?php if(isset($_SESSION['username'])): ?>
         <!-- user + friends feed -->
-        <h4>Friend Feed</h4>
+        <h4>Following Feed</h4>
         <p class="text-justify">Here are some of the things your friends have been up to!</p>
         <div id="friendFeed" class="feed my-2 mx-1">
-          <!--FIX THIS KALEB-->
           <?php if(empty($fes)): ?>
             <p>No events yet.</p>
           <?php else: ?>
