@@ -1,21 +1,34 @@
-$(function() {
-  // check cookie
-  // var val = Cookies.get('noStickyNav');
-  // if (val === undefined) {
-  //   // no cookie for it, create it and set it to false
-  //   Cookies.set('noStickyNav', 'false');
-  // } else if (val === 'true') {
-  //   // cookie is true, disable sticky navbar
-  //   $('#mainNav').removeClass('sticky-top');
-  // } else {
-  //   // cookie is false, enable sticky navbar
-  //   $('#mainNav').addClass('sticky-top');
-  // }
+$(function(){
+  $('#registerUsername').on('blur', function(e){
+    e.preventDefault();
 
-  $('#hideNav').click(function() {
-    // Cookies.set('noStickyNav', 'false');
-    $('#mainNav').removeClass('sticky-top');
-    // alert('you clicked the X');
+    $('#loaderIcon').show();
+
+    $.ajax({
+      url: '<?= BASE_URL ?>/app/check_availability.php',
+      type: 'post',
+      data: {'username': $('#registerUsername').val()},
+      complete: function(data, status) {
+        $('#loaderIcon').hide();
+        if(data == "ok") {
+          // $('#registerUsernameGroup').removeClass('has-danger');
+          // $('#registerUsernameGroup').addClass('has-success');
+          $('#registerUsername').removeClass('is-invalid');
+          $('#registerUsername').addClass('is-valid');
+          $('#takenUsername').hide();
+        } else {
+          // $('#registerUsernameGroup').addClass('has-danger');
+          // $('#registerUsernameGroup').removeClass('has-success');
+          $('#registerUsername').addClass('is-invalid');
+          $('#registerUsername').removeClass('is-valid');
+          $('#takenUsername').show();
+        }
+      },
+      error: function(xhr, desc, err) {
+        console.log(xhr);
+        console.log("Details: " + desc + "\nError:" + err);
+      }
+    }); // end ajax call
   });
 });
 

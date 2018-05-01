@@ -15,7 +15,9 @@
       <span class="text-red">*</span> Username:
     </label>
     <div class="col-7">
-      <input class="form-control" type="text" name="username" maxlength="40" required>
+      <input id="registerUsername" class="form-control" type="text" name="username" maxlength="40" required>
+      <img src="<?= BASE_URL ?>/public/img/loadinggif.gif" id="loaderIcon" style="display:none;width:20px;height:20px" />
+      <div id="takenUsername" class="form-control-feedback" style="display:none">Username is taken.</div>
     </div>
   </div>
   <div class="form-group row">
