@@ -3,134 +3,142 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link href="public/img/logos/Eighth_Air_Force_Emblem.png" rel="icon">
+
   <title>The Mighty Eighth | <?= $pageTitle ?></title>
+
   <!-- styles -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/blueimp-gallery.min.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
-  <!-- scripts -->
-  <script src="<?= BASE_URL ?>/public/js/jquery-3.3.1.min.js"></script>
-  <script src="<?= BASE_URL ?>/public/js/bootstrap.min.js"></script>
-  <script src="<?= BASE_URL ?>/public/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= BASE_URL ?>/public/js/js.cookie.js"></script>
-  <script src="<?= BASE_URL ?>/public/js/scripts.js"></script>
+  <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="public/css/clean-blog.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="public/css/blueimp-gallery.min.css"> -->
+  <link rel="stylesheet" href="public/css/newstyles.css">
+
+  <!-- fonts -->
+  <link href="public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700itali" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-  <div class="page-header container-fluid p-2 px-3">
-    <div class="row">
-      <div class="col-md-10">
-        <img class="img-responsive logo mr-2" src="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.jpg" alt="8th Air Force Logo" />
-        <h1>
-          The Mighty Eighth
-          <br>
-          <small>Bomber crews of the 8th Air Force</small>
-        </h1>
-      </div>
-
-      <div class="col-md-2">
-        <?php if(!isset($_SESSION['username'])): ?>
-        <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#loginModal">Login</button>
-
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="<?= BASE_URL ?>/login/process/" method="POST">
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="username">
+                  <b>Username</b>
+                </label>
               </div>
-              <div class="modal-body">
-                <form action="<?= BASE_URL ?>/login/process/" method="POST">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <label for="username">
-                        <b>Username</b>
-                      </label>
-                    </div>
-                    <div class="col-sm-9">
-                      <input type="text" placeholder="Enter Username" name="username" required>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <label for="password">
-                        <b>Password</b>
-                      </label>
-                    </div>
-                    <div class="col-sm-9">
-                      <input type="password" placeholder="Enter Password" name="password" required>
-                    </div>
-                  </div>
-                  <br>
-                  <button type="submit" class="btn btn-default btn-block">Login</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <span>Don't have an account? <a href="<?= BASE_URL ?>/users/register/"> Register</a></span>
+              <div class="col-sm-9">
+                <input type="text" placeholder="Enter Username" name="username" required>
               </div>
             </div>
-          </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="password">
+                  <b>Password</b>
+                </label>
+              </div>
+              <div class="col-sm-9">
+                <input type="password" placeholder="Enter Password" name="password" required>
+              </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-default btn-block">Login</button>
+          </form>
         </div>
-        <?php else: ?>
-        <h4 class="text-center">Logged in as
-          <?= $_SESSION['username'] ?>
-        </h4>
-        <div class="row">
-          <div class="col-md-6">
-            <form method="get" action="<?= BASE_URL ?>/users/view/<?= $_SESSION['user_id'] ?>/">
-              <button class="btn btn-default btn-block button"><span style="font-size:smaller;">My Profile</span></button>
-            </form>
-          </div>
-          <div class="col-md-6">
-            <form action="<?= BASE_URL ?>/logout/process/">
-              <button class="btn btn-default btn-block" type="submit">Logout</button>
-            </form>
-
-          </div>
+        <div class="modal-footer">
+          <span>Don't have an account? <a href="<?= BASE_URL ?>/users/register/"> Register</a></span>
         </div>
-        <?php endif; ?>
       </div>
     </div>
   </div>
 
-  <nav id="mainNav" class="navbar navbar-expand-sm navbar-light bg-faded sticky-top">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav navbar-left">
-        <li class="nav-item<?php echo strcmp($category, 'home') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>">Home</a>
-        </li>
-        <li class="nav-item<?php echo strcmp($category, 'crews') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/crews/">Crews</a>
-        </li>
-        <li class="nav-item<?php echo strcmp($category, 'soldiers') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
-        </li>
-        <li class="nav-item<?php echo strcmp($category, 'news') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/news/">News</a>
-        </li>
-        <li class="nav-item<?php echo strcmp($category, 'users') ? '' : ' active' ?>">
-          <a class="nav-link" href="<?= BASE_URL ?>/users/browse/">Users</a>
-        </li>
-      </ul>
-      <form class="form-inline ml-auto">
-        <button class="btn btn-light my-2 my-sm-0" type="submit">
-          <i class="fa fa-search"></i>
-        </button>
-        <input class="form-control mr-sm-2 searchbox" type="search" placeholder="Quick search">
-      </form>
-      <!-- <button id="hideNav" class="btn btn-default"><i class="fa fa-times"></i></button> -->
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="<?= BASE_URL ?>/">The Mighty Eighth</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item<?php echo strcmp($category, 'home') ? '' : ' active' ?>">
+            <a class="nav-link" href="<?= BASE_URL ?>/">Home</a>
+          </li>
+          <li class="nav-item<?php echo strcmp($category, 'articles') ? '' : ' active' ?>">
+            <a class="nav-link" href="<?= BASE_URL ?>/articles/">Articles</a>
+          </li>
+          <li class="nav-item<?php echo strcmp($category, 'crews') ? '' : ' active' ?>">
+            <a class="nav-link" href="<?= BASE_URL ?>/crews/">Crews</a>
+          </li>
+          <li class="nav-item<?php echo strcmp($category, 'soldiers') ? '' : ' active' ?>">
+            <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
+          </li>
+          <li class="nav-item<?php echo strcmp($category, 'users') ? '' : ' active' ?>">
+            <a class="nav-link" href="<?= BASE_URL ?>/users/browse/">Users</a>
+          </li>
+          <?php if(!isset($_SESSION['username'])): ?>
+          <!-- <li class="nav-item">
+            <button type="button" class="btn btn-default btn-link" data-toggle="modal" data-target="#loginModal">Login</button>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#loginModal" data-toggle="modal">Login</a>
+          </li>
+          <?php else: ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= BASE_URL ?>/users/view/<?= $_SESSION['user_id'] ?>/">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= BASE_URL ?>/logout/process/">Logout</a>
+          </li>
+          <!-- <h4 class="text-center">Logged in as
+            <?= $_SESSION['username'] ?>
+          </h4> -->
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <form method="get" action="<?= BASE_URL ?>/users/view/<?= $_SESSION['user_id'] ?>/">
+                <button class="btn btn-default btn-block button"><span style="font-size:smaller;">My Profile</span></button>
+              </form>
+            </div>
+            <div class="col-md-6">
+              <form action="<?= BASE_URL ?>/logout/process/">
+                <button class="btn btn-default btn-block" type="submit">Logout</button>
+              </form>
+            </div>
+          </div> -->
+          <?php endif; ?>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <div class="container-fluid" id="pageContent">
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('<?= BASE_URL ?>/public/img/misc/8thplane.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>The Mighty Eighth</h1>
+            <span class="subheading">Bomber crews of the 8th Air Force</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper Container -->
+  <div class="container">

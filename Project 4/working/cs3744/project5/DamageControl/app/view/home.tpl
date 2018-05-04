@@ -1,8 +1,7 @@
   <?php include_once 'helper.php'; ?>
 
-  <div class="row px-1">
-    <div class="col-md-8">
-      <!-- main column -->
+  <div class="row">
+    <div class="col-10 mx-auto">
       <h3>Welcome to the <small><sup>(un)</sup></small>Official website for the 8th Air Force</h3>
       <p class="text-justify">This website holds all sorts of information on the bomber crews of the 8th Air Force
         and their members in World War II. After logging in and completing the brief account
@@ -23,45 +22,112 @@
           He was in charge of 1,000 officers and men making the transition from Georgia into the United
           Kingdom as staff for the 8th Air Force. Joe knew the High Wycombe Abbey well as the main
           Headquarters building of the 8th AAF. There were times when socially he was over at Maidenhead
-          in the home of a British governmental minister with Joe's friend, Pleasant J. McNeel. McNeel later, 
+          in the home of a British governmental minister with Joe's friend, Pleasant J. McNeel. McNeel later,
           as did Joe, joined the staff of the 325th Recon Wing. Joe served at the Widewing headquarters
           in the London area and then became Commanding Officer of the organization which was to become
           the 25th Bomb Group at Watton, north of London.</p>
-
     </div>
-    <div class="col-md-4">
-      <!-- activity feed -->
+  </div>
+
+  <hr class="pb-5">
+
+  <div class="row">
+    <!-- Articles -->
+    <div class="col-lg-8 col-md-10 mx-auto pb-3">
+      <div class="post-preview">
+        <a href="post.html">
+          <h2 class="post-title">
+            Man must explore, and this is exploration at its greatest
+          </h2>
+          <h3 class="post-subtitle">
+            Problems look mighty small from 150 miles up
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="#">Start Bootstrap</a>
+          on September 24, 2018</p>
+      </div>
+      <hr>
+      <div class="post-preview">
+        <a href="post.html">
+          <h2 class="post-title">
+            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+          </h2>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="#">Start Bootstrap</a>
+          on September 18, 2018</p>
+      </div>
+      <hr>
+      <div class="post-preview">
+        <a href="post.html">
+          <h2 class="post-title">
+            Science has not yet mastered prophecy
+          </h2>
+          <h3 class="post-subtitle">
+            We predict too much for the next year and yet far too little for the next ten.
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="#">Start Bootstrap</a>
+          on August 24, 2018</p>
+      </div>
+      <hr>
+      <div class="post-preview">
+        <a href="post.html">
+          <h2 class="post-title">
+            Failure is not an option
+          </h2>
+          <h3 class="post-subtitle">
+            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="#">Start Bootstrap</a>
+          on July 8, 2018</p>
+      </div>
+      <hr>
+      <!-- Pager -->
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Activity Feed -->
+    <div class="col-lg-4 col-md-4 mx-auto">
       <?php if(isset($_SESSION['username'])): ?>
-        <!-- user + friends feed -->
+        <!-- User and Friends Feed -->
         <h4>Following Feed</h4>
-        <p class="text-justify">Here are some of the things your friends have been up to!</p>
+        <p class="post-subtitle">Here are some of the things your friends have been up to!</p>
         <div id="friendFeed" class="feed my-2 mx-1">
           <?php if(empty($fes)): ?>
             <p>No events yet.</p>
           <?php else: ?>
           <?php foreach($fes as $fe): ?>
-            <div class="row p-2 border">
+            <div class="row p-2">
               <div class="col-12">
                 <?= formatEvent($fe) ?>
               </div>
             </div>
+            <hr>
           <?php endforeach; ?>
           <?php endif; ?>
         </div>
       <?php else: ?>
-        <!-- global feed -->
+        <!-- Global Feed -->
         <h4>Global Feed</h4>
-        <p class="text-justify">Here you can check out some of the things users have been doing!</p>
+        <p class="post-subtitle">Here you can check out some of the things users have been doing!</p>
         <div id="globalFeed" class="feed my-2 mx-1">
           <?php if(empty($fes)): ?>
             <p>No events yet.</p>
           <?php else: ?>
           <?php foreach($fes as $fe): ?>
-            <div class="row p-2 border">
+            <div class="row p-2">
               <div class="col-12">
                 <?= formatEvent($fe) ?>
               </div>
             </div>
+            <hr>
           <?php endforeach; ?>
           <?php endif; ?>
         </div>
