@@ -100,6 +100,8 @@ class UserController
     {
         $users = User::getUsers();
         $pageTitle = 'Browse Users';
+        $pageHeading = 'Users';
+        $pageSubheading = '';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseUsers.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -108,14 +110,11 @@ class UserController
     public function register($id = NULL)
     {
         $pageTitle = 'Register';
+        $pageHeading = 'Register';
+        $pageSubheading = '';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/register.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
-        if ($id == 1) {
-            echo '<script language="javascript">';
-            echo 'alert("Username is already taken!");';
-            echo '</script>';
-        }
     }
 
     public function registerProcess($un, $pw, $id)
@@ -180,6 +179,8 @@ class UserController
     {
         $user = User::loadById($id);
         $pageTitle = 'View '.$user->lastname;
+        $pageHeading = '';
+        $pageSubheading = '';
         if(isset($_SESSION['username'])) {
             $fes = Feed::getFeedEvents(10, $id);
             $following = User::getFollowing($id);
@@ -195,7 +196,9 @@ class UserController
     public function edit($id)
     {
         $user = User::loadById($id);
-        $pageTitle = 'View '.$user->lastname;
+        $pageTitle = 'Edit '.$user->lastname;
+        $pageHeading = '';
+        $pageSubheading = '';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/editUser.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

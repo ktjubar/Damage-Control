@@ -38,6 +38,8 @@ class SiteController
     {
         $pageTitle = 'Home';
         $fes = Feed::getFeedEvents(10);
+        $pageHeading = 'The Mighty Eighth';
+        $pageSubheading = 'Bomber Crews of the 8th Air Force';
         $imgURL = 'misc/8thplane.jpg';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
@@ -47,28 +49,5 @@ class SiteController
             echo 'alert("Invalid credentials or user does not exist!");';
             echo '</script>';
         }
-    }
-
-    public function getNews($q) {
-        $q = urlencode($q);
-        $site = "https://chroniclingamerica.loc.gov/search/pages/results/?andtext=".$q."&format=json";
-        $data = file_get_contents($site);
-        $json = json_decode($data);
-        $items = $json->{'items'};
-
-        shuffle($items);
-        $article = $items[0];
-        $title = $article->title;
-
-        $site = $article->url;
-        $data = file_get_contents($site);
-        $json = json_decode($data);
-        $pdf = $json->{'pdf'};
-
-        $pageTitle = 'News';
-
-        include_once SYSTEM_PATH . '/view/header.tpl';
-        include_once SYSTEM_PATH . '/view/news.tpl';
-        include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 }

@@ -24,6 +24,8 @@ class ArticleController
 
     public function articles() {
         $pageTitle = 'Browse Articles';
+        $pageHeading = 'Articles';
+        $pageSubheading = '';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseArticles.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

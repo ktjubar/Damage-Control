@@ -54,17 +54,20 @@ class CrewController
     {
         $crews = Crew::getCrews();
         $pageTitle = 'Browse Crews';
+        $pageHeading = 'Crews';
+        $pageSubheading = '';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseCrews.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    // TODO update this to work with crew back-end
     public function viewCrew($id)
     {
         $crew = Crew::loadById($id);
         if ($crew != null) {
             $pageTitle = $crew->name;
+            $pageHeading = $crew->name;
+            $pageSubheading = ''; // TODO make this crew nickname
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -78,6 +81,8 @@ class CrewController
     public function addCrew()
     {
         $pageTitle = 'Add Crew';
+        $pageHeading = 'Add Crew';
+        $pageSubheading = '';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/addCrew.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -122,6 +127,8 @@ class CrewController
         $crew = Crew::loadById($id);
         if ($crew != null) {
             $pageTitle = 'Edit '.$crew->name;
+            $pageHeading = 'Edit '.$crew->name;
+            $pageSubheading = '';
 
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editCrew.tpl';

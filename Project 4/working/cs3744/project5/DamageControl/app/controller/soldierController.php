@@ -55,18 +55,21 @@ class SoldierController
     public function soldiers()
     {
         $pageTitle = 'Browse Soldiers';
+        $pageHeading = 'Soldiers';
+        $pageSubheading = '';
         $soldiers = Soldier::getSoldiers();
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseSoldiers.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    // TODO update this to work with soldier back-end
     public function viewSoldier($id)
     {
         $s = Soldier::loadById($id);
         if ($s != null) {
             $pageTitle = $s->last_name;
+            $pageHeading = $s->first_name.' '.$s->last_name;
+            $pageSubheading = '';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/soldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -80,12 +83,13 @@ class SoldierController
     public function addSoldier()
     {
         $pageTitle = 'Add Soldier';
+        $pageHeading = 'Add Soldier';
+        $pageSubheading = '';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/addSoldier.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    // TODO Fix everything in here
     public function addSoldierProcess($id)
     {
         // get POST variables
@@ -130,6 +134,8 @@ class SoldierController
         if ($s != null) {
             //$lifeEvents = LifeEvent::getBySoldierId($id);
             $pageTitle = 'Edit '.$s->last_name;
+            $pageHeading = 'Edit '.$s->first_name.' '.$s->last_name;
+            $pageSubheading = '';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editSoldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
