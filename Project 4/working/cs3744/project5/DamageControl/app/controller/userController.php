@@ -100,7 +100,6 @@ class UserController
     {
         $users = User::getUsers();
         $pageTitle = 'Browse Users';
-        $category = 'users';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseUsers.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -109,7 +108,6 @@ class UserController
     public function register($id = NULL)
     {
         $pageTitle = 'Register';
-        $category = 'users';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/register.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -182,7 +180,6 @@ class UserController
     {
         $user = User::loadById($id);
         $pageTitle = 'View '.$user->lastname;
-        $category = 'users';
         if(isset($_SESSION['username'])) {
             $fes = Feed::getFeedEvents(10, $id);
             $following = User::getFollowing($id);
@@ -199,7 +196,6 @@ class UserController
     {
         $user = User::loadById($id);
         $pageTitle = 'View '.$user->lastname;
-        $category = 'users';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/editUser.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

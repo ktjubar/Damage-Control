@@ -37,8 +37,8 @@ class SiteController
     public function home($id = 0)
     {
         $pageTitle = 'Home';
-        $category = 'home';
         $fes = Feed::getFeedEvents(10);
+        $imgURL = 'misc/8thplane.jpg';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -66,39 +66,9 @@ class SiteController
         $pdf = $json->{'pdf'};
 
         $pageTitle = 'News';
-        $category = 'news';
 
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/news.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
-
-    // public function about()
-    // {
-    //     $pageTitle = 'About';
-    //     include_once SYSTEM_PATH . '/view/header.tpl';
-    //     include_once SYSTEM_PATH . '/view/about.tpl';
-    //     include_once SYSTEM_PATH . '/view/footer.tpl';
-    // }
-
-    // public function dashboard()
-    // {
-    //     // redirect if not logged in
-    //     if (!isset($_SESSION['username'])) {
-    //         header('Location: ' . BASE_URL);exit();
-    //     }
-    //
-    //     $pageTitle = 'Dashboard';
-    //     include_once SYSTEM_PATH . '/view/header.tpl';
-    //     include_once SYSTEM_PATH . '/view/dashboard.tpl';
-    //     include_once SYSTEM_PATH . '/view/footer.tpl';
-    // }
-
-    // public function login()
-    // {
-    //     $pageTitle = 'Login';
-    //     include_once SYSTEM_PATH . '/view/header.tpl';
-    //     include_once SYSTEM_PATH . '/view/login.tpl';
-    //     include_once SYSTEM_PATH . '/view/footer.tpl';
-    // }
 }

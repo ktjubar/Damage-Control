@@ -54,7 +54,6 @@ class CrewController
     {
         $crews = Crew::getCrews();
         $pageTitle = 'Browse Crews';
-        $category = 'crews';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseCrews.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -66,7 +65,6 @@ class CrewController
         $crew = Crew::loadById($id);
         if ($crew != null) {
             $pageTitle = $crew->name;
-            $category = 'crews';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -80,7 +78,6 @@ class CrewController
     public function addCrew()
     {
         $pageTitle = 'Add Crew';
-        $category = 'crews';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/addCrew.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -125,8 +122,7 @@ class CrewController
         $crew = Crew::loadById($id);
         if ($crew != null) {
             $pageTitle = 'Edit '.$crew->name;
-            $category = 'crews';
-            
+
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editCrew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';

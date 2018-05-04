@@ -55,7 +55,6 @@ class SoldierController
     public function soldiers()
     {
         $pageTitle = 'Browse Soldiers';
-        $category = 'soldiers';
         $soldiers = Soldier::getSoldiers();
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseSoldiers.tpl';
@@ -68,7 +67,6 @@ class SoldierController
         $s = Soldier::loadById($id);
         if ($s != null) {
             $pageTitle = $s->last_name;
-            $category = 'soldiers';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/soldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -82,7 +80,6 @@ class SoldierController
     public function addSoldier()
     {
         $pageTitle = 'Add Soldier';
-        $category = 'soldiers';
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/addSoldier.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -133,7 +130,6 @@ class SoldierController
         if ($s != null) {
             //$lifeEvents = LifeEvent::getBySoldierId($id);
             $pageTitle = 'Edit '.$s->last_name;
-            $category = 'soldiers';
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editSoldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -147,7 +143,7 @@ class SoldierController
     public function deleteSoldier($id) {
         $s = Soldier::loadByID($id);
         if ($id != 0) {
-            
+
             $feed = new Feed();
             $feed->creator_id = $_SESSION['user_id'];
             $feed->delete_name = $s->first_name.' '.$s->last_name;
