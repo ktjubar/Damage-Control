@@ -5,18 +5,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <link href="public/img/logos/Eighth_Air_Force_Emblem.png" rel="icon">
+  <link href="<?= BASE_URL ?>/public/img/logos/Eighth_Air_Force_Emblem.png" rel="icon">
 
   <title>The Mighty Eighth | <?= $pageTitle ?></title>
 
   <!-- styles -->
-  <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="public/css/clean-blog.min.css" rel="stylesheet">
+  <link href="<?= BASE_URL ?>/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= BASE_URL ?>/public/css/clean-blog.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="public/css/blueimp-gallery.min.css"> -->
-  <link rel="stylesheet" href="public/css/newstyles.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/newstyles.css">
 
   <!-- fonts -->
-  <link href="public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?= BASE_URL ?>/public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700itali" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
 </head>
@@ -75,19 +75,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item<?php echo strcmp($category, 'home') ? '' : ' active' ?>">
+          <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/">Home</a>
           </li>
-          <li class="nav-item<?php echo strcmp($category, 'articles') ? '' : ' active' ?>">
+          <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/articles/">Articles</a>
           </li>
-          <li class="nav-item<?php echo strcmp($category, 'crews') ? '' : ' active' ?>">
+          <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/crews/">Crews</a>
           </li>
-          <li class="nav-item<?php echo strcmp($category, 'soldiers') ? '' : ' active' ?>">
+          <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
           </li>
-          <li class="nav-item<?php echo strcmp($category, 'users') ? '' : ' active' ?>">
+          <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/users/browse/">Users</a>
           </li>
           <?php if(!isset($_SESSION['username'])): ?>
@@ -126,7 +126,7 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('<?= BASE_URL ?>/public/img/misc/8thplane.jpg')">
+  <header class="masthead" style="background-image: url('<?= BASE_URL ?>/public/img/<?= $imgURL ?>')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
