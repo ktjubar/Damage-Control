@@ -20,7 +20,8 @@
   <?php else:
         endif; ?>
 </div>
-<div class="row border-top mt-4">
+<hr>
+<div class="row mt-4">
   <div class="col-md-8 mt-4">
     <!-- main column -->
     This is this user's main page! There will be some other stuff here later.
@@ -29,16 +30,18 @@
     <!-- activity feed -->
     <h4>User Feed</h4>
     <br>
+    <hr>
     <div id="userFeed" class="feed my-2 mx-1">
       <?php if(empty($fes)): ?>
         <p>No events yet.</p>
       <?php else: ?>
       <?php foreach($fes as $fe): ?>
-        <div class="row p-2 border">
+        <div class="row p-2">
           <div class="col-12">
             <?= formatEvent($fe) ?>
           </div>
         </div>
+        <hr>
       <?php endforeach; ?>
       <?php endif; ?>
     </div>
@@ -46,17 +49,19 @@
     <!-- friend list -->
     <h4>Following</h4>
     <br>
+    <hr>
     <div id="friendsList" class="feed my-2 mx-1">
       <?php if(empty($following)): ?>
         <p>This user is not following anyone!</p>
       <?php else: ?>
       <?php foreach($following as $f): ?>
-        <div class="row my-1 pt-3 border-top">
+        <div class="row my-1 pt-3">
           <div class="col-md-12 mx-2">
             <h3><a href="<?= BASE_URL ?>/users/view/<?= $f->id ?>/"><?= $f->lastname.", ".$f->firstname ?></a></h3>
             <h4>Username: <?= $f->username ?></h4>
           </div>
         </div>
+        <hr>
       <?php endforeach;?>
       <?php endif; ?>
     </div>

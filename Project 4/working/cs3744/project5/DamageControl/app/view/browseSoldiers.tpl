@@ -1,6 +1,5 @@
 <div class="row">
   <div class="col-sm-9">
-    <h3>Browse Soldiers</h3>
   </div>
   <div class="col-sm-3">
     <?php if($_SESSION['role'] >= 1): ?>
@@ -12,7 +11,8 @@
 </div>
 
 <?php foreach($soldiers as $s): ?>
-  <div class="row my-1 pt-3 border-top">
+  <hr>
+  <div class="row my-1 pt-3">
     <div class="col-md-3">
       <img class="img-responsive w-100 mb-1" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" alt="<?= $s->last_name.", ".$s->first_name ?>" />
     </div>

@@ -75,9 +75,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/">Home</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/articles/">Articles</a>
           </li>
@@ -132,8 +132,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>The Mighty Eighth</h1>
-            <span class="subheading">Bomber crews of the 8th Air Force</span>
+            <h1><?= $pageHeading ?></h1>
+            <span class="subheading"><?= $pageSubheading ?></span>
           </div>
         </div>
       </div>

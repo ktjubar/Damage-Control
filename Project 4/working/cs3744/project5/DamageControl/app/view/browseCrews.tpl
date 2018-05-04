@@ -1,6 +1,5 @@
 <div class="row">
   <div class="col-sm-9">
-    <h3>Browse Crews</h3>
   </div>
   <div class="col-sm-3">
     <?php if($_SESSION['role'] >= 1): ?>
@@ -10,6 +9,7 @@
     <?php endif; ?>
   </div>
   <?php foreach($crews as $c): ?>
+    <hr>
     <div class="col-sm-9">
       <h5><a href="<?= BASE_URL ?>/crews/view/<?= $c->crewID ?>"><?= $c->name ?></a></h5>
       <?php foreach($c->soldiers as $s): ?>

@@ -43,5 +43,3 @@
 <form action="<?= BASE_URL ?>/users/view/<?= $user->id ?>/" method="POST">
   <button class="btn btn-default" type="submit">Cancel</button>
 </form>
-<div class="row border-top mt-4">
-</div>

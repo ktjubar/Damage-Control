@@ -99,6 +99,7 @@
         <!-- User and Friends Feed -->
         <h4>Following Feed</h4>
         <p class="post-subtitle">Here are some of the things your friends have been up to!</p>
+        <hr>
         <div id="friendFeed" class="feed my-2 mx-1">
           <?php if(empty($fes)): ?>
             <p>No events yet.</p>
@@ -117,6 +118,7 @@
         <!-- Global Feed -->
         <h4>Global Feed</h4>
         <p class="post-subtitle">Here you can check out some of the things users have been doing!</p>
+        <hr>
         <div id="globalFeed" class="feed my-2 mx-1">
           <?php if(empty($fes)): ?>
             <p>No events yet.</p>

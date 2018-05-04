@@ -1,10 +1,9 @@
 <div class="row mb-4">
   <div class="col-md-3">
-    <!-- get img here -->
     <img class="img-responsive w-100" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" alt="<?= $s->last_name.", ".$s->first_name ?>" />
   </div>
 
-  <div class="col-md-8">
+  <div class="col-md-7">
     <h2><?= $s->last_name.", ".$s->first_name ?></h2>
     <h3><?= $s->numToRank() ?></h3>
     <?php if(isset($s->birthday)): ?>
@@ -22,6 +21,8 @@
     </form>
     <br>
     <?php endif; ?>
+  </div>
+  <div class="col-md-1">
     <?php if($_SESSION['role'] == 2): ?>
     <button class="btn btn-default btn-block button" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
 
