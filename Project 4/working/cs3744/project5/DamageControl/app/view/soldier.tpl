@@ -18,12 +18,12 @@
 <div class="row mb-4">
   <?php if($_SESSION['role'] >= 1): ?>
   <form action="<?= BASE_URL ?>/soldiers/edit/<?= $s->id ?>" method="POST" class="col-md-2">
-    <button class="btn btn-default btn-block button" type="submit">Edit</button>
+    <button class="btn btn-primary btn-block button" type="submit">Edit</button>
   </form>
   <?php endif; ?>
   <?php if($_SESSION['role'] == 2): ?>
   <div class="col-md-2">
-    <button class="btn btn-default btn-block button" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
+    <button class="btn btn-primary btn-block button" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
   </div>
 
   <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
@@ -37,10 +37,10 @@
         </div>
         <div class="modal-body">
           <form action="<?= BASE_URL ?>/soldiers/delete/<?= $s->id ?>" method="POST">
-            <button type="submit" class="btn btn-default btn-block">Delete</button>
+            <button type="submit" class="btn btn-primary btn-block">Delete</button>
           </form>
           <br>
-          <button class="btn btn-default btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+          <button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
         </div>
         <div class="modal-footer">
 

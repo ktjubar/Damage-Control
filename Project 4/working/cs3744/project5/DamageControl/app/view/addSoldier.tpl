@@ -26,12 +26,12 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <button type="submit" class="btn btn-default btn-block" value="Add">Add</button>
+      <button type="submit" class="btn btn-primary btn-block" value="Add">Add</button>
     </div>
   </form>
     <div class="col-md-6">
       <form action="<?= BASE_URL ?>/soldiers/">
-          <button type="submit" class="btn btn-default btn-block" value="Cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-block" value="Cancel">Cancel</button>
       </form>
     </div>
   </div>

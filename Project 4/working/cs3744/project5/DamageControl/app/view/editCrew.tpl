@@ -39,12 +39,12 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <button type="submit" class="btn btn-default btn-block" value="Edit">Edit</button>
+        <button type="submit" class="btn btn-primary btn-block" value="Edit">Edit</button>
       </div>
     </form>
       <div class="col-md-6">
         <form action="<?= BASE_URL ?>/crews/view/<?= $crew->crewID ?>">
-            <button type="submit" class="btn btn-default btn-block" value="Cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-block" value="Cancel">Cancel</button>
         </form>
       </div>
     </div>

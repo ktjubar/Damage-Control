@@ -60,7 +60,7 @@
               </div>
             </div>
             <br>
-            <button type="submit" class="btn btn-default btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -97,7 +97,7 @@
           </li>
           <?php if(!isset($_SESSION['username'])): ?>
           <!-- <li class="nav-item">
-            <button type="button" class="btn btn-default btn-link" data-toggle="modal" data-target="#loginModal">Login</button>
+            <button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#loginModal">Login</button>
           </li> -->
           <li class="nav-item">
             <a class="nav-link" href="#loginModal" data-toggle="modal">Login</a>

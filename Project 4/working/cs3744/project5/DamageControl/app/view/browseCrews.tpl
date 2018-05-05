@@ -4,7 +4,7 @@
   <div class="col-sm-3">
     <?php if($_SESSION['role'] >= 1): ?>
     <form method="get" action="<?= BASE_URL ?>/crews/add/">
-      <button class="btn btn-default btn-block button">Add Crew</button>
+      <button class="btn btn-primary btn-block button">Add Crew</button>
     </form>
     <?php endif; ?>
   </div>

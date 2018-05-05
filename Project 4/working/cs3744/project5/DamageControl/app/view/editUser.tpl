@@ -38,8 +38,8 @@
     </div>
   </div>
   <br>
-  <button class="btn btn-default" type="submit">Submit</button>
+  <button class="btn btn-primary" type="submit">Submit</button>
 </form><br>
 <form action="<?= BASE_URL ?>/users/view/<?= $user->id ?>/" method="POST">
-  <button class="btn btn-default" type="submit">Cancel</button>
+  <button class="btn btn-primary" type="submit">Cancel</button>
 </form>
