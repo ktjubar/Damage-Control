@@ -105,10 +105,6 @@ class Soldier
         // build query
 
         // format dates for insertion
-        if ($this->date_created != '') {
-            $this->date_created = date("Y-m-d", time());
-        }
-
         if ($this->birthday != '') {
             $this->birthday = $db->formatDate($this->birthday);
         }
@@ -117,8 +113,8 @@ class Soldier
             $this->deathday = $db->formatDate($this->deathday);
         }
 
-        $q = sprintf("INSERT INTO `%s`(`First_Name`, `Last_Name`, `Rank`, `Date_of_Birth`, `Date_of_Death`, `Crew_ID`, `Creator_ID`, `Date_Created`)
-      VALUES (%s, %s, %d, %s, %s, %d, %s, %s);",
+        $q = sprintf("INSERT INTO `%s`(`First_Name`, `Last_Name`, `Rank`, `Date_of_Birth`, `Date_of_Death`, `Crew_ID`, `Creator_ID`)
+      VALUES (%s, %s, %d, %s, %s, %d, %s);",
             self::DB_TABLE,
             $db->escape($this->first_name),
             //$db->escape($this->middle_name),
@@ -127,8 +123,7 @@ class Soldier
             $db->escape($this->birthday),
             $db->escape($this->deathday),
             $db->escape($this->crewID),
-            $db->escape($this->creator_id),
-            $db->escape($this->date_created)
+            $db->escape($this->creator_id)
         );
         echo($q);
 
@@ -168,8 +163,7 @@ class Soldier
         `Date_of_Birth` = %s,
         `Date_of_Death` = %s,
         `Crew_ID` = %d,
-        `Creator_ID` = %d,
-        `Date_Created` = %s
+        `Creator_ID` = %d
         WHERE `ID` = %d;",
         self::DB_TABLE,
             $db->escape($this->first_name),
@@ -179,12 +173,11 @@ class Soldier
             $db->escape($this->deathday),
             $db->escape($this->crewID),
             $db->escape($this->creator_id),
-            $db->escape($this->date_created),
             $db->escape($this->id)
         );
 
         $db->query($q); // execute query
-        
+
         //Register a feed event
 
 

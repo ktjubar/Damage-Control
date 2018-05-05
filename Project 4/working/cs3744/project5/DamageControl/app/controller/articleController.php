@@ -95,20 +95,14 @@ class ArticleController {
         $body = $_POST['body'];
         $relevant_date = $_POST['relevdate'];
 
-        // first name and last name are required
-        if (empty($firstName) || empty($lastName)) {
-            header('Location: ' . BASE_URL . '/soldiers/add/');exit();
-        }
-
         $a = new Article();
         $a->id = $id;
-        $a->first_name = $firstName;
-        $a->last_name = $lastName;
+        $a->title = $title;
+        $a->subtitle = $subtitle;
         $a->creator_id = $_SESSION['user_id'];
-        $a->birthday = $birth;
-        $a->deathday = $death;
-        $a->date_created = '';
-        $a->rank = $rank;
+        if (!empty($relevant_date)) {
+            $a->relevant_date = $relevant_date;
+        }
         $aID = $a->save();
 
         // $feed = new Feed();
@@ -123,15 +117,14 @@ class ArticleController {
     }
 
     public function editArticle($id) {
-        $a = Soldier::loadById($id);
+        $a = Article::loadById($id);
         if ($a != null) {
-            //$lifeEvents = LifeEvent::getBySoldierId($id);
-            $pageTitle = 'Edit '.$a->last_name;
-            $pageHeading = 'Edit '.$a->first_name.' '.$a->last_name;
+            $pageTitle = 'Edit Article';
+            $pageHeading = 'Edit Article';
             $pageSubheading = '';
             $imgURL = 'misc/8thplane.jpg';
             include_once SYSTEM_PATH . '/view/header.tpl';
-            include_once SYSTEM_PATH . '/view/editSoldier.tpl';
+            include_once SYSTEM_PATH . '/view/editArticle.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
             include_once SYSTEM_PATH . '/view/header.tpl';
@@ -141,7 +134,7 @@ class ArticleController {
     }
 
     public function deleteArticle($id) {
-        $a = Soldier::loadByID($id);
+        $a = Article::loadByID($id);
         if ($id != 0) {
 
             // $feed = new Feed();
@@ -151,10 +144,10 @@ class ArticleController {
             // $feed->save();
 
             $db = Db::instance(); // connect to db
-            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Soldier::DB_TABLE, $db->escape($id));
+            $q = sprintf("DELETE FROM `%s` WHERE ID = %d;", Article::DB_TABLE, $db->escape($id));
             $db->query($q); // execute query
 
-            header('Location: ' . BASE_URL . '/soldiers');exit();
+            header('Location: ' . BASE_URL . '/articles');exit();
         }
     }
 }

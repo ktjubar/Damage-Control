@@ -64,28 +64,80 @@ class Article
     }
 
     public function save() {
-        $db = Db::instance();
+        if ($this->id == 0) {
+            return $this->insert(); // soldier is new and needs to be created
+        } else {
+            return $this->update(); // soldier already exists and needs to be updated
+        }
+    }
 
+    public function insert()
+    {
+        if ($this->id != 0) {
+            return null;
+        }
+        // can't insert something that already has an ID
+
+        $db = Db::instance(); // connect to db
+        // build query
+
+        // format dates for insertion
         if ($this->relevant_date != '') {
             $this->relevant_date = $db->formatDate($this->relevant_date);
         }
 
-        $q = sprintf("INSERT INTO `%s`(`ID`, `Title`, `Creator_ID`, `Subtitle`, `Body`, `Relevant_Date`)
-        VALUES (%d, %s, %d, %s, %s, %s) ON DUPLICATE KEY UPDATE `Title` = %s, `Creator_ID` = %d,
-        `Subtitle` = %s, `Body` = %s, `Relevant_Date` = %s;",
+        $q = sprintf("INSERT INTO `%s`(`Title`, `Creator_ID`, `Subtitle`, `Body`, `Relevant_Date`)
+            VALUES (%s, %d, %s, %s, %s);",
             self::DB_TABLE,
-            $db->escape($this->id),
-            $db->escape($this->title),
-            $db->escape($this->creator_id),
-            $db->escape($this->subtitle),
-            $db->escape($this->body),
-            $db->escape($this->relevant_date),
             $db->escape($this->title),
             $db->escape($this->creator_id),
             $db->escape($this->subtitle),
             $db->escape($this->body),
             $db->escape($this->relevant_date)
         );
-        $db->query($q);
+        echo($q);
+
+        $db->query($q); // execute query
+        $this->id = $db->getInsertID(); // set the ID for the new object
+        return $this->id;
+    }
+
+    public function update()
+    {
+        if ($this->id == 0) {
+            return null;
+        }
+        // can't update something without an ID
+
+        $db = Db::instance(); // connect to db
+        // build query
+
+        // format dates for insertion
+        if ($this->relevant_date != '') {
+            $this->relevant_date = $db->formatDate($this->relevant_date);
+        }
+
+        // build query
+        $q = sprintf("UPDATE `%s` SET
+            `Title` = %s,
+            `Creator_ID` = %d,
+            `Subtitle` = %s,
+            `Body` = %s,
+            `Relevant_Date` = %s
+            WHERE `ID` = %d;",
+            self::DB_TABLE,
+            $db->escape($this->title),
+            $db->escape($this->creator_id),
+            $db->escape($this->subtitle),
+            $db->escape($this->body),
+            $db->escape($this->relevant_date),
+            $db->escape($this->id)
+        );
+
+        $db->query($q); // execute query
+
+        //Register a feed event
+
+        return $this->id; // return this object's ID
     }
 }
