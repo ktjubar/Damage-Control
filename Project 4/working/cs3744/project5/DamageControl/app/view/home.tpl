@@ -4,9 +4,8 @@
     <div class="col-10 mx-auto">
       <h3>Welcome to the <small><sup>(un)</sup></small>Official website for the 8th Air Force</h3>
       <p class="text-justify">This website holds all sorts of information on the bomber crews of the 8th Air Force
-        and their members in World War II. After logging in and completing the brief account
-        setup process, users can create and modify crew and soldier listings. You can also add
-        other users as friends so you can see what kind of things they're doing!</p>
+        and their members in World War II. After registering and loggin in, users can create and modify crew and
+        soldier listings. You can also add other users as friends so you can see what kind of things they're doing!</p>
 
         <p class="text-justify">The Mighty Eighth Army Air Force began on 19 January 1942 and was activated on 28 January 1942
           at the Chatham Armory in Savannah, Georgia. Located at Hunter Field, Colonel Asa N. Duncan was
@@ -18,7 +17,7 @@
           west southwest of the center of London on 25 June 1942.
 
           Shortly after the birth of the 8th AAF at Savannah, one of our own, Joseph A. `Joe' Stenglein,
-          1st Lieutenant and pilot in the 8th Bomber Command, was on his way to the United Kingdom .
+          1st Lieutenant and pilot in the 8th Bomber Command, was on his way to the United Kingdom.
           He was in charge of 1,000 officers and men making the transition from Georgia into the United
           Kingdom as staff for the 8th Air Force. Joe knew the High Wycombe Abbey well as the main
           Headquarters building of the 8th AAF. There were times when socially he was over at Maidenhead
@@ -34,59 +33,22 @@
   <div class="row">
     <!-- Articles -->
     <div class="col-lg-8 col-md-10 mx-auto pb-3">
+      <?php foreach($articles as $a): ?>
       <div class="post-preview">
         <a href="post.html">
           <h2 class="post-title">
-            Man must explore, and this is exploration at its greatest
+            <?= $a->title ?>
           </h2>
           <h3 class="post-subtitle">
-            Problems look mighty small from 150 miles up
+            <?= $a->subtitle ?>
           </h3>
         </a>
         <p class="post-meta">Posted by
-          <a href="#">Start Bootstrap</a>
-          on September 24, 2018</p>
+          <a href="<?= BASE_URL ?>/users/view/<?= $a->creator_id ?>"><?= $a->creator_username ?></a>
+          on <?= $a->date_created ?></p>
       </div>
       <hr>
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-          </h2>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Start Bootstrap</a>
-          on September 18, 2018</p>
-      </div>
-      <hr>
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            Science has not yet mastered prophecy
-          </h2>
-          <h3 class="post-subtitle">
-            We predict too much for the next year and yet far too little for the next ten.
-          </h3>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Start Bootstrap</a>
-          on August 24, 2018</p>
-      </div>
-      <hr>
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            Failure is not an option
-          </h2>
-          <h3 class="post-subtitle">
-            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-          </h3>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Start Bootstrap</a>
-          on July 8, 2018</p>
-      </div>
-      <hr>
+      <?php endforeach; ?>
       <!-- Pager -->
       <div class="clearfix">
         <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>

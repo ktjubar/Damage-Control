@@ -11,6 +11,7 @@ class Article
     public $body = '';
     public $relevant_date = '';
     public $creator_id = 0;
+    public $creator_username = '';
     public $date_created = '';
 
     // return a Person object by ID
@@ -40,7 +41,9 @@ class Article
             $article->creator_id = $row['Creator_ID'];
             $article->date_created = $row['Date_Created'];
 
-            return $article; // return the crew
+            $article->creator_username = User::loadById($article->creator_id)->username;
+
+            return $article; // return the article
         }
     }
 

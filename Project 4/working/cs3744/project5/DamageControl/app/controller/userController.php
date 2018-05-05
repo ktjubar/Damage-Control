@@ -12,6 +12,13 @@ $sc->route($action);
 class UserController
 {
     const DB_REL_TABLE = 'User_Relations';
+
+    public $pageTitle = '';
+    public $pageHeading = '';
+    public $pageSubheading = '';
+    public $imgURL = 'misc/8thplane.jpg';
+    public $meta = false;
+
     // route us to the appropriate class method for this action
     public function route($action)
     {
