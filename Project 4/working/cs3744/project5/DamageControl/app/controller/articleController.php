@@ -72,9 +72,7 @@ class ArticleController {
             include_once SYSTEM_PATH . '/view/article.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            include_once SYSTEM_PATH . '/view/header.tpl';
-            die('Invalid article ID');
-            include_once SYSTEM_PATH . '/view/footer.tpl';
+            header('Location: ' . BASE_URL . '/404/'); exit();
         }
     }
 
@@ -99,9 +97,12 @@ class ArticleController {
         $a->id = $id;
         $a->title = $title;
         $a->subtitle = $subtitle;
+        $a->body = $body;
         $a->creator_id = $_SESSION['user_id'];
         if (!empty($relevant_date)) {
             $a->relevant_date = $relevant_date;
+        } else {
+            $a->relevant_date = '';
         }
         $aID = $a->save();
 
@@ -127,9 +128,7 @@ class ArticleController {
             include_once SYSTEM_PATH . '/view/editArticle.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            include_once SYSTEM_PATH . '/view/header.tpl';
-            die('Invalid soldier ID');
-            include_once SYSTEM_PATH . '/view/footer.tpl';
+            header('Location: ' . BASE_URL . '/404/'); exit();
         }
     }
 

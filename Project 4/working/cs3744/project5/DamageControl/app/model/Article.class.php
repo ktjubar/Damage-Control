@@ -65,9 +65,9 @@ class Article
 
     public function save() {
         if ($this->id == 0) {
-            return $this->insert(); // soldier is new and needs to be created
+            return $this->insert(); // article is new and needs to be created
         } else {
-            return $this->update(); // soldier already exists and needs to be updated
+            return $this->update(); // article already exists and needs to be updated
         }
     }
 
@@ -97,7 +97,7 @@ class Article
         );
         echo($q);
 
-        $db->query($q); // execute query
+        $success = $db->query($q); // execute query
         $this->id = $db->getInsertID(); // set the ID for the new object
         return $this->id;
     }

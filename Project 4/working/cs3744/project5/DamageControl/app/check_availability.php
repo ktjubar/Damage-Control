@@ -2,7 +2,7 @@
 
 $user = User::loadByUsername($_POST['username']);
 if ($user != null) {
-    echo "ok";
+    echo true;
 } else {
-    echo "not";
+    echo false;
 }

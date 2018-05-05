@@ -2,7 +2,7 @@
   <div class="row mb-4">
     <div class="col-md-3">
       <!-- get img here -->
-      <img class="img-responsive w-100" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" alt="<?= $s->last_name.", ".$s->first_name ?>" />
+      <img class="img-responsive w-100" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
     </div>
 
     <div class="col-md-8">

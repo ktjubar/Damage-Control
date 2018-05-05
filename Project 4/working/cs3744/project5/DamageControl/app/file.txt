@@ -1,0 +1,2 @@
+INSERT INTO `Articles`(`Title`, `Creator_ID`, `Subtitle`, `Body`, `Relevant_Date`)
+            VALUES ('test', 1, 'fail', NULL, NULL);

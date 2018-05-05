@@ -37,6 +37,10 @@ class SiteController
             case 'loginerr':
                 $this->home(1);
                 break;
+
+            case 'err404':
+                $this->notFound();
+                break;
         }
     }
 
@@ -56,5 +60,14 @@ class SiteController
             echo 'alert("Invalid credentials or user does not exist!");';
             echo '</script>';
         }
+    }
+
+    public function notFound() {
+        $pageTitle = '404';
+        $pageHeading = 'Oops!';
+        $pageSubheading = 'Something went wrong, page not found.';
+        $imgURL = 'misc/8thplane.jpg';
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 }

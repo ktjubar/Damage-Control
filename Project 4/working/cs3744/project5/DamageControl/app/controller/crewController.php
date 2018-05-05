@@ -74,9 +74,7 @@ class CrewController
             include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            include_once SYSTEM_PATH . '/view/header.tpl';
-            die('Invalid crew ID');
-            include_once SYSTEM_PATH . '/view/footer.tpl';
+            header('Location: ' . BASE_URL . '/404/'); exit();
         }
     }
 
@@ -146,9 +144,7 @@ class CrewController
             $feed->save();
 
         } else {
-            include_once SYSTEM_PATH . '/view/header.tpl';
-            die('Invalid crew ID');
-            include_once SYSTEM_PATH . '/view/footer.tpl';
+            header('Location: ' . BASE_URL . '/404/'); exit();
         }
     }
 

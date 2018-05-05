@@ -76,9 +76,7 @@ class SoldierController
             include_once SYSTEM_PATH . '/view/soldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            include_once SYSTEM_PATH . '/view/header.tpl';
-            die('Invalid soldier ID');
-            include_once SYSTEM_PATH . '/view/footer.tpl';
+            header('Location: ' . BASE_URL . '/404/'); exit();
         }
     }
 
@@ -144,9 +142,7 @@ class SoldierController
             include_once SYSTEM_PATH . '/view/editSoldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
         } else {
-            include_once SYSTEM_PATH . '/view/header.tpl';
-            die('Invalid soldier ID');
-            include_once SYSTEM_PATH . '/view/footer.tpl';
+            header('Location: ' . BASE_URL . '/404/'); exit();
         }
     }
 

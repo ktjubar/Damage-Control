@@ -6,25 +6,25 @@
 <div class="row">
   <?php if(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && !($isFollowing)): ?>
   <form action="<?= BASE_URL ?>/users/follow/<?= $user->id ?>/" method="POST" class="col-md-2">
-    <button class="btn btn-default btn-block" type="submit">Follow</button>
+    <button class="btn btn-primary btn-block" type="submit">Follow</button>
   </form>
   <?php elseif(isset($_SESSION['username']) && $user->username != $_SESSION['username'] && $isFollowing): ?>
   <form action="<?= BASE_URL ?>/users/unfollow/<?= $user->id ?>/" method="POST" class="col-md-2">
-    <button class="btn btn-default btn-block" type="submit">Unfollow</button>
+    <button class="btn btn-primary btn-block" type="submit">Unfollow</button>
   </form>
   <?php endif; ?>
   <?php if((isset($_SESSION['username']) && $user->username == $_SESSION['username']) || $_SESSION['role'] == 2): ?>
   <form action="<?= BASE_URL ?>/users/edit/<?= $user->id ?>/" method="POST" class="col-md-2">
-    <button class="btn btn-default btn-block" type="submit">Edit Profile</button>
+    <button class="btn btn-primary btn-block" type="submit">Edit Profile</button>
   </form>
   <?php else:
         endif; ?>
 </div>
 <hr>
 <div class="row mt-4">
-  <div class="col-md-8 mt-4">
+  <div class="col-md-8 mt-4 fr-view">
     <!-- main column -->
-    This is this user's main page! There will be some other stuff here later.
+    <?= $user->description ?>
   </div>
   <div class="col-md-4 mt-4">
     <!-- activity feed -->

@@ -25,6 +25,7 @@ class User {
   public $gender = 0;
   public $email = '';
   public $role = 0;
+  public $description = '';
 
   // return a User object by ID
   public static function loadById($id) {
@@ -51,7 +52,9 @@ class User {
           $user->middlename   = $row['Middle_Name'];
           $user->password     = $row['Pass'];
           $user->email        = $row['Email'];
+          $user->gender       = $row['Gender'];
           $user->role         = $row['Auth_Level'];
+          $user->description  = $row['Description'];
 
           return $user; // return the user
       }
@@ -81,7 +84,9 @@ class User {
         $user->middlename   = $row['Middle_Name'];
         $user->password     = $row['Pass'];
         $user->email        = $row['Email'];
+        $user->gender       = $row['Gender'];
         $user->role         = $row['Auth_Level'];
+        $user->description  = $row['Description'];
 
         return $user; // return the user
       }
@@ -117,8 +122,8 @@ class User {
     $db = Db::instance(); // connect to db
     // build query
 
-    $q = sprintf("INSERT INTO `%s` (`User`, `Pass`, `First_Name`, `Last_Name`, `Middle_Name`, `Gender`, `Email`)
-      VALUES (%s, %s, %s, %s, %s,  %d, %s);",
+    $q = sprintf("INSERT INTO `%s` (`User`, `Pass`, `First_Name`, `Last_Name`, `Middle_Name`, `Gender`, `Email`, `Description`)
+      VALUES (%s, %s, %s, %s, %s,  %d, %s, %s);",
       self::DB_TABLE,
       $db->escape($this->username),
       $db->escape($this->password),
@@ -126,7 +131,8 @@ class User {
       $db->escape($this->lastname),
       $db->escape($this->middlename),
       $db->escape($this->gender),
-      $db->escape($this->email)
+      $db->escape($this->email),
+      $db->escape($this->description)
       );
     //echo $q;
     $db->query($q); // execute query
@@ -152,12 +158,16 @@ class User {
     $q = sprintf("UPDATE `%s` SET
       `First_Name` = %s,
       `Middle_Name` = %s,
-      `Last_Name` = %s
+      `Last_Name` = %s,
+      `Gender` = %d,
+      `Description` = %s
       WHERE `ID` = %d;",
       self::DB_TABLE,
       $db->escape($this->firstname),
       $db->escape($this->middlename),
       $db->escape($this->lastname),
+      $db->escape($this->gender),
+      $db->escape($this->description),
       $db->escape($this->id)
       );
     $db->query($q); // execute query

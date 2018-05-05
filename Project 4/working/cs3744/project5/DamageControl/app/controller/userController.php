@@ -137,7 +137,7 @@ class UserController
             $user->middlename   = $_POST['middlename'];
             $user->password     = password_hash($pw, PASSWORD_DEFAULT);
             $user->email        = $_POST['email'];
-            //$user->gender = $_POST['gender'];
+            $user->gender       = $_POST['gender'];
             $id = $user->save();
             $this->loginProcess($un, $pw);
             //header('Location: ' . BASE_URL . '/users/view/'.$id.'/');exit();
@@ -147,7 +147,8 @@ class UserController
             $user->firstname    = $_POST['firstname'];
             $user->lastname     = $_POST['lastname'];
             $user->middlename   = $_POST['middlename'];
-            //$user->gender = $_POST['gender'];
+            $user->gender       = $_POST['gender'];
+            $user->description  = $_POST['description'];
             $id = $user->save();
             header('Location: ' . BASE_URL . '/users/view/'.$id.'/');exit();
         }

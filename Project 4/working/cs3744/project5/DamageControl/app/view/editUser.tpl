@@ -37,9 +37,22 @@
       </select>
     </div>
   </div>
-  <br>
-  <button class="btn btn-primary" type="submit">Submit</button>
-</form><br>
-<form action="<?= BASE_URL ?>/users/view/<?= $user->id ?>/" method="POST">
-  <button class="btn btn-primary" type="submit">Cancel</button>
-</form>
+  <div class="row mb-4">
+    <div class="col-12">
+      User Description:
+      <textarea id="userDesc" class="w-100" name="description">
+        <?= $user->description ?>
+      </textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <button class="btn btn-primary btn-block" type="submit">Submit</button>
+    </div>
+    </form>
+    <div class="col-6">
+      <form action="<?= BASE_URL ?>/users/view/<?= $user->id ?>/" method="POST">
+        <button class="btn btn-primary btn-block" type="submit">Cancel</button>
+      </form>
+    </div>
+  </div>

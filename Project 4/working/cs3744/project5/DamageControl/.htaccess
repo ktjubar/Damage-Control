@@ -7,8 +7,7 @@ RewriteEngine on
 # Site
 RewriteRule ^$ app/controller/siteController.php?action=home [QSA,L]
 RewriteRule ^loginerr/?$ app/controller/siteController.php?action=loginerr [QSA,L]
-# RewriteRule ^dashboard/?$ app/controller/siteController.php?action=dashboard [QSA,L]
-
+RewriteRule ^404/?$ app/controller/siteController.php?action=err404 [QSA,L]
 
 # Soldier
 RewriteRule ^soldiers/?$ app/controller/soldierController.php?action=soldiers [QSA,L]

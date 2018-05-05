@@ -33,7 +33,8 @@
   <div class="row">
     <!-- Articles -->
     <div class="col-lg-8 col-md-10 mx-auto pb-3">
-      <?php foreach($articles as $a): ?>
+      <?php for($i = 0; $i < 5; $i++):
+            $a = $articles[$i] ?>
       <div class="post-preview">
         <a href="<?= BASE_URL ?>/articles/view/<?= $a->id ?>/">
           <h2 class="post-title">
@@ -48,10 +49,10 @@
           on <?= $a->date_created ?></p>
       </div>
       <hr>
-      <?php endforeach; ?>
+      <?php endfor; ?>
       <!-- Pager -->
       <div class="clearfix">
-        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        <small class="text-right">This might be only the first few articles, see the articles page for more!</small>
       </div>
     </div>
 

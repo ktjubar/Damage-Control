@@ -39,7 +39,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <button type="submit" class="btn btn-primary btn-block" value="Edit">Edit</button>
+        <button type="submit" class="btn btn-primary btn-block" value="Edit">Submit</button>
       </div>
     </form>
       <div class="col-md-6">
