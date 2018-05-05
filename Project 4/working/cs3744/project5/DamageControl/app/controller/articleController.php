@@ -123,11 +123,11 @@ class ArticleController {
     }
 
     public function editArticle($id) {
-        $s = Soldier::loadById($id);
-        if ($s != null) {
+        $a = Soldier::loadById($id);
+        if ($a != null) {
             //$lifeEvents = LifeEvent::getBySoldierId($id);
-            $pageTitle = 'Edit '.$s->last_name;
-            $pageHeading = 'Edit '.$s->first_name.' '.$s->last_name;
+            $pageTitle = 'Edit '.$a->last_name;
+            $pageHeading = 'Edit '.$a->first_name.' '.$a->last_name;
             $pageSubheading = '';
             $imgURL = 'misc/8thplane.jpg';
             include_once SYSTEM_PATH . '/view/header.tpl';
@@ -141,12 +141,12 @@ class ArticleController {
     }
 
     public function deleteArticle($id) {
-        $s = Soldier::loadByID($id);
+        $a = Soldier::loadByID($id);
         if ($id != 0) {
 
             // $feed = new Feed();
             // $feed->creator_id = $_SESSION['user_id'];
-            // $feed->delete_name = $s->first_name.' '.$s->last_name;
+            // $feed->delete_name = $a->first_name.' '.$a->last_name;
             // $feed->type = 'deleteSoldier';
             // $feed->save();
 

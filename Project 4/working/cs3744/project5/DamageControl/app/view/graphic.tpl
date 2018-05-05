@@ -15,7 +15,10 @@
   ]);
 
   // Configuration for the Timeline
-  var options = {};
+  var options = {
+    multiselect: true,
+    editable: true
+  };
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
