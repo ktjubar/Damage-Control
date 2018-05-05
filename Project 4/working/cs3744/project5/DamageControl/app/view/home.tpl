@@ -1,4 +1,4 @@
-  <?php include_once 'helper.php'; ?>
+<?php include_once 'helper.php'; ?>
 
   <div class="row">
     <div class="col-10 mx-auto">
