@@ -104,7 +104,6 @@ class UserController
         $pageHeading = 'Users';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseUsers.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -116,7 +115,6 @@ class UserController
         $pageHeading = 'Register';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/register.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -187,7 +185,6 @@ class UserController
         $pageHeading = '';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         if(isset($_SESSION['username'])) {
             $fes = Feed::getFeedEvents(10, $id);
             $following = User::getFollowing($id);
@@ -207,7 +204,6 @@ class UserController
         $pageHeading = '';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/editUser.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

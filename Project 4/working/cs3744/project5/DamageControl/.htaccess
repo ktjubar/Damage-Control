@@ -31,6 +31,11 @@ RewriteRule ^crews/delete/(\d+)/?$ app/controller/crewController.php?action=dele
 # Articles
 RewriteRule ^articles/?$ app/controller/articleController.php?action=browse [QSA,L]
 RewriteRule ^articles/view/(\d+)/?$ app/controller/articleController.php?action=viewArticle&id=$1 [QSA,L]
+RewriteRule ^articles/add/?$ app/controller/articleController.php?action=addArticle [QSA,L]
+RewriteRule ^articles/add/process/?$ app/controller/articleController.php?action=addArticleProcess [QSA,L]
+RewriteRule ^articles/add/process/(\d+)/?$ app/controller/articleController.php?action=addArticleProcess&id=$1 [QSA,L]
+RewriteRule ^articles/edit/(\d+)/?$ app/controller/articleController.php?action=editArticle&id=$1 [QSA,L]
+RewriteRule ^articles/delete/(\d+)/?$ app/controller/articleController.php?action=deleteArticle&id=$1 [QSA,L]
 
 # Graphics
 RewriteRule ^graphic/?$ app/controller/graphicController.php?action=graphic [QSA,L]

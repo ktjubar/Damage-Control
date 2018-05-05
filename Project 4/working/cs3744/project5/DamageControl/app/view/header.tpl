@@ -127,11 +127,6 @@
           <div class="site-heading">
             <h1><?= $pageHeading ?></h1>
             <span class="subheading"><?= $pageSubheading ?></span>
-            <?php if($meta): ?>
-            <span class="meta">Posted by
-              <a href="<?= BASE_URL ?>/users/view/<?= $article->creator_id ?>/"><?= $article->creator_username ?></a>
-              on <?= $article->date_created ?></span>
-            <?php endif; ?>
           </div>
         </div>
       </div>

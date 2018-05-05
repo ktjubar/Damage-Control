@@ -64,7 +64,6 @@ class SoldierController
         $pageHeading = 'Soldiers';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         $soldiers = Soldier::getSoldiers();
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseSoldiers.tpl';
@@ -79,7 +78,6 @@ class SoldierController
             $pageHeading = $s->first_name.' '.$s->last_name;
             $pageSubheading = '';
             $imgURL = 'misc/8thplane.jpg';
-            $meta = false;
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/soldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -96,7 +94,6 @@ class SoldierController
         $pageHeading = 'Add Soldier';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/addSoldier.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -149,7 +146,6 @@ class SoldierController
             $pageHeading = 'Edit '.$s->first_name.' '.$s->last_name;
             $pageSubheading = '';
             $imgURL = 'misc/8thplane.jpg';
-            $meta = false;
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editSoldier.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';

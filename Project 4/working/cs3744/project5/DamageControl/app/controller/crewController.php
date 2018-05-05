@@ -12,12 +12,6 @@ $sc->route($action);
 class CrewController
 {
 
-    public $pageTitle = '';
-    public $pageHeading = '';
-    public $pageSubheading = '';
-    public $imgURL = 'misc/8thplane.jpg';
-    public $meta = false;
-
     // route us to the appropriate class method for this action
     public function route($action)
     {
@@ -63,7 +57,6 @@ class CrewController
         $pageHeading = 'Crews';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseCrews.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -77,7 +70,6 @@ class CrewController
             $pageHeading = $crew->name;
             $pageSubheading = $crew->nick;
             $imgURL = 'misc/8thplane.jpg';
-            $meta = false;
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -94,7 +86,6 @@ class CrewController
         $pageHeading = 'Add Crew';
         $pageSubheading = '';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/addCrew.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -143,7 +134,6 @@ class CrewController
             $pageHeading = 'Edit '.$crew->name;
             $pageSubheading = '';
             $imgURL = 'misc/8thplane.jpg';
-            $meta = false;
 
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/editCrew.tpl';

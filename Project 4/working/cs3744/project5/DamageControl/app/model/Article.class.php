@@ -63,28 +63,28 @@ class Article
         return $articles;
     }
 
-    public function save()
-    {
+    public function save() {
         $db = Db::instance();
-        if ($this->date_created != '') {
-            $this->date_created = date("Y-m-d", time());
+
+        if ($this->relevant_date != '') {
+            $this->relevant_date = $db->formatDate($this->relevant_date);
         }
 
         $q = sprintf("INSERT INTO `%s`(`ID`, `Title`, `Creator_ID`, `Subtitle`, `Body`, `Relevant_Date`)
         VALUES (%d, %s, %d, %s, %s, %s) ON DUPLICATE KEY UPDATE `Title` = %s, `Creator_ID` = %d,
         `Subtitle` = %s, `Body` = %s, `Relevant_Date` = %s;",
-        self::DB_TABLE,
-        $db->escape($this->id),
-        $db->escape($this->title),
-        $db->escape($this->creator_id),
-        $db->escape($this->subtitle),
-        $db->escape($this->body),
-        $db->escape($this->relevant_date),
-        $db->escape($this->title),
-        $db->escape($this->creator_id),
-        $db->escape($this->subtitle),
-        $db->escape($this->body),
-        $db->escape($this->relevant_date)
+            self::DB_TABLE,
+            $db->escape($this->id),
+            $db->escape($this->title),
+            $db->escape($this->creator_id),
+            $db->escape($this->subtitle),
+            $db->escape($this->body),
+            $db->escape($this->relevant_date),
+            $db->escape($this->title),
+            $db->escape($this->creator_id),
+            $db->escape($this->subtitle),
+            $db->escape($this->body),
+            $db->escape($this->relevant_date)
         );
         $db->query($q);
     }

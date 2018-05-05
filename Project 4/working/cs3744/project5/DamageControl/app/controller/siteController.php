@@ -48,7 +48,6 @@ class SiteController
         $pageHeading = 'The Mighty Eighth';
         $pageSubheading = 'Bomber Crews of the 8th Air Force';
         $imgURL = 'misc/8thplane.jpg';
-        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/home.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
