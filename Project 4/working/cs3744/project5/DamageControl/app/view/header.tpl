@@ -12,8 +12,9 @@
   <!-- styles -->
   <link href="<?= BASE_URL ?>/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= BASE_URL ?>/public/css/clean-blog.min.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="public/css/blueimp-gallery.min.css"> -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/newstyles.css">
+  <link href="<?= BASE_URL ?>/public/css/newstyles.css" rel="stylesheet">
+  <link href="<?= BASE_URL ?>/public/vendor/froala/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css">
+  <link href="<?= BASE_URL ?>/public/vendor/froala/css/froala_style.min.css" rel="stylesheet" type="text/css">
 
   <!-- fonts -->
   <link href="<?= BASE_URL ?>/public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">

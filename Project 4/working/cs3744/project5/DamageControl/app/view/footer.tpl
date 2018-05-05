@@ -45,6 +45,8 @@
 
   <!-- Custom scripts -->
   <script src="<?= BASE_URL ?>/public/js/clean-blog.min.js"></script>
+  <script src="<?= BASE_URL ?>/public/vendor/froala/js/froala_editor.pkgd.min.js"></script>
+  <script src="<?= BASE_URL ?>/public/js/newscripts.js"></script>
 </body>
 
 </html>

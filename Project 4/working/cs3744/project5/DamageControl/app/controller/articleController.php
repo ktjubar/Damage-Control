@@ -23,6 +23,7 @@ class ArticleController
     }
 
     public function articles() {
+        $articles = Article::getArticles();
         $pageTitle = 'Browse Articles';
         $pageHeading = 'Articles';
         $pageSubheading = '';

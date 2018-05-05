@@ -8,6 +8,7 @@ class Crew
     public $crewID = 0;
     public $name = '';
     public $nick = '';
+    public $description = '';
     public $soldiers = array();
     public $remove = array();
     public $date_created = '';
@@ -35,6 +36,7 @@ class Crew
             $crew->crewID = $row['ID'];
             $crew->name = $row['Name'];
             $crew->nick = $row['Nickname'];
+            $crew->description = $row['Description'];
             $crew->date_created = $row['Date_Created'];
             $crew->creator_id = $row['Creator_ID'];
 
@@ -76,14 +78,19 @@ class Crew
             $this->date_created = date("Y-m-d", time());
         }
 
-        $q = sprintf("INSERT INTO `%s`(`ID`, `Name`, `Creator_ID`)
-        VALUES (%d, %s, %d) ON DUPLICATE KEY UPDATE `Name` = %s, `Creator_ID` = %d;",
+        $q = sprintf("INSERT INTO `%s`(`ID`, `Name`, `Creator_ID`, `Nickname`, `Description`)
+        VALUES (%d, %s, %d, %s, %s) ON DUPLICATE KEY UPDATE `Name` = %s, `Creator_ID` = %d,
+        `Nickname` = %s, `Description` = %s;",
         self::DB_TABLE,
         $db->escape($this->crewID),
         $db->escape($this->name),
         $db->escape($this->creator_id),
+        $db->escape($this->nick),
+        $db->escape($this->description),
         $db->escape($this->name),
-        $db->escape($this->creator_id)
+        $db->escape($this->creator_id),
+        $db->escape($this->nick),
+        $db->escape($this->description)
         );
         $db->query($q);
 

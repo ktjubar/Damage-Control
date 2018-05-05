@@ -95,6 +95,7 @@ class CrewController
         $crewID = $_POST['id'];
         $name = $_POST['name'];
         $nick = $_POST['nickname'];
+        $description = $_POST['description'];
         $soldiers = $_POST['soldiers'];
         $remove = $_POST['remove'];
 
@@ -107,6 +108,7 @@ class CrewController
         $crew->crewID = $crewID;
         $crew->name = $name;
         $crew->nick = $nick;
+        $crew->description = $description;
         $crew->soldiers = $soldiers;
         $crew->remove = $remove;
         $crew->creator_id = $_SESSION['user_id'];
