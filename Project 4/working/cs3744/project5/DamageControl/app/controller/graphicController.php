@@ -17,7 +17,7 @@ class GraphicController
     public $pageSubheading = '';
     public $imgURL = 'misc/8thplane.jpg';
     public $meta = false;
-    
+
     // route us to the appropriate class method for this action
     public function route($action)
     {
@@ -32,6 +32,8 @@ class GraphicController
         $pageTitle = 'Graphics';
         $pageHeading = 'Graphic';
         $pageSubheading = 'Nothing to see here...';
+        $imgURL = 'misc/8thplane.jpg';
+        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/graphic.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';

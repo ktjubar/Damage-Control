@@ -12,12 +12,6 @@ $ac->route($action);
 class ArticleController {
     const DB_ARTICLE_TABLE = 'Articles';
 
-    public $pageTitle = '';
-    public $pageHeading = '';
-    public $pageSubheading = '';
-    public $imgURL = 'misc/8thplane.jpg';
-    public $meta = false;
-
     // route us to the appropriate class method for this action
     public function route($action) {
         switch ($action) {
@@ -37,6 +31,8 @@ class ArticleController {
         $pageTitle = 'Browse Articles';
         $pageHeading = 'Articles';
         $pageSubheading = '';
+        $imgURL = 'misc/8thplane.jpg';
+        $meta = false;
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseArticles.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -48,6 +44,7 @@ class ArticleController {
             $pageTitle = $article->title;
             $pageHeading = $article->title;
             $pageSubheading = $article->subtitle;
+            $imgURL = 'misc/8thplane.jpg';
             $meta = true;
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/article.tpl';
