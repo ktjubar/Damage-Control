@@ -6,18 +6,28 @@ include_once '../global.php';
 $action = $_GET['action'];
 
 // instantiate a SiteController and route it
-$sc = new ArticleController();
-$sc->route($action);
+$ac = new ArticleController();
+$ac->route($action);
 
-class ArticleController
-{
+class ArticleController {
     const DB_ARTICLE_TABLE = 'Articles';
+
+    public $pageTitle = '';
+    public $pageHeading = '';
+    public $pageSubheading = '';
+    public $imgURL = 'misc/8thplane.jpg';
+    public $meta = false;
+
     // route us to the appropriate class method for this action
-    public function route($action)
-    {
+    public function route($action) {
         switch ($action) {
             case 'browse':
                 $this->articles();
+                break;
+
+            case 'viewArticle':
+                $id = $_GET['id'];
+                $this->viewArticle($id);
                 break;
         }
     }
@@ -30,5 +40,22 @@ class ArticleController
         include_once SYSTEM_PATH . '/view/header.tpl';
         include_once SYSTEM_PATH . '/view/browseArticles.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    public function viewArticle($id) {
+        $article = Article::loadById($id);
+        if ($article != null) {
+            $pageTitle = $article->title;
+            $pageHeading = $article->title;
+            $pageSubheading = $article->subtitle;
+            $meta = true;
+            include_once SYSTEM_PATH . '/view/header.tpl';
+            include_once SYSTEM_PATH . '/view/article.tpl';
+            include_once SYSTEM_PATH . '/view/footer.tpl';
+        } else {
+            include_once SYSTEM_PATH . '/view/header.tpl';
+            die('Invalid article ID');
+            include_once SYSTEM_PATH . '/view/footer.tpl';
+        }
     }
 }

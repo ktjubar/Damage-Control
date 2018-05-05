@@ -109,21 +109,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/logout/process/">Logout</a>
           </li>
-          <!-- <h4 class="text-center">Logged in as
-            <?= $_SESSION['username'] ?>
-          </h4> -->
-          <!-- <div class="row">
-            <div class="col-md-6">
-              <form method="get" action="<?= BASE_URL ?>/users/view/<?= $_SESSION['user_id'] ?>/">
-                <button class="btn btn-default btn-block button"><span style="font-size:smaller;">My Profile</span></button>
-              </form>
-            </div>
-            <div class="col-md-6">
-              <form action="<?= BASE_URL ?>/logout/process/">
-                <button class="btn btn-default btn-block" type="submit">Logout</button>
-              </form>
-            </div>
-          </div> -->
+          <li class="nav-item">
+            <a class="nav-link" disabled>Logged in as <?= $_SESSION['username'] ?></a>
+          </li>
           <?php endif; ?>
         </ul>
       </div>
@@ -139,6 +127,11 @@
           <div class="site-heading">
             <h1><?= $pageHeading ?></h1>
             <span class="subheading"><?= $pageSubheading ?></span>
+            <?php if($meta): ?>
+            <span class="meta">Posted by
+              <a href="<?= BASE_URL ?>/users/view/<?= $article->creator_id ?>/"><?= $article->creator_username ?></a>
+              on <?= $article->date_created ?></span>
+            <?php endif; ?>
           </div>
         </div>
       </div>

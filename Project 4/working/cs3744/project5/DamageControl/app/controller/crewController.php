@@ -12,6 +12,12 @@ $sc->route($action);
 class CrewController
 {
 
+    public $pageTitle = '';
+    public $pageHeading = '';
+    public $pageSubheading = '';
+    public $imgURL = 'misc/8thplane.jpg';
+    public $meta = false;
+
     // route us to the appropriate class method for this action
     public function route($action)
     {
@@ -67,7 +73,7 @@ class CrewController
         if ($crew != null) {
             $pageTitle = $crew->name;
             $pageHeading = $crew->name;
-            $pageSubheading = ''; // TODO make this crew nickname
+            $pageSubheading = $crew->nick;
             include_once SYSTEM_PATH . '/view/header.tpl';
             include_once SYSTEM_PATH . '/view/crew.tpl';
             include_once SYSTEM_PATH . '/view/footer.tpl';
@@ -88,7 +94,6 @@ class CrewController
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 
-    // TODO fix everything in here
     public function addCrewProcess($id)
     {
         // get POST variables

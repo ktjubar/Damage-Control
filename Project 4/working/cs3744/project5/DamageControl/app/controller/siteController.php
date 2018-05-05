@@ -12,6 +12,12 @@ $sc->route($action);
 class SiteController
 {
 
+    public $pageTitle = '';
+    public $pageHeading = '';
+    public $pageSubheading = '';
+    public $imgURL = 'misc/8thplane.jpg';
+    public $meta = false;
+
     // route us to the appropriate class method for this action
     public function route($action)
     {
@@ -38,6 +44,7 @@ class SiteController
     {
         $pageTitle = 'Home';
         $fes = Feed::getFeedEvents(10);
+        $articles = Article::getArticles();
         $pageHeading = 'The Mighty Eighth';
         $pageSubheading = 'Bomber Crews of the 8th Air Force';
         $imgURL = 'misc/8thplane.jpg';
