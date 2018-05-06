@@ -1,6 +1,14 @@
 <img class="rounded mx-auto mb-4 d-block" src="<?= BASE_URL ?>/public/img/soldiers/ghost_person.png" />
 <h4 class="text-center"><?= $user->username ?></h4><br>
-<form action="<?= BASE_URL ?>/users/registerProcess/<?= $user->id ?>/" method="POST">
+<form action="<?= BASE_URL ?>/users/registerProcess/<?= $user->id ?>/" method="POST" enctype="multipart/form-data">
+  <div class="form-group row">
+    <label clss="col-2 col-form-label">
+      Profile Picture:
+    </label>
+    <div class="col-7">
+      <input id="profpic" type="file" name="profpic">
+    </div>
+  </div>
   <div class="form-group row">
     <label class="col-2 col-form-label">
       First Name:

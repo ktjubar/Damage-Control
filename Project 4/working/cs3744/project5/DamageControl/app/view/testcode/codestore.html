@@ -153,3 +153,47 @@
     }
   );
 </script>
+
+<!-- Temporary graphics link -->
+<div id="visualization" class="mb-4"></div>
+
+<script type="text/javascript">
+  function getVals() {
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        return this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "getArticles.php", true);
+    xmlhttp.send();
+  }
+
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
+
+  var allVals = getVals();
+  var ss = allVals.split(" ");
+
+  // Create a DataSet (allows two way data-binding)
+  var set = [];
+  var j = 0;
+  for(var i = 0; i < ss.length, i+=2) {
+    set[j] = {id: j+1, content: ss[i], start: ss[i+1]};
+  }
+  var items = new vis.DataSet(set);
+
+  // Configuration for the Timeline
+  var options = {
+    editable: false
+  };
+
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
+</script>

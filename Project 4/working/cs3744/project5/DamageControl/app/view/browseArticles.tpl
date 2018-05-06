@@ -1,10 +1,25 @@
 <!-- Temporary graphics link -->
-<div class="row mb-4">
-  <div class="col-12">
-    <a href="<?= BASE_URL ?>/graphic/">Graphics are here</a>
-  </div>
-</div>
-<hr class="mb-4">
+<div id="visualization" class="mb-4"></div>
+
+<script type="text/javascript">
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
+
+  // Create a DataSet (allows two way data-binding)
+  var items = new vis.DataSet([
+    {id: 1, content: 'Changes After the Raid', start: '1943-10-14'},
+    {id: 2, content: 'From the Ashes', start: '1943-11-01'},
+    {id: 3, content: 'Strike Back', start: '1944-04-01'}
+  ]);
+
+  // Configuration for the Timeline
+  var options = {
+    editable: true
+  };
+
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
+</script>
 
 <div class="row">
   <div class="col-9">

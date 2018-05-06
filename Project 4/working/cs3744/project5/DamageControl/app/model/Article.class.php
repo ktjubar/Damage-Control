@@ -95,7 +95,7 @@ class Article
             $db->escape($this->body),
             $db->escape($this->relevant_date)
         );
-        echo($q);
+        // echo($q);
 
         $success = $db->query($q); // execute query
         $this->id = $db->getInsertID(); // set the ID for the new object
