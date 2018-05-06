@@ -11,13 +11,6 @@ $sc->route($action);
 
 class SiteController
 {
-
-    public $pageTitle = '';
-    public $pageHeading = '';
-    public $pageSubheading = '';
-    public $imgURL = 'misc/8thplane.jpg';
-    public $meta = false;
-
     // route us to the appropriate class method for this action
     public function route($action)
     {
@@ -68,6 +61,28 @@ class SiteController
         $pageSubheading = 'Something went wrong, page not found.';
         $imgURL = 'misc/8thplane.jpg';
         include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/footer.tpl';
+    }
+
+    public function getNews($q) {
+        $q = urlencode($q);
+        $site = "https://chroniclingamerica.loc.gov/search/pages/results/?andtext=".$q."&format=json";
+        $data = file_get_contents($site);
+        $json = json_decode($data);
+        $items = $json->{'items'};
+        shuffle($items);
+        $article = $items[0];
+        $title = $article->title;
+        $site = $article->url;
+        $data = file_get_contents($site);
+        $json = json_decode($data);
+        $pdf = $json->{'pdf'};
+        $pageTitle = 'News';
+        $pageHeading = 'News';
+        $pageSubheading = '';
+        $imgURL = 'misc/8thplane.jpg';
+        include_once SYSTEM_PATH . '/view/header.tpl';
+        include_once SYSTEM_PATH . '/view/news.tpl';
         include_once SYSTEM_PATH . '/view/footer.tpl';
     }
 }

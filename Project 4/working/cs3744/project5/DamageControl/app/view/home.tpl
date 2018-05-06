@@ -33,7 +33,7 @@
   <div class="row">
     <!-- Articles -->
     <div class="col-lg-8 col-md-10 mx-auto pb-3">
-      <?php for($i = 0; $i < 5; $i++):
+      <?php for($i = 0; $i < (sizeof($articles) < 5 ? sizeof($articles) : 5); $i++):
             $a = $articles[$i] ?>
       <div class="post-preview">
         <a href="<?= BASE_URL ?>/articles/view/<?= $a->id ?>/">

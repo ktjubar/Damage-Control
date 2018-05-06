@@ -25,6 +25,24 @@
               </a>
             </li> -->
             <li class="list-inline-item">
+              <a href="<?= BASE_URL ?>/">Home</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="<?= BASE_URL ?>/articles/">Articles</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="<?= BASE_URL ?>/crews/">Crews</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="<?= BASE_URL ?>/news/">News</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="<?= BASE_URL ?>/users/browse/">Users</a>
+            </li>
+            <li class="list-inline-item">
               <a href="https://github.com/ktjubar/Damage-Control">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>

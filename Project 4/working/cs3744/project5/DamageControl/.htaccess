@@ -36,6 +36,9 @@ RewriteRule ^articles/add/process/(\d+)/?$ app/controller/articleController.php?
 RewriteRule ^articles/edit/(\d+)/?$ app/controller/articleController.php?action=editArticle&id=$1 [QSA,L]
 RewriteRule ^articles/delete/(\d+)/?$ app/controller/articleController.php?action=deleteArticle&id=$1 [QSA,L]
 
+# News
+RewriteRule ^news/?$ app/controller/siteController.php?action=news [QSA,L]
+
 # Graphics
 RewriteRule ^graphic/?$ app/controller/graphicController.php?action=graphic [QSA,L]
 

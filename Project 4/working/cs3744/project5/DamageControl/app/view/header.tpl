@@ -93,6 +93,9 @@
             <a class="nav-link" href="<?= BASE_URL ?>/soldiers/">Soldiers</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="<?= BASE_URL ?>/news/">News</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?= BASE_URL ?>/users/browse/">Users</a>
           </li>
           <?php if(!isset($_SESSION['username'])): ?>
